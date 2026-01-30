@@ -516,11 +516,21 @@ Now you will write a function which makes use of broadcasting to perform operati
 
 ### Sigmoid Function
 
-Sigmoid is a very important function in machine learning. Its formula is:
+The sigmoid function:
 
 $$\text{sigmoid}(x) = \frac{1}{1+e^{-x}}$$
 
+
+is important in machine learning because it maps any real-valued input to a value between 0 and 1. This property makes it especially useful for modeling probabilities and binary outcomes.
+
+In practice, sigmoid is used in binary classification models, such as logistic regression and the output layer of binary neural networks. The sigmoid output represents the probability that an input belongs to the positive class.
+
+Sigmoid is mathematically paired with the binary cross-entropy (log loss) function, which provides well-behaved gradients for optimization and enables effective training through gradient descent.
+
+For this reason, sigmoid is typically used only in output layers, while other activation functions (e.g., ReLU) are preferred in hidden layers.
+
 Write a function which computes the sigmoid of $x$. Note that $x$ might be a real number or a Numpy array.
+
 
 
 ```python
