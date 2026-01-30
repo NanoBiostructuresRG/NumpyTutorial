@@ -100,8 +100,11 @@ For two dimensional arrays, you can consider the first element of the tuple to b
 
 
 ### Creating Numpy Arrays Based on Shape
+NumPy allows you to create arrays by specifying their shape, **without providing the individual values explicitly**. This is useful when you need arrays of a certain size initialized with default values.
 
-You can use the functions [np.zeros()](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html) and [np.ones()](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html) to create Numpy arrays of a specified shape. The input of the function is the shape of the Numpy array which you want to get.
+Common examples include arrays filled with **zeros**, **ones**, or **random numbers**, where the shape defines the number of rows and columns. You can use the functions [np.zeros()](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html) and [np.ones()](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html) to create Numpy arrays of a specified shape. 
+
+
 
 
 ```python
@@ -124,26 +127,27 @@ print(b)
 
 
 ```python
-b = np.ones((3, 2))
-print(b)
+c = np.ones((3, 2))
+print(c)
 ```
 
     [[1. 1.]
      [1. 1.]
      [1. 1.]]
 
+> **Note:** Remember that the input of the function is the shape of the Numpy array which you want to get.
+
 
 ### Reshaping Arrays
+Reshaping an array means changing its shape (dimensions) **without changing its data**. NumPy allows this using the `reshape()` method. You can use the function [np.reshape()](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html) to change the shape of a Numpy array.
 
-You can use the function [np.reshape()](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html) to change the shape of a Numpy array.
+Reshaping is useful when you want to reorganize the same data into a different structure, such as converting a one-dimensional array into a matrix or modifying the number of rows and columns. A common use case is transforming one-dimensional NumPy arrays into two-dimensional row vectors or column vectors.
 
-One use of this function is to change one dimensional Numpy arrays to two dimensional row vectors or column vectors.
-
-You pass in the required dimension which the array needs to be reshaped to as input to the function. One of the values in the tuple can be -1. This value shall then be determined automatically. You shall get an error if you have more than one -1 in the shape.
+To reshape an array, you specify the desired shape as a tuple. One value in the tuple can be set to `-1`, which tells NumPy to automatically determine the appropriate size for that dimension. An error will occur if more than one value is set to `-1`.
 
 Reshape is often used in conjunction with [np.arange()](https://numpy.org/doc/stable/reference/generated/numpy.arange.html).
 
-`np.arange(x)` shall return a one dimensional array which contains the elements $[0, 1, \dots, x - 1]$.
+The function `np.arange(x)` returns a one-dimensional array containing the values $[0, 1, \dots, x - 1]$.
 
 
 ```python
