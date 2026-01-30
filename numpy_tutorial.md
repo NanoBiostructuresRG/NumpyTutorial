@@ -1,20 +1,23 @@
-# Introduction to Numpy
+# Introduction to NumPy
 
-NumPy is the fundamental package for scientific computing in Python. 
-It is a Python library that provides a multidimensional array
-object. In this notebook, NumPy is intented for using in linear algebra.
+NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem.
 
-The documentation of NumPy is located at the [webpage](https://docs.scipy.org/doc/numpy/index.html).
+Built for performance, **NumPy** allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, it underpins many higher-level libraries, including pandas, scikit-learn, TensorFlow, and PyTorch, which rely on **NumPy** arrays for their internal computations.
 
+In linear algebra, **NumPy** offers reliable implementations of matrix operations, eigenvalue and eigenvector calculations, covariance matrices, and affine transformations. These tools are essential for machine learning, dimensionality reduction, and mathematical modeling. By combining a clear Python interface with optimized low-level execution, **NumPy** effectively balances usability and computational efficiency, making it a fundamental component of modern scientific computing.
+
+The documentation of **NumPy** is extensively referenced and is available at the official [webpage](https://docs.scipy.org/doc/numpy/index.html).
+
+In this notebook, **NumPy** is intended to be used to practice coding skills related to linear algebra operations, including matrix manipulation, eigenvalue decomposition, and numerical verification of algebraic identities.
 
 
 ```python
 import numpy as np  # np is commonly used as an abbreviation when referring to numpy
 ```
 
-## Creating Numpy Arrays
+## Creating NumPy Arrays
 
-A Numpy array is similar to a Python list. However, it can only contain elements of the same type.
+A NumPy array is similar to a Python list. However, it can only contain elements of the same type.
 
 New arrays can be made in several ways. We can take an existing list and convert it to a numpy array:
 
