@@ -516,7 +516,9 @@ Now you will write a function which makes use of broadcasting to perform operati
 
 ### Sigmoid Function
 
-Sigmoid is a very important function in machine learning. Its formula is given by: $$\operatorname{sigmoid}(x) = \frac{1}{1+e^{-x}}$$
+Sigmoid is a very important function in machine learning. Its formula is:
+
+$$\text{sigmoid}(x) = \frac{1}{1+e^{-x}}$$
 
 Write a function which computes the sigmoid of $x$. Note that $x$ might be a real number or a Numpy array.
 
