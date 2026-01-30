@@ -49,6 +49,9 @@ print(b)
 Note that for 2-dimensional Numpy arrays, all rows must have the same number of elements.
 
 ## Shape of Numpy Arrays
+The **shape** of a NumPy array describes how many elements it has and how they are arranged.
+
+It is written as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of (3,) means the array has 3 elements in one dimension, while a shape of (2, 3) means the array has 2 rows and 3 columns.
 
 You can use [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to get the shape of a Numpy array.
 
