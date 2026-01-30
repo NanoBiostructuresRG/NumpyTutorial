@@ -27,15 +27,10 @@ New arrays can be created in several ways. One simple method is to start from a 
 ```python
 a = np.array([1,2,3])
 print(a)
-print(type(a))
-print(id(a))
-print(a.shape)
 ```
 
     [1 2 3]
-    <class 'numpy.ndarray'>
-    135687392982640
-    (3,)
+
 
 
 
