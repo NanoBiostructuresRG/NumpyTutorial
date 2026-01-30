@@ -46,14 +46,15 @@ print(b)
      [7 8 9]]
 
 
-Note that for 2-dimensional Numpy arrays, all rows must have the same number of elements.
+> **Note:** For 2-dimensional Numpy arrays, all rows must have the same number of elements.
+
 
 ## Shape of Numpy Arrays
 The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to get the shape of a Numpy array.
 
 The shape of numpy arrays is written as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of `(3,)` means the array has 3 elements in one dimension. The comma is important because it tells Python that this is a tuple, not just a number. On the other hand, a shape of `(2,3)` means the array has 2 rows and 3 columns. 
 
-Note that tuples (writting using parenthesis) are similar to lists, but they cannot be changed after they are created (i.e. you cannot add, remove, or replace elements). This property makes tuples useful for representing fixed information, such as the shape of a NumPy array.
+> **Note:** Tuples (writting using parenthesis) are similar to lists, but they cannot be changed after they are created (i.e. you cannot add, remove, or replace elements). This property makes tuples useful for representing fixed information, such as the shape of a NumPy array.
 
 
 
@@ -82,6 +83,8 @@ print(c.shape)
     (3, 2)
 
 
+> **Note:** The shape of an array is determined by how values are grouped with brackets, not by line breaks. Line breaks only improve readability and do not affect the array’s structure.
+
 ```python
 d = np.array([[1, 2, 3],
               [4, 5, 6],
@@ -93,7 +96,7 @@ print(d.shape)
 
 For two dimensional arrays, you can consider the first element of the tuple to be the number of rows and the second element to be the number of columns.
 
-> **Note:** The shape of an array is determined by how values are grouped with brackets, not by line breaks. Line breaks only improve readability and do not affect the array’s structure.
+
 
 
 ### Creating Numpy Arrays Based on Shape
