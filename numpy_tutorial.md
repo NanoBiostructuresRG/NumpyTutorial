@@ -65,18 +65,36 @@ print(a.shape)
     (3,)
 
 
+```python
+b = np.array([[1], [2], [3]])
+print(b.shape)
+```
+
+    (3, 1)
+
+
 
 ```python
-b = np.array([[1, 2],
-              [3, 4],
-              [5, 6]])
-print(b.shape)
+c = np.array([[1, 2], [3, 4], [5, 6]])
+print(c.shape)
 ```
 
     (3, 2)
 
 
+```python
+d = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+print(d.shape)
+```
+
+    (3, 3)
+
 For two dimensional arrays, you can consider the first element of the tuple to be the number of rows and the second element to be the number of columns.
+
+> **Note:** The shape of an array is determined by how values are grouped with brackets, not by line breaks. Line breaks only improve readability and do not affect the array’s structure.
+
 
 ### Creating Numpy Arrays Based on Shape
 
