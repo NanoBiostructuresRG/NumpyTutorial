@@ -25,7 +25,7 @@ New arrays can be created in several ways. One simple method is to start from a 
 
 
 ```python
-a = np.array([1,2,3])
+a = np.array([1,2,3]) # This is a one dimensional array
 print(a)
 ```
 
@@ -35,7 +35,7 @@ print(a)
 
 
 ```python
-b = np.array([[1, 2, 3],
+b = np.array([[1, 2, 3],  # This is a two dimensional array
               [4, 5, 6],
               [7, 8, 9]])
 print(b)
@@ -57,7 +57,6 @@ You can use [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.sh
 
 
 ```python
-# This is a one dimensional array
 a = np.array([1, 2, 3])
 print(a.shape)
 ```
@@ -67,7 +66,6 @@ print(a.shape)
 
 
 ```python
-# This is a two dimensional array
 b = np.array([[1, 2],
               [3, 4],
               [5, 6]])
