@@ -32,6 +32,7 @@ print(a)
     [1 2 3]
 
 
+> **Note:** `np.array` is a **function** in NumPy. The parentheses `( )` are used to call this function, while the square brackets `[ ]` define the data being passed to it.
 
 
 ```python
