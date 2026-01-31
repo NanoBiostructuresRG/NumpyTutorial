@@ -174,15 +174,35 @@ To reshape an array, you specify the desired shape as a tuple. One value in the 
 
 
 ```python
-a = a.reshape((1, -1))      # Reshaping it to a row vector
-print(a)
-print(a.shape)
-```
+a = np.arange(3)            # Step 1: Create a one-dimensional NumPy array
 
+print("Array a:")
+print(a)
+print("Shape of a:")
+print(a.shape)
+
+
+a = a.reshape((1, -1))      # Step 1: Reshaping it to a row vector
+
+print("\nReshaped array a:")
+print(a)
+print("New shape of a:")
+print(a.shape)
+
+```
+    Array a:
+    [0 1 2]
+    Shape of a:
+    (3,)
+
+    Reshaped array a:
     [[0 1 2]]
+    New shape of a:
     (1, 3)
 
 The first value of the tuple is 1 because a row vector only has 1 row.
+
+
 
 ```python
 a = a.reshape((-1, 1))      # Reshaping it to a column vector
