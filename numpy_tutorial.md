@@ -71,12 +71,9 @@ The outputs are the printed representation of NumPy arrays.
 
 
 ## Shape of Numpy Arrays
-The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to get the shape of a Numpy array.
+The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use the function [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to obtain the shape of a Numpy array.
 
-The shape of numpy arrays is written as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of `(3,)` means the array has 3 elements in one dimension. The comma is important because it tells Python that this is a tuple, not just a number. On the other hand, a shape of `(2,3)` means the array has 2 rows and 3 columns. 
-
-> **Note:** Tuples (writting using parenthesis) are similar to lists, but they cannot be changed after they are created (i.e. you cannot add, remove, or replace elements). This property makes tuples useful for representing fixed information, such as the shape of a NumPy array.
-
+The shape of NumPy arrays is written as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of `(3,)` means the array has 3 elements in one dimension. The comma is important because it tells Python that this is a tuple, not just a number. 
 
 
 ```python
@@ -86,6 +83,8 @@ print(a.shape)
 
     (3,)
 
+> **Note:** Remember that tuples (writting always using parenthesis) are similar to lists, but they cannot be changed after they are created (i.e. you cannot add, remove, or replace elements). This property makes tuples useful for representing fixed information, such as the shape of a NumPy array.
+
 
 ```python
 b = np.array([[1], [2], [3]])
@@ -94,6 +93,7 @@ print(b.shape)
 
     (3, 1)
 
+For this example, the tuple `(3,1)` represents the **shape** of the NumPy array, meaning the array has 3 rows and 1 column. For two dimensional arrays, you can consider the first element of the tuple to be the number of rows and the second element to be the number of columns.
 
 
 ```python
@@ -103,8 +103,11 @@ print(c.shape)
 
     (3, 2)
 
+For this example, the tuple `(3,2)` represents the **shape** of 3 rows and 2 columns. 
+
 
 > **Note:** The shape of an array is determined by how values are grouped with brackets, not by line breaks. Line breaks only improve readability and do not affect the array’s structure.
+
 
 ```python
 d = np.array([[1, 2, 3],
@@ -115,7 +118,7 @@ print(d.shape)
 
     (3, 3)
 
-For two dimensional arrays, you can consider the first element of the tuple to be the number of rows and the second element to be the number of columns.
+
 
 
 
