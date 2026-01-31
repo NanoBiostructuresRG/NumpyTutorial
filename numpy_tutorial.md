@@ -50,6 +50,26 @@ print(b)
 > **Note:** For 2-dimensional Numpy arrays, all rows must have the same number of elements.
 
 
+NumPy arrays can be created from both Python **lists** and **tuples**. A list `[1, 2, 3]` and a tuple `(1, 2, 3)` differ in Python because lists can be modified while tuples cannot. However, when either one is passed to `np.array()`, NumPy copies the values into a **new NumPy array**. After this conversion, the original list or tuple is no longer relevant, and the resulting NumPy array behaves exactly the same in both cases. In other words, the difference matters before creating the NumPy array (list vs tuple), but not after, because NumPy creates its own data structure.
+
+```python
+lst = [1, 2, 3]     # Create a NumPy array from a list
+a = np.array(lst)
+
+tpl = (1, 2, 3)     # Create a NumPy array from a tuple
+b = np.array(tpl)
+
+
+print(a)
+print(b)
+```
+
+    [1 2 3]
+    [1 2 3]
+
+The outputs are the printed representation of NumPy arrays.
+
+
 ## Shape of Numpy Arrays
 The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to get the shape of a Numpy array.
 
