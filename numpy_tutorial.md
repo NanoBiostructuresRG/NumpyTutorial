@@ -134,6 +134,7 @@ Common examples include arrays filled with **zeros**, **ones**, or **random numb
 ```python
 a = np.zeros((5,))
 print(a)
+
 ```
 
     [0. 0. 0. 0. 0.]
@@ -143,6 +144,7 @@ print(a)
 ```python
 b = np.zeros((2, 3))
 print(b)
+
 ```
 
     [[0. 0. 0.]
@@ -153,6 +155,7 @@ print(b)
 ```python
 c = np.ones((3, 2))
 print(c)
+
 ```
 
     [[1. 1.]
@@ -166,9 +169,9 @@ print(c)
 Reshaping an array means changing its shape (dimensions) **without changing its data**. Reshaping is useful when you want to reorganize the same data into a different structure, such as converting a one-dimensional array into a matrix or modifying the number of rows and columns. A common use case is transforming one-dimensional NumPy arrays into two-dimensional row vectors or column vectors.
 
 
-NumPy allows this using the function [np.reshape](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html) to change the shape of a Numpy array.
+NumPy allows this using the function [np.reshape](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html) to change the shape of a Numpy array. 
 
-
+Reshape is often used in conjunction with the function [np.arange](https://numpy.org/doc/stable/reference/generated/numpy.arange.html). The function `np.arange(x)` returns a one-dimensional array containing the values $[0, 1, \dots, x - 1]$.  
 
 To reshape an array, you specify the desired shape as a tuple. One value in the tuple can be set to `-1`, which tells NumPy to automatically determine the appropriate size for that dimension. An error will occur if more than one value is set to `-1`.
 
@@ -178,27 +181,36 @@ a = np.arange(3)            # Step 1: Create a one-dimensional NumPy array
 
 print("Array a:")
 print(a)
+
 print("Shape of a:")
-print(a.shape)
-
-
-a = a.reshape((1, -1))      # Step 1: Reshaping it to a row vector
-
-print("\nReshaped array a:")
-print(a)
-print("New shape of a:")
 print(a.shape)
 
 ```
     Array a:
     [0 1 2]
+
     Shape of a:
     (3,)
 
+
+```python
+a = a.reshape((1, -1))      # Step 2: Reshaping it to a row vector
+
+print("\nReshaped array a:")
+print(a)
+
+print("New shape of a:")
+print(a.shape)
+
+```
+
     Reshaped array a:
     [[0 1 2]]
+
     New shape of a:
     (1, 3)
+
+
 
 In the shape for the first output, `(3,)` the value `3` indicates the number of elements in the single dimension of the array. For the second output, the first value of the tuple is `1` because a row vector only has 1 row.
 
@@ -207,13 +219,20 @@ In the shape for the first output, `(3,)` the value `3` indicates the number of 
 ```python
 a = np.arange(3)
 a = a.reshape((-1, 1))      # Reshaping it to a column vector
-print(a)
-print(a.shape)
-```
 
+print("\nReshaped array a:")
+print(a)
+
+print("New shape of a:")
+print(a.shape)
+
+```
+    Reshaped array a:
     [[0]
      [1]
      [2]]
+
+    New shape of a:
     (3, 1)
 
 
@@ -230,23 +249,6 @@ This produces the same column vector with shape `(3, 1)`.
 > **Note:** Remember that the operations are read from **left to right**. In the last explae, `np.arange(3)` creates the array, and then `reshape((-1, 1))` is applied to that result. So, in general, chained NumPy operations are applied step by step, from left to right, with each operation acting on the result of the previous one.
 
 
-Reshape is often used in conjunction with the function [np.arange](https://numpy.org/doc/stable/reference/generated/numpy.arange.html). The function `np.arange()` returns a one-dimensional array containing the values $[0, 1, \dots, x - 1]$.  
-
-
-```python
-a = np.arange(3)
-print(a)
-print(a.shape)
-```
-
-    [0 1 2]
-    (3,)
-
-
-
-
-
-
 
 
 ```python
@@ -257,7 +259,7 @@ print(a)
 print(a.shape)
 
 a = a.reshape((3, 2))
-print("A: Reshaped")
+print("\nA: Reshaped")
 print(a)
 print(a.shape)
 ```
@@ -265,11 +267,14 @@ print(a.shape)
     A: Original
     [0 1 2 3 4 5]
     (6,)
+
     A: Reshaped
     [[0 1]
      [2 3]
      [4 5]]
     (3, 2)
+
+> **Note:** Observe that the newline character `\n` (in `print("\nA: Reshaped")`) is used to insert **line breaks** in printed output. It allows you to add blank lines to separate sections and improve readability without changing the content of the data being printed.
 
 
 ## Accessing Numpy Arrays
