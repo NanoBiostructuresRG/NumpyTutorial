@@ -200,11 +200,12 @@ print(a.shape)
     New shape of a:
     (1, 3)
 
-The first value of the tuple is 1 because a row vector only has 1 row.
+In the shape for the first output, `(3,)` the value `3` indicates the number of elements in the single dimension of the array. For the second output, the first value of the tuple is `1` because a row vector only has 1 row.
 
 
 
 ```python
+a = np.arange(3)
 a = a.reshape((-1, 1))      # Reshaping it to a column vector
 print(a)
 print(a.shape)
@@ -215,6 +216,18 @@ print(a.shape)
      [2]]
     (3, 1)
 
+
+These two operations can be combined into a single line, since the `reshape()` method can be applied directly to the array created by `np.arange()`.
+
+```python
+a = np.arange(3).reshape((-1, 1))
+
+```
+
+This produces the same column vector with shape `(3, 1)`.
+
+
+> **Note:** Remember that the operations are read from **left to right**. In the last explae, `np.arange(3)` creates the array, and then `reshape((-1, 1))` is applied to that result. So, in general, chained NumPy operations are applied step by step, from left to right, with each operation acting on the result of the previous one.
 
 
 Reshape is often used in conjunction with the function [np.arange](https://numpy.org/doc/stable/reference/generated/numpy.arange.html). The function `np.arange()` returns a one-dimensional array containing the values $[0, 1, \dots, x - 1]$.  
