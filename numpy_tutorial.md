@@ -188,7 +188,6 @@ print(a.shape)
 ```
     Array a:
     [0 1 2]
-
     Shape of a:
     (3,)
 
@@ -196,7 +195,7 @@ print(a.shape)
 ```python
 a = a.reshape((1, -1))      # Step 2: Reshaping it to a row vector
 
-print("\nReshaped array a:")
+print("Reshaped array a:")
 print(a)
 
 print("New shape of a:")
@@ -206,7 +205,6 @@ print(a.shape)
 
     Reshaped array a:
     [[0 1 2]]
-
     New shape of a:
     (1, 3)
 
@@ -220,9 +218,8 @@ In the shape for the first output, `(3,)` the value `3` indicates the number of 
 a = np.arange(3)
 a = a.reshape((-1, 1))      # Reshaping it to a column vector
 
-print("\nReshaped array a:")
+print("Reshaped array a:")
 print(a)
-
 print("New shape of a:")
 print(a.shape)
 
@@ -231,7 +228,6 @@ print(a.shape)
     [[0]
      [1]
      [2]]
-
     New shape of a:
     (3, 1)
 
@@ -259,9 +255,9 @@ print(a)
 print(a.shape)
 
 a = a.reshape((3, 2))
-print("\nA: Reshaped")
+print("\nA: Reshaped\n")
 print(a)
-print(a.shape)
+print("\n", a.shape)
 ```
 
     A: Original
@@ -269,15 +265,17 @@ print(a.shape)
     (6,)
 
     A: Reshaped
+
     [[0 1]
      [2 3]
      [4 5]]
+
     (3, 2)
 
-> **Note:** Observe that the newline character `\n` (in `print("\nA: Reshaped")`) is used to insert **line breaks** in printed output. It allows you to add blank lines to separate sections and improve readability without changing the content of the data being printed.
+> **Note:** Observe that the newline character `\n` (for instance, `print("\nA: Reshaped\n")`) is used to insert **line breaks** in printed output. It allows you to add blank lines to separate sections and improve readability without changing the content of the data being printed.
 
 
-## Accessing Numpy Arrays
+## Accessing Numpy arrays
 
 You can use the common square bracket notation for accessing the elements of a Numpy array. 
 
