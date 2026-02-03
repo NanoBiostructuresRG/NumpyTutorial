@@ -141,7 +141,21 @@ print(d.shape)
 
 For this example, the tuple `(3,3)` represents the **shape** of 3 rows and 3 columns. 
 
+If $A$ is a matrix (a two-dimensional NumPy array), the expression
 
+```python
+n = A.shape[0]
+
+```
+
+means that we store the numbers of rows of $A$ in a variable called `n`. Here, `A.shape` returns the size of the matrix as a pair:
+
+```python
+(number of rows, number of columns)
+
+```
+
+Therefore, `A.shape[0]` selects the **first value** of that pair, which corresponds to the number of **rows**. Similarly, `A.shape[1]` selects the second value, which correspond to the number columns. 
 
 
 ### Creating Numpy arrays based on shape
