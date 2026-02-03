@@ -164,6 +164,13 @@ print(d.shape[1])
 For this example, the tuple `(3,3)` represents the **shape** of 3 rows and 3 columns. 
 
 
+In a **matrix**, each element is identified by two indices: the **row index** and the **column index**. The principal diagonal runs from the top-left corner to the bottom-right corner of the matrix.
+
+Along this diagonal, each element lies in the same row and column position. This means that the row index and the column index are equal. For this reason, every element on the principal diagonal has an index of the form $(i,i)$, such as $(0,0)$, $(1,1)$, and so on.
+
+This indexing pattern is what allows diagonal elements to be accessed easily in code using expressions like `A[i, i]`.
+
+
 ### Creating Numpy arrays based on shape
 NumPy allows you to create arrays by specifying their shape, **without providing the individual values explicitly**. This is useful when you need arrays of a certain size initialized with default values.
 
@@ -443,7 +450,27 @@ print(a[:, 3].reshape(-1, 1))
 
 ### Exercise: Find the trace of a matrix
 
-In the next function, you shall be given a square matrix $A$. You need to find the *trace* of $A$, which is defined to be the sum of all elements on the principal diagonal of $A$.
+The trace of a square matrix is defined as the sum of the elements on its main diagonal (from top-left to bottom-right).
+
+For example, for the matrix
+
+$$
+A =
+\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix}
+$$
+
+the trace is:
+
+$$
+\mathrm{trace}(A) = 1 + 4 = 5
+$$
+
+
+In this exercise, you will implement a function that computes the **trace** without using NumPy’s built-in trace functions.
+
 
 **Hint**: Each element of the principal diagonal has an index of the form $(i, i)$.
 
@@ -451,49 +478,50 @@ In the next function, you shall be given a square matrix $A$. You need to find t
 ```python
 def trace(A):
     """
-    Find the trace of A
+    Compute the trace of a square matrix A
 
     Arguments:
-    A: A two dimensional square matrix
+    A : numpy.ndarray
+        A two dimensional square matrix
 
     Returns:
-    s: The trace of A
+    s : number
+        The trace of A
     """
 
+    # Initialize the sum of diagonal elements
     s = 0
 
     ### BEGIN SOLUTION
 
     # Get the number of rows in A
-    n = A.shape[0] # Replace the 0 with the correct code to get the number of rows
+    n = None        # Replace with the correct syntax to get the number of rows
 
     # Loop over all elements of the principal diagonal
     for i in range(n):
-        s += A[i, i] # Replace the None with the required element of A
+        s += None   # Replace the None with the required element of A
 
     # END SOLUTION
 
     return s
 ```
 
-In order to test your code, we shall be using the testing module of Numpy. More on this later.
 
+Verify your solutions `s` for this exercise by computing the trace manually using indexing and loops for the following matrices $A$. This helps reinforce how NumPy performs matrix operations under the hood.
 
 ```python
 A = np.array([[3, 2, 7],
               [4, 9, 0],
               [1, 8, 5]])
-s_exp = 17
-np.testing.assert_allclose(trace(A), s_exp, rtol=1e-5)
+s = 17
+
 
 A = np.array([[12, -2, 31, 18],
               [32, -77, -24, 19],
               [87, 93, -53, 13],
               [49, 81, 63, 70]])
-s_exp = -48
-np.testing.assert_allclose(trace(A), s_exp, rtol=1e-5)
-
-print("All tests passed!")
+s = -48
+```
 
 
 
