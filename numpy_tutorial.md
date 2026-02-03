@@ -8,7 +8,11 @@ In linear algebra, **NumPy** offers reliable implementations of matrix operation
 
 The documentation of **NumPy** is extensively referenced and is available at the official [webpage](https://docs.scipy.org/doc/numpy/index.html).
 
-In this notebook, **NumPy** is intended to be used to practice coding skills related to linear algebra operations, including matrix manipulation, eigenvalue decomposition, and numerical verification of algebraic identities.
+
+In this notebook, **NumPy** is used as a practical tool to develop and reinforce coding skills related to linear algebra. The material is intended both for beginners, who are learning how to work with arrays and matrices, and for learners with prior experience who want to refresh or strengthen their understanding.
+
+Throughout the notebook, NumPy will be used to practice common linear algebra operations, including matrix manipulation, eigenvalue decomposition, and the numerical verification of algebraic identities.
+
 
 ## Importing NumPy 
 
