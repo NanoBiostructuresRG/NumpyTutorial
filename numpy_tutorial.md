@@ -10,16 +10,30 @@ The documentation of **NumPy** is extensively referenced and is available at the
 
 In this notebook, **NumPy** is intended to be used to practice coding skills related to linear algebra operations, including matrix manipulation, eigenvalue decomposition, and numerical verification of algebraic identities.
 
+## Importing NumPy 
+
+To work with numerical data in Python, we first import the **NumPy** library. By convention, NumPy is imported using the abbreviation `np`, which makes the code shorter and easier to read.
+
 
 ```python
-import numpy as np  # np is commonly used as an abbreviation when referring to numpy
+import numpy as np  # standar Numpy import
 ```
 
-## Creating NumPy Arrays
+After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. For example, in the next section we will see how to create arrays using the function call `np.array()`. Finally, the resulting array can be stored in a variable by assigning it a name. For example, we can choose `a` to refer to the array in `a = np.array(...)`.
+
+```python
+import numpy as np
+
+x = [1, 2, 3]       # a Python list with some elements
+a = np.array(x)     # convert the list into a NumPy array and store it as 'a'
+
+```
+
+## NumPy Arrays
 
 A NumPy **array** is a data structure used to store numbers in an organized, grid-like form (such as a list, table, or matrix) so they can be processed efficiently.
 
-Unlike Python lists, NumPy arrays store elements of the same type and allow fast mathematical operations on all values at once, which makes them ideal for numerical computing and scientific applications.
+Unlike Python lists, NumPy arrays store **elements of the same type** and allow fast mathematical operations on all values at once, which makes them ideal for numerical computing and scientific applications.
 
 New arrays can be created in several ways. One simple method is to start from a Python list (a basic collection of values) and convert it into a NumPy array:
 
