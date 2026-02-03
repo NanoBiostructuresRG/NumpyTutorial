@@ -24,7 +24,7 @@ After importing NumPy as `np`, we access its tools by writing `np.` followed by 
 ```python
 import numpy as np
 
-x = [1, 2, 3]       # a Python list with some elements
+x = [1,2,3]       # a Python list with some elements
 a = np.array(x)     # convert the list into a NumPy array and store it as 'a'
 
 ```
@@ -64,7 +64,10 @@ print(b)
 > **Note:** For 2-dimensional Numpy arrays, all rows must have the same number of elements.
 
 
-NumPy arrays can be created from both Python **lists** and **tuples**. A list `[1, 2, 3]` and a tuple `(1, 2, 3)` differ in Python because lists can be modified while tuples cannot. However, when either one is passed to `np.array()`, NumPy copies the values into a **new NumPy array**. After this conversion, the original list or tuple is no longer relevant, and the resulting NumPy array behaves exactly the same in both cases. In other words, the difference matters before creating the NumPy array (list vs tuple), but not after, because NumPy creates its own data structure.
+NumPy arrays can be created from both Python **lists** and **tuples**. A list `[1, 2, 3]` and a tuple `(1, 2, 3)` differ in Python because lists can be modified while tuples cannot. For instance, a **list** can be a shopping list, a to-do list of tasks, the name of students in a class, books you plan to read in this year. On the other hand, examples of **tuples** can be the days of the week, the months of the year, the coordinates of a point (x,y,z), a person's date of birth (day, month, year), the dimension of a rectange (width, height).
+
+
+However, when either one is passed to `np.array()`, NumPy copies the values into a **new NumPy array**. After this conversion, the original list or tuple is no longer relevant, and the resulting NumPy array behaves exactly the same in both cases. In other words, the difference matters before creating the NumPy array (list vs tuple), but not after, because NumPy creates its own data structure.
 
 ```python
 lst = [1, 2, 3]     # Create a NumPy array from a list
@@ -87,7 +90,7 @@ The outputs are the printed representation of NumPy arrays.
 ## Shape of Numpy Arrays
 The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use the function [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to obtain the shape of a Numpy array.
 
-The shape of NumPy arrays is written as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of `(3,)` means the array has 3 elements in one dimension. The comma is important because it tells Python that this is a tuple, not just a number. 
+The shape of NumPy arrays is printed as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of `(3,)` means the array has 3 elements in one dimension. The comma is important because it tells Python that this is a tuple, not just a number. 
 
 
 ```python
@@ -132,7 +135,7 @@ print(d.shape)
 
     (3, 3)
 
-
+For this example, the tuple `(3,3)` represents the **shape** of 3 rows and 3 columns. 
 
 
 
@@ -206,6 +209,10 @@ print(a.shape)
     (3,)
 
 
+The sequence starts at **0** because Python (and NumPy) use **zero-based indexing**. This means that counting begins at zero instead of one. Starting from zero makes it easier for the computer to keep track of positions and lengths of data. So, in this example, **0** is teh first position, **1** is the second position, and **2** is the third position. Together, these numbers represent the first three positions in the array.
+
+
+
 ```python
 a = a.reshape((1, -1))      # Step 2: Reshaping it to a row vector
 
@@ -256,13 +263,12 @@ a = np.arange(3).reshape((-1, 1))
 This produces the same column vector with shape `(3, 1)`.
 
 
-> **Note:** Remember that the operations are read from **left to right**. In the last explae, `np.arange(3)` creates the array, and then `reshape((-1, 1))` is applied to that result. So, in general, chained NumPy operations are applied step by step, from left to right, with each operation acting on the result of the previous one.
+> **Note:** Remember that the operations are read from **left to right**. In the last example, `np.arange(3)` creates the array, and then `reshape((-1, 1))` is applied to that result. So, in general, chained NumPy operations are applied step by step, from left to right, with each operation acting on the result of the previous one.
 
 
 
 
 ```python
-# Reshaping an array we get from arange
 a = np.arange(6)
 print("A: Original")
 print(a)
