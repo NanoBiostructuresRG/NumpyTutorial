@@ -901,12 +901,12 @@ Suppose that:
 The normalization is defined as:
 
 $$
-c_i = \frac{x_i - \operatorname{mean}(x_i)}{\sigma(x_i)}
+c_i = \frac{x_i - \text{mean}(x_i)}{\sigma(x_i)}
 $$
 
 where:
 
-- $\operatorname{mean}(x_i)$ is the average (mean) of all the elements in column $x_i$  
+- $\text{mean}(x_i)$ is the average (mean) of all the elements in column $x_i$  
 - $\sigma(x_i)$ is the standard deviation of all the elements in column $x_i$
 
 ---
