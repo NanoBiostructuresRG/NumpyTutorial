@@ -118,28 +118,17 @@ For this example, the tuple `(3,1)` represents the **shape** of the NumPy array,
 
 
 ```python
-c = np.array([[1, 2], [3, 4], [5, 6]])
+c = np.array([[1, 2], 
+              [3, 4], 
+              [5, 6]])
 print(c.shape)
 ```
 
     (3, 2)
 
-For this example, the tuple `(3,2)` represents the **shape** of 3 rows and 2 columns. 
+For this example, the tuple `(3,2)` represents the **shape** of 3 rows and 2 columns. Note that the shape of an array is determined by how values are grouped with brackets, not by line breaks. Line breaks only improve readability and do not affect the array’s structure.
 
 
-The shape of an array is determined by how values are grouped with brackets, not by line breaks. Line breaks only improve readability and do not affect the array’s structure.
-
-
-```python
-d = np.array([[1, 2, 3],
-              [4, 5, 6],
-              [7, 8, 9]])
-print(d.shape)
-```
-
-    (3, 3)
-
-For this example, the tuple `(3,3)` represents the **shape** of 3 rows and 3 columns. 
 
 If $A$ is a matrix (a two-dimensional NumPy array), the expression
 
@@ -156,6 +145,23 @@ means that we store the numbers of rows of $A$ in a variable called `n`. Here, `
 ```
 
 Therefore, `A.shape[0]` selects the **first value** of that pair, which corresponds to the number of **rows**. Similarly, `A.shape[1]` selects the second value, which correspond to the number columns. 
+
+```python
+d = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+print(d.shape)
+print(d.shape[0])
+print(d.shape[1])
+```
+
+    (3, 3)
+    3
+    3
+
+
+For this example, the tuple `(3,3)` represents the **shape** of 3 rows and 3 columns. 
 
 
 ### Creating Numpy arrays based on shape
