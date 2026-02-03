@@ -832,18 +832,13 @@ In such a way, the division is done element by element. Thus, you can see that *
 
 
 ### Performing operations along an axis
-When working with NumPy arrays, especially two-dimensional arrays (matrices), we often want to apply an operation by rows or by columns instead of to the whole array at once. NumPy allows us to do this using the concept of an axis.
+When working with NumPy arrays, especially two-dimensional arrays (matrices), we often want to apply an operation by rows or by columns instead of to the whole array at once. NumPy allows us to do this using the concept of an axis. In NumPy, **axis 0** refers to the rows direction (down the rows), while **axis 1** refers to the columns direction (across the columns). 
 
-In NumPy, axis **0** refers to the rows direction (down the rows), while axis **1** refers to the columns direction (across the columns). 
+NumPy also has other useful functions like [np.sum()](https://numpy.org/doc/stable/reference/generated/numpy.sum.html), [np.max()](https://numpy.org/doc/stable/reference/generated/numpy.amax.html) and [np.min()](https://numpy.org/doc/stable/reference/generated/numpy.amin.html). When you just pass the Numpy array to these functions, they simply return the answer of the operation **over the entire array**. 
 
-NumPy also has other useful functions like [np.sum()](https://numpy.org/doc/stable/reference/generated/numpy.sum.html), [np.max()](https://numpy.org/doc/stable/reference/generated/numpy.amax.html) and [np.min()](https://numpy.org/doc/stable/reference/generated/numpy.amin.html).
+Now suppose you want to find the maximum element of each column of an array. You can do this by passing an additional argument called `axis` to the function. For instance, if $A$ is a two dimensional array, if you want to find the maximum of each column of $A$, you can use `np.max(A, axis=0)`. Conversely, if $A$ is a two dimensional array, you use `np.max(A, axis=1)` if you want to find the maximum of each row of $A$.
 
 
-When you just pass the Numpy array to these functions, they simply return the answer of the operation over the entire array. Now suppose you want to find the maximum element of each column of an array. You can do this by passing an additional argument called `axis` to the function.
-
-If $A$ is a two dimensional array, if you want to find the maximum of each column of $A$, you can use `np.max(A, axis=0)`. Conversely, if $A$ is a two dimensional array, you use `np.max(A, axis=1)` if you want to find the maximum of each row of $A$.
-
-A point to note is that these functions may return one dimensional arrays, which might cause errors with broadcasting. In order to make sure that two dimensional arrays are returned, you must pass the argument `keepdims=True` in the function: `np.max(A, axis=0, keepdims=True)`
 
 
 ```python
@@ -870,6 +865,8 @@ print(np.sum(a, axis=0))
     [6 6 9]
 
 
+A point to note is that these functions may return one dimensional arrays, which might cause errors with broadcasting. In order to make sure that two dimensional arrays are returned, you must pass the argument `keepdims=True` in the function: `np.max(a, axis=0, keepdims=True)`
+
 
 ```python
 # Sum of all columns of an array, returned as a two dimensional array
@@ -889,10 +886,31 @@ print(np.sum(a, axis=1, keepdims=True))
      [15]]
 
 
-### Normalizing All Columns of an Array
+### Exercise 3: Normalizing all columns of an array
 
-Before a machine learning model is applied to data, it is very common to first normalize it. In the next exercise, you will need to normalize all the columns of an array. Suppose that $x_i$ is the $i^{{th}}$ column of the input array, and $c_i$ is the $i^{{th}}$ column of the output array, then: $$c_i = \frac{x_i - \operatorname{mean}(x_i)}{\sigma(x_i)}$$ 
-where $\operatorname{mean}(x_i)$ is the algebraic mean of all the elements of $x_i$ and $\sigma(x_i)$ is the standard deviation of all the elements of $x_i$.
+Normalization means rescaling values so that they follow a common rule. A very common type of normalization is to divide each value in a column by a number related to that column (for example, the sum or the maximum of the column). For example, before a machine learning model is applied to data, it is very common to first normalize it. 
+
+In this exercise, you will **normalize all the columns** of a two-dimensional NumPy array. 
+
+Suppose that:
+
+- \( x_i \) is the **\( i^{\text{th}} \)** column of the input array
+- \( c_i \) is the **\( i^{\text{th}} \)** column of the output (normalized) array  
+
+
+The normalization is defined as:
+
+\[
+c_i = \frac{x_i - \operatorname{mean}(x_i)}{\sigma(x_i)}
+\]
+
+where:
+
+- \( \operatorname{mean}(x_i) \) is the **average (mean)** of all the elements in column \( x_i \)  
+- \( \sigma(x_i) \) is the **standard deviation** of all the elements in column \( x_i \)  
+
+---
+
 
 For this exercise, you may assume that $\sigma(x)$ is never equal to $0$. 
 
