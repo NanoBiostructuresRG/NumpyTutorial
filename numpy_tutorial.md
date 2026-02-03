@@ -563,9 +563,7 @@ s = -48
 
 ## Operations on Numpy Arrays
 
-You can use the operations '`*`', '`+`', '`-`', '`**`' and '`/`' on numpy arrays and they operate element-wise.
-
-Generally, both the arrays must have the same shape, but see broadcasting later in the notebook.
+NumPy does not treat arrays as single numbers. Instead, it applies the operation to each element inside the array. This means that NumPy allows you to perform mathematical operations directly on arrays. When you use operators such as '`*`', '`+`', '`-`', '`**`' and '`/`' on NumPy arrays, the operation is applied **element by element**.
 
 
 ```python
@@ -652,9 +650,15 @@ print(np.log(a))
 
 ### Broadcasting
 
-Broadcasting allows you to perform element wise operations on Numpy arrays that are not of the same dimension but can be strected/duplicated so that they are of the same dimenson.
+**Broadcasting** is a rule that allows NumPy to perform operations between arrays of different shapes. Instead of requiring arrays to have exactly the same size, NumPy automatically adjusts the smaller array so that the operation can be carried out element-wise.
 
-The simplest example for this is when you have to multiply all elements of a Numpy array with a scaler or add a scaler to all elements of the array.
+Using broadcasting, Numpy arrays that are not of the same dimension can be strected/duplicated so that they are of the same dimenson.
+
+To know more about broadcasting, you can read the [documentation](https://numpy.org/doc/stable/user/basics.broadcasting.html).
+
+
+The simplest example for this is when you have to multiply all elements of a Numpy array with a scaler or add a scaler to all elements of the array. In this case, broadcasting means *use the same value multiple times so that the operation can be applied to all elements*. Imagine adding the same amount of salt to every bowl of soup. You don’t need a different spoon for each bowl — you reuse the same one. Then, the regular element-wise operation is applicable.
+
 
 
 ```python
@@ -674,9 +678,12 @@ print(a + 2)
      [9 4 5]]
 
 
-The way to think about this is to imagine that the number $2$ is being duplicated so that it fills all the elements of a Numpy array which has the same shape as that of $a$. Then, the regular element-wise operation is applicable.
 
-Broadcasting can also be applied during operation between two arrays of different shapes. Suppose that $a$ is an array of shape $(2, 3)$ whereas $c$ is an array of shape $(1, 3)$. Then, when an operation is performed between $a$ and $c$, you can think of $c$ being duplicated along the axis of the rows so that its shape is $(2, 3)$.
+
+Broadcasting lets a smaller array act as if it were expanded to match the shape of a larger array, so that element-wise operations can be performed. This way, broadcasting can be applied during operation between two arrays of different shapes. Suppose that $a$ is an array of shape $(2,3)$, while $c$ has shape $(1,3)$. When an operation is performed between $a$ and $c$, NumPy automatically applies broadcasting to make the shapes compatibles. 
+
+Conceptually, you can think of the array $c$ as being **repeated along the row axis**, so that it behaves as if it had shape $(2,3)$. This allows the operation to be carried out element-wise between the two arrays. This duplication is conceptual only — NumPy does not actually copy the data in memory. 
+
 
 
 ```python
@@ -697,7 +704,9 @@ print('a + c:\n', a + c)
      [12  5  7]]
 
 
-You shall get an error if you try to perform an element wise operation on two arrays which cannot be broadcasted together.
+NumPy applies broadcasting automatically. No additional function or special command is needed. When you perform an operation between arrays, NumPy checks their shapes and applies broadcasting **by default if the shapes are compatible**.
+
+You will get an error if you try to perform an element-wise operation on two arrays whose shapes are not compatible. For element-wise operations, NumPy requires the arrays to be broadcastable, meaning their dimensions must match or follow specific broadcasting rules.
 
 
 ```python
@@ -721,22 +730,16 @@ print(a + b)
 
     ValueError                                Traceback (most recent call last)
 
-    <ipython-input-33-e2b1a9f1400d> in <module>
-          5 print(b)
-          6 
-    ----> 7 print(a + b)
-    
-
     ValueError: operands could not be broadcast together with shapes (2,3) (2,2) 
 
 
-Broadcasting is a very powerful feauture of Numpy which often reduces the complexity of your code.
 
-To know more about broadcasting, you can read the [documentation](https://numpy.org/doc/stable/user/basics.broadcasting.html).
+
 
 Now you will write a function which makes use of broadcasting to perform operations on a Numpy array.
 
-### Sigmoid Function
+
+### Exercise 2: Is broadcasting used in the `sigmoid` function?
 
 The sigmoid function:
 
@@ -745,13 +748,9 @@ $$\text{sigmoid}(x) = \frac{1}{1+e^{-x}}$$
 
 is important in machine learning because it maps any real-valued input to a value between 0 and 1. This property makes it especially useful for modeling probabilities and binary outcomes.
 
-In practice, sigmoid is used in binary classification models, such as logistic regression and the output layer of binary neural networks. The sigmoid output represents the probability that an input belongs to the positive class.
+In practice, sigmoid is used in binary classification models, such as logistic regression and the output layer of binary neural networks. The sigmoid output represents the probability that an input belongs to the positive class. Sigmoid is mathematically paired with the binary cross-entropy (log loss) function, which provides well-behaved gradients for optimization and enables effective training through gradient descent. For this reason, sigmoid is typically used only in output layers, while other activation functions (e.g., ReLU) are preferred in hidden layers.
 
-Sigmoid is mathematically paired with the binary cross-entropy (log loss) function, which provides well-behaved gradients for optimization and enables effective training through gradient descent.
-
-For this reason, sigmoid is typically used only in output layers, while other activation functions (e.g., ReLU) are preferred in hidden layers.
-
-Write a function which computes the sigmoid of $x$. Note that $x$ might be a real number or a Numpy array.
+In this exercise, you will use NumPy broadcasting to apply the **sigmoid function** to different types of inputs. First of all, write a function which computes the sigmoid of $x$. Note that $x$ might be a real number or a Numpy array.
 
 
 
@@ -761,35 +760,74 @@ def sigmoid(x):
     Computes the sigmoid of x
 
     Arguments:
-    x: A real number or a Numpy array
+    x : float or a numpy.ndarray
+        A real number or a Numpy array
 
     Returns:
-    s: The sigmoid of x
+    s : float or a numpy.ndarray
+        The sigmoid of x
     """
 
     ### BEGIN SOLUTION
-    s = 1 / (1 + np.exp(-x))
+    
+    s = None # Replace the None with the required expression for s
+    
     ### END SOLUTION
     
     return s
 ```
+Verify your solutions `s` for this exercise by computing the ...
+
 
 
 ```python
 x = 2.1
 expected = 0.8909031
-np.testing.assert_allclose(sigmoid(x), expected, rtol=1e-5)
+
 
 x = np.array([[3.4, -7.1, 9.4],
               [-2.7, 8.882, -2.114]])
 expected = np.array([[9.67704535e-01, 8.24424686e-04, 9.99917283e-01],
                      [6.29733561e-02, 9.99861153e-01, 1.07743524e-01]])
-np.testing.assert_allclose(sigmoid(x), expected, rtol=1e-5)
-
-print("All tests passed!")
 ```
 
-    All tests passed!
+For the first example, no broadcasting is needed because everything is just a number. For the second example, `x` is an array, so NumPy applies `-` to each element: 
+
+```python
+-x  →  [0, -1, -2]
+```
+
+The exponential is applied element by element:
+
+```python
+np.exp(-x)  →  [e⁰, e⁻¹, e⁻²]
+
+```
+
+Now we have `1` (a single number) and `np.exp(-x)` (an array). Broadcasting is automatically applied when NumPy treats the `1` as if it were copied to match the array:
+
+```python
+1  →  [1, 1, 1]
+
+```
+So the operation becomes:
+
+```python
+[1, 1, 1] + [e⁰, e⁻¹, e⁻²]
+
+```
+
+Although this addition is now done element by element, the `[1, 1, 1]` array is not really created — NumPy does this logically.
+
+Now, the division occurs when we divide `1` (a single number) and `denominator` (an array). Here, again, NumPy broadcasts the `1`:
+
+```python
+1  →  [1, 1, 1]
+
+```
+
+In such a way, the division is done element by element. Thus, ypu can see that **broadcasting** happens whenever a NumPy operation mixes a scalar (like `1`) with an array.
+
 
 
 ### Performing Operations Along an Axis
