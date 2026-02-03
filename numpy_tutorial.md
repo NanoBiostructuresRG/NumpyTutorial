@@ -24,7 +24,7 @@ After importing NumPy as `np`, we access its tools by writing `np.` followed by 
 ```python
 import numpy as np
 
-x = [1,2,3]       # a Python list with some elements
+x = [1,2,3]         # a Python list with some elements
 a = np.array(x)     # convert the list into a NumPy array and store it as 'a'
 
 ```
@@ -209,7 +209,7 @@ print(a.shape)
     (3,)
 
 
-The sequence starts at **0** because Python (and NumPy) use **zero-based indexing**. This means that counting begins at zero instead of one. Starting from zero makes it easier for the computer to keep track of positions and lengths of data. So, in this example, **0** is teh first position, **1** is the second position, and **2** is the third position. Together, these numbers represent the first three positions in the array.
+The sequence starts at **0** because Python (and NumPy) use **zero-based indexing**. This means that counting begins at zero instead of one. Starting from zero makes it easier for the computer to keep track of positions and lengths of data. So, in this example, **0** is the first position, **1** is the second position, and **2** is the third position. Together, these numbers represent the first three positions in the array.
 
 
 
@@ -297,13 +297,10 @@ print("\n", a.shape)
 
 ## Accessing Numpy arrays
 
-You can use the common square bracket notation for accessing the elements of a Numpy array. 
+Once we have a NumPy array, we often want to look at or use **individual values** inside it. This is called accessing an array. We already known that Numpy arrays are 0 indexed and each value in a NumPy array has a position, called an **index**. In Python, counting starts at zero, so the first value is at position 0, the second at position 1, and so on.
 
-If $A$ is a one dimensional array, then you can use `A[i]` to access the $i^{{th}}$ element of $A$.
+To access a value (i.e., element of a Numpy array), we write the name of the array followed by the index inside **square brackets** `[ ]`. If $A$ is a one dimensional array, then you can use `A[i]` to access the $i^{{th}}$ element of $A$. If $A$ is a two dimensional array, then you can use `A[i, j]` to access element $a_{{i, j}}$, where $i$ is the row and $j$ is the column.
 
-If $A$ is a two dimensional array, then you can use `A[i, j]` to access element $a_{{i, j}}$, where $i$ is the row and $j$ is the column.
-
-Note that Numpy arrays are 0 indexed.
 
 
 ```python
@@ -326,48 +323,82 @@ a = np.arange(9).reshape(3, 3)
 
 print(a)
 
-print("The 1th row of the array:")
+print("\nThe 1th row of the array:")
 print(a[1])
 
-print("Element at 0th row and 0th column:")
+print("\nElement at 0th row and 0th column:")
 print(a[0, 0])
 
-print("Element at 2th row and 1th column:")
+print("\nElement at 2th row and 1th column:")
 print(a[2, 1])
 ```
 
     [[0 1 2]
      [3 4 5]
      [6 7 8]]
+
     The 1th row of the array:
     [3 4 5]
+
     Element at 0th row and 0th column:
     0
+
     Element at 2th row and 1th column:
     7
 
 
-### Array Slicing
+### Array slicing
 
-You can select more than one element along a certain dimenson by using the slicing notation. Suppose $A$ is a one dimensional array. If you want to get all elements from an array with $index >= start$ but $index < end$, you can use the following: `A[start:end]`
-
-To get all the elements, you can use: `A[:]`
+Array **slicing** means selecting a part of an array instead of just one single value. It allows us to take several values at once by specifying a range of positions. Instead of asking for *one position*, slicing asks for a *range of positions*. Think of slicing like cutting a piece of cake: you choose where to start cutting and where to stop, so the slice includes everything in between.
 
 Read more about the slicing notation in the [documentation](https://numpy.org/doc/stable/reference/arrays.indexing.html).
 
-You can conveniently get the $i^{{th}}$ column of a two dimensional array $A$ by using: `A[:, i]`
 
-Think of this as getting all the rows of the $i^{{th}}$ column of $A$. Note that this returns the result as a one dimensional array. You need to reshape it if you want the answer as a column vector.
+Slicing uses the format:
+
+```python
+start : end
+```
+
+Here, `start` indicates where to begin (included), while `end` shows where to stop (not included). 
+
+Suppose $A$ is a one dimensional array with elements at positions
+
+```python
+Index:  0   1   2   3   4
+Value:  A[0] A[1] A[2] A[3] A[4]
+```
+
+If you want to get all elements whose index is greater than or equal to 1 but less than 4, you use the slice `A[start:end]`:
+
+```python
+A[1:4]
+```
+
+This selects the elements at positions:
+
+```python
+1, 2, 3
+```
+
+The element at position **4** is not included, because the end index is always excluded.
+
+If you want to get all elements of the array, you can write: `A[:]`. This means from the beginning to the end of the array.
+
+
+For a two-dimensional array $A$, you can obtain the $i^{{th}}$ column using: `A[:, i]`. This notation means: take all rows `(:)` from column `i`.
+
+The result is returned as a **one-dimensional array**, even though it comes from a column. If you need the result to be treated as a column vector, it must be reshaped explicitly.
 
 
 ```python
 a = np.arange(16).reshape(4, 4)
 print(a)
 
-print("The 1th column of the array:")
+print("\nThe 1th column of the array:")
 print(a[:, 1])
 
-print("The 3th column of the array reshaped into a column vector:")
+print("\nThe 3th column of the array reshaped into a column vector:")
 print(a[:, 3].reshape(-1, 1))
 ```
 
@@ -375,8 +406,10 @@ print(a[:, 3].reshape(-1, 1))
      [ 4  5  6  7]
      [ 8  9 10 11]
      [12 13 14 15]]
+    
     The 1th column of the array:
-    [ 1  5  9 13]
+    [1 5 9 13]
+    
     The 3th column of the array reshaped into a column vector:
     [[ 3]
      [ 7]
@@ -384,9 +417,7 @@ print(a[:, 3].reshape(-1, 1))
      [15]]
 
 
-You shall now apply what you have learned so for in the following question.
-
-### Finding The Trace of a Matrix
+### Exercise: Find the trace of a matrix
 
 In the next function, you shall be given a square matrix $A$. You need to find the *trace* of $A$, which is defined to be the sum of all elements on the principal diagonal of $A$.
 
@@ -439,9 +470,7 @@ s_exp = -48
 np.testing.assert_allclose(trace(A), s_exp, rtol=1e-5)
 
 print("All tests passed!")
-```
 
-    All tests passed!
 
 
 ## Operations on Numpy Arrays
