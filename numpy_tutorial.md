@@ -776,8 +776,7 @@ def sigmoid(x):
     
     return s
 ```
-Verify your solutions `s` for this exercise by computing the ...
-
+Verify your solutions `s` for this exercise by computing the expected values for the following float and arrays.
 
 
 ```python
@@ -791,20 +790,22 @@ expected = np.array([[9.67704535e-01, 8.24424686e-04, 9.99917283e-01],
                      [6.29733561e-02, 9.99861153e-01, 1.07743524e-01]])
 ```
 
-For the first example, no broadcasting is needed because everything is just a number. For the second example, `x` is an array, so NumPy applies `-` to each element: 
+For the first example, no broadcasting is needed because `x` is just a number. 
+
+For the second example, the things happen in a more iteresting way. First, we see that `x` is an array, so NumPy applies the operator `-` to each element: 
 
 ```python
 -x  →  [0, -1, -2]
 ```
 
-The exponential is applied element by element:
+Then, the exponential is applied element by element:
 
 ```python
 np.exp(-x)  →  [e⁰, e⁻¹, e⁻²]
 
 ```
 
-Now we have `1` (a single number) and `np.exp(-x)` (an array). Broadcasting is automatically applied when NumPy treats the `1` as if it were copied to match the array:
+Now, we have `1` (a single number) and `np.exp(-x)` (an array). Broadcasting is automatically applied when NumPy treats the `1` as if it were copied to match the array:
 
 ```python
 1  →  [1, 1, 1]
@@ -819,26 +820,28 @@ So the operation becomes:
 
 Although this addition is now done element by element, the `[1, 1, 1]` array is not really created — NumPy does this logically.
 
-Now, the division occurs when we divide `1` (a single number) and `denominator` (an array). Here, again, NumPy broadcasts the `1`:
+Finally, the division occurs when we divide `1` (a single number) and `denominator` (an array). Here, again, NumPy broadcasts the `1`:
 
 ```python
 1  →  [1, 1, 1]
 
 ```
 
-In such a way, the division is done element by element. Thus, ypu can see that **broadcasting** happens whenever a NumPy operation mixes a scalar (like `1`) with an array.
+In such a way, the division is done element by element. Thus, you can see that **broadcasting** happens whenever a NumPy operation mixes a scalar (like `1`) with an array.
 
 
 
-### Performing Operations Along an Axis
+### Performing operations along an axis
+When working with NumPy arrays, especially two-dimensional arrays (matrices), we often want to apply an operation by rows or by columns instead of to the whole array at once. NumPy allows us to do this using the concept of an axis.
 
-Numpy also has other useful functions like [np.sum()](https://numpy.org/doc/stable/reference/generated/numpy.sum.html), [np.max()](https://numpy.org/doc/stable/reference/generated/numpy.amax.html) and [np.min()](https://numpy.org/doc/stable/reference/generated/numpy.amin.html).
+In NumPy, axis **0** refers to the rows direction (down the rows), while axis **1** refers to the columns direction (across the columns). 
+
+NumPy also has other useful functions like [np.sum()](https://numpy.org/doc/stable/reference/generated/numpy.sum.html), [np.max()](https://numpy.org/doc/stable/reference/generated/numpy.amax.html) and [np.min()](https://numpy.org/doc/stable/reference/generated/numpy.amin.html).
+
 
 When you just pass the Numpy array to these functions, they simply return the answer of the operation over the entire array. Now suppose you want to find the maximum element of each column of an array. You can do this by passing an additional argument called `axis` to the function.
 
-If $A$ is a two dimensional array, if you want to find the maximum of each column of $A$, you can use: `np.max(A, axis=0)`
-
-If $A$ is a two dimensional array, if you want to find the maximum of each row of $A$, you can use: `np.max(A, axis=1)`
+If $A$ is a two dimensional array, if you want to find the maximum of each column of $A$, you can use `np.max(A, axis=0)`. Conversely, if $A$ is a two dimensional array, you use `np.max(A, axis=1)` if you want to find the maximum of each row of $A$.
 
 A point to note is that these functions may return one dimensional arrays, which might cause errors with broadcasting. In order to make sure that two dimensional arrays are returned, you must pass the argument `keepdims=True` in the function: `np.max(A, axis=0, keepdims=True)`
 
