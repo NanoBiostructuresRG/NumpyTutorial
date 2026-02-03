@@ -470,15 +470,16 @@ print(a)
 print(range(n))
 ```
 
-[[ 0  1  2  3]
- [ 4  5  6  7]
- [ 8  9 10 11]
- [12 13 14 15]]
+    [[ 0  1  2  3]
+     [ 4  5  6  7]
+     [ 8  9 10 11]
+     [12 13 14 15]]
+    
+    range(0, 4)
 
-
-range(0, 4)
 
 > **Note:** Even though it looks like a tuple, `range(0, 4)` is **NOT** a tuple. It is an object that represents a **sequence of numbers**, namely, start at 0, stop before 4.
+
 
 
 ### Exercise 1: Find the trace of a matrix
