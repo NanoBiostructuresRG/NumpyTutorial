@@ -448,7 +448,40 @@ print(a[:, 3].reshape(-1, 1))
      [15]]
 
 
-### Exercise: Find the trace of a matrix
+A built-in Python function used to generate a sequence of numbers is `range()`. It is most commonly used when we want to repeat an action a certain number of times, especially in loops.
+
+The number produced by `range()` start at **0** by default, increase by **1**, and stop **before** the final number. 
+
+```python
+range(stop)
+
+```
+
+This generates numbers starting from `0` up to, but not including, `stop`. For example, `range(5)` represents the list of numbers **0, 1, 2, 3, 4**.
+
+The function `range()` can be used with arrays. If an array has length `n`, `range(n)` produces exactly the indices needed to access all its elements, that is, the first index `0` up to the last index `n - 1`. 
+
+
+```python
+a = np.arange(16).reshape(4, 4)
+n = a.shape[0]
+
+print(a)
+print(range(n))
+```
+
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]]
+
+
+range(0, 4)
+
+> **Note:** Even though it looks like a tuple, `range(0, 4)` is **NOT** a tuple. It is an object that represents a **sequence of numbers**, namely, start at 0, stop before 4.
+
+
+### Exercise 1: Find the trace of a matrix
 
 The trace of a square matrix is defined as the sum of the elements on its main diagonal (from top-left to bottom-right).
 
@@ -476,6 +509,8 @@ In this exercise, you will implement a function that computes the **trace** with
 
 
 ```python
+import numpy as np
+
 def trace(A):
     """
     Compute the trace of a square matrix A
@@ -494,14 +529,14 @@ def trace(A):
 
     ### BEGIN SOLUTION
 
-    # Get the number of rows in A
+    # Step 1. Obtain the number of rows in A
     n = None        # Replace with the correct syntax to get the number of rows
 
-    # Loop over all elements of the principal diagonal
+    # Step 2. Loop over all elements of the principal diagonal
     for i in range(n):
         s += None   # Replace the None with the required element of A
 
-    # END SOLUTION
+    ### END SOLUTION
 
     return s
 ```
