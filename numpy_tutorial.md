@@ -894,20 +894,20 @@ In this exercise, you will **normalize all the columns** of a two-dimensional Nu
 
 Suppose that:
 
-- \( x_i \) is the **\( i^{\text{th}} \)** column of the input array
-- \( c_i \) is the **\( i^{\text{th}} \)** column of the output (normalized) array  
+- $x_i$ is the $i^{\text{th}}$ column of the input array  
+- $c_i$ is the $i^{\text{th}}$ column of the output (normalized) array  
 
 
 The normalization is defined as:
 
-\[
+$$
 c_i = \frac{x_i - \operatorname{mean}(x_i)}{\sigma(x_i)}
-\]
+$$
 
 where:
 
-- \( \operatorname{mean}(x_i) \) is the **average (mean)** of all the elements in column \( x_i \)  
-- \( \sigma(x_i) \) is the **standard deviation** of all the elements in column \( x_i \)  
+- $\operatorname{mean}(x_i)$ is the average (mean) of all the elements in column $x_i$  
+- $\sigma(x_i)$ is the standard deviation of all the elements in column $x_i$
 
 ---
 
