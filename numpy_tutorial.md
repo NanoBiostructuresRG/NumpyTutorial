@@ -1688,28 +1688,99 @@ print("\nIs the reconstruction correct? ", np.allclose(A, A_reconstructed))
 
 
 
-### Polynomial Multiplication
-Lastly, you will implement a function to carry out polynomial multiplication. Implementing this would require the application of multiple concepts that you have learned till now.
+### Exercise 5: Polynomial Multiplication
+A **polynomial** is an expression made of variables and coefficients, such as:
 
-You can challenge yourself by trying to implement this function. It is a good opportunity to practice the concepts introduced in this notebook. Feel free to skip to the next section if you want.
+$$
+p(x) = 2x^2 + 3x + 1
+$$
 
-In this function, you shall be implementing polynomial multiplication. You will be given two one dimensional numpy arrays $A$ and $B$, the coefficients of the two polynomials, where $a_i$ is the coefficient of $x^i$ in $A$. You must calculate the coefficients of $A \cdot B$.
+and
 
-More formally, if $C$ is the resultant one dimensional array, then $$c_i = \sum_{j+k=i}^{} a_j*b_k$$
+$$
+q(x) = x + 4
+$$
 
-There are multiple ways to do this, and your implementation may require you to use functions which we have not introduced to you. If that is the case, we encourage you to look at the [documentation](https://numpy.org/doc/stable/index.html).
+Multiplying two polynomials means **distributing** every term of the first polynomial over every term of the second polynomial, and then **combining like terms**.
 
-Finally, try to implement this function using only a single for loop over $i$, and try to implement the summation using only inbuilt functions of Numpy. This will lead to much faster code, thanks to vectorization.
+For example:
 
-We shall not guide you through this function by as much as we did with the others.
+$$
+(2x^2 + 3x + 1)(x + 4)
+$$
 
-Additional hints:
-- $A$ and $B$ might be of different sizes. Depending on your implementation, this might have an effect. Pad the end of the smaller array with zeros so that $A$ and $B$ have the same size. You might want to take a look at [np.pad()](https://numpy.org/doc/stable/reference/generated/numpy.pad.html).
-- For a fixed $i$, try to see how $j$ and $k$ vary and which elements of $A$ and $B$ can be multiplied together. Does the resultant expression seem similar? Maybe the dot product of two slices?
-- You can use [np.flip()](https://numpy.org/doc/stable/reference/generated/numpy.flip.html) to reverse a Numpy array.
-- Make sure that your answer does not have any zeros at the end. Try to find a function in Numpy which does that for you.
+$$
+= 2x^3 + 8x^2 + 3x^2 + 12x + x + 4
+$$
 
-In case you are curious, there are faster ways to implement polynomial multiplication. If you are interested and feel (very) confident about your math and algorithmic skills, take a look at [FFT](https://cp-algorithms.com/algebra/fft.html).
+$$
+= 2x^3 + 11x^2 + 13x + 4
+$$
+
+So the product is another polynomial whose degree is the **sum of the degrees** of the original polynomials.
+
+
+But, why is this related to arrays and linear algebra? If we store the coefficients of a polynomial in an array, polynomial multiplication becomes a **systematic combination of coefficients**, very similar to:
+
+- Convolutions  
+- Dot products  
+- Matrix-vector products  
+
+For example, the polynomial:
+
+$$
+p(x) = 2x^2 + 3x + 1
+$$
+
+can be represented by the coefficient array:
+
+```python
+[2, 3, 1]
+```
+
+And,
+
+$$
+q(x) = x + 4
+$$
+
+can be represented as:
+
+```python
+[1, 4]
+```
+
+Multiplying these two arrays in the right way produces the coefficients of the product polynomial.
+
+---
+
+In this exercise, you will implement a function to multiply two polynomials using NumPy. This task brings together several concepts you have learned so far, such as **array slicing**, **dot products**, and **vectorization**.
+
+You are given two **one-dimensional NumPy arrays** `A` and `B` containing the coefficients of two polynomials. We will use the convention that:
+
+- `A[i] = a_i` is the coefficient of \(x^i\) in the first polynomial  
+- `B[i] = b_i` is the coefficient of \(x^i\) in the second polynomial  
+
+Your goal is to compute the coefficients of the product polynomial \(C = A \cdot B\).
+
+More formally, if `C` is the resulting one-dimensional array and `C[i] = c_i`, then:
+
+$$
+c_i = \sum_{j+k=i} a_j \, b_k
+$$
+
+There are multiple ways to implement polynomial multiplication. If your approach requires a NumPy function that we have not introduced yet, we encourage you to consult the [NumPy documentation](https://numpy.org/doc/stable/index.html).
+
+
+Try to implement the function using only **one `for` loop over** \(i\), and compute the summation using **NumPy operations** (instead of nested loops). This will make your code faster thanks to **vectorization**.
+
+
+**Hints**:
+- `A` and `B` may have different lengths. Pad the **end** of the shorter array with zeros so they have the same length. You may find [`np.pad()`](https://numpy.org/doc/stable/reference/generated/numpy.pad.html) useful.
+- For a fixed \(i\), notice how the valid indices \(j\) and \(k\) must satisfy \(j+k=i\). This often leads to multiplying two **slices** of the arrays. The summation may resemble a **dot product**.
+- You can reverse an array using [`np.flip()`](https://numpy.org/doc/stable/reference/generated/numpy.flip.html), which can be helpful for aligning terms.
+- Make sure your output does **not** end with unnecessary trailing zeros. Look for a NumPy-based way to remove them.
+
 
 
 ```python
