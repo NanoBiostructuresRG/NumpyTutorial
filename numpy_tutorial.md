@@ -667,6 +667,34 @@ print(np.log(a))
      [1.94591015 0.69314718 1.09861229]]
 
 
+
+Sometimes, we need two NumPy arrays to have the **same length** before we can combine them in an operation. One simple way to do this is to **pad** (extend) the shorter array with extra values, such as zeros.
+
+NumPy provides the function [`np.pad()`](https://numpy.org/doc/stable/reference/generated/numpy.pad.html) for this purpose.
+
+For example:
+
+```python
+A = np.array([1, 2, 3])
+B = np.array([4, 5])
+
+# Pad B with one zero at the end so it has the same length as A
+B_padded = np.pad(B, (0, 1))
+
+print("A:", A)
+print("B padded:", B_padded)
+```
+    A: [1 2 3]
+    B padded: [4 5 0]
+
+In this example, `(0, 1)` means:
+- Add 0 values at the beginning of the array
+- Add 1 value at the end of the array
+
+This way, `np.pad()` allows us to extend an array with zeros (or other values) to make its size match another array. This is useful in polynomial multiplication when the two coefficient arrays do not have the same length.
+
+
+
 ### Broadcasting
 
 **Broadcasting** is a rule that allows NumPy to perform operations between arrays of different shapes. Instead of requiring arrays to have exactly the same size, NumPy automatically adjusts the smaller array so that the operation can be carried out element-wise.
@@ -1761,7 +1789,7 @@ You are given two **one-dimensional NumPy arrays** `A` and `B` containing the co
 - `A[i] = a_i` is the coefficient of \(x^i\) in the first polynomial  
 - `B[i] = b_i` is the coefficient of \(x^i\) in the second polynomial  
 
-Your goal is to compute the coefficients of the product polynomial \(C = A \cdot B\).
+Your goal is to compute the coefficients of the product polynomial $\(C = A \cdot B\)$.
 
 More formally, if `C` is the resulting one-dimensional array and `C[i] = c_i`, then:
 
@@ -1769,10 +1797,7 @@ $$
 c_i = \sum_{j+k=i} a_j \, b_k
 $$
 
-There are multiple ways to implement polynomial multiplication. If your approach requires a NumPy function that we have not introduced yet, we encourage you to consult the [NumPy documentation](https://numpy.org/doc/stable/index.html).
-
-
-Try to implement the function using only **one `for` loop over** \(i\), and compute the summation using **NumPy operations** (instead of nested loops). This will make your code faster thanks to **vectorization**.
+There are multiple ways to implement polynomial multiplication. If your approach requires a NumPy function that we have not introduced yet, we encourage you to consult the [NumPy documentation](https://numpy.org/doc/stable/index.html). However, try to implement the function using only **one `for` loop over** \(i\), and compute the summation using **NumPy operations** (instead of nested loops). This will make your code faster thanks to **vectorization**.
 
 
 **Hints**:
