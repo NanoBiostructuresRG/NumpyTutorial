@@ -119,20 +119,6 @@ print(b)
 > **Note:** For 2-dimensional Numpy arrays, all rows must have the same number of elements.
 
 
-
-```python
-def length(x):
-  """Compute the length of a vector"""
-  length_x = np.sqrt(np.dot(x, x))  # using the relationship: ||x|| = sqrt(x·x)
-  
-  return length_x
-  
-print(length(np.array([1,0])))
-```
-
-    1.0
-
-
 NumPy arrays can be created from both Python **lists** and **tuples**. A list `[1, 2, 3]` and a tuple `(1, 2, 3)` differ in Python because lists can be modified while tuples cannot. For instance, a **list** can be a shopping list, a to-do list of tasks, the name of students in a class, books you plan to read in this year. On the other hand, examples of **tuples** can be the days of the week, the months of the year, the coordinates of a point (x,y,z), a person's date of birth (day, month, year), the dimension of a rectange (width, height).
 
 
@@ -171,6 +157,21 @@ print("Type of array in b:", b.dtype)
 
 
 > **Note:** NumPy arrays have a `dtype` attribute that controls the type of numbers they store (int, float, complex, etc.). In more advanced code, you may want to match the data type of different arrays explicitly.
+
+
+In NumPy, we can use `np.array()` to create vectors and `np.dot()` to compute their dot product.
+
+```python
+def length(x):
+  """Compute the length of a vector"""
+  length_x = np.sqrt(np.dot(x, x))  # using the relationship: ||x|| = sqrt(x·x)
+  
+  return length_x
+  
+print(length(np.array([1,0])))
+```
+
+    1.0
 
 
 ## Shape of Numpy Arrays
@@ -1257,9 +1258,43 @@ In NumPy, you can compute these using
 - `np.dot(A, B)`
 - Or the `@` operator
 
-Both do the same thing, but the `@` operator is shorter, cleaner, and closer to mathematical notation. So, from now on, we will use only the `@` operator.
 
 You can revise the documentation of [np.dot()](https://numpy.org/doc/stable/reference/generated/numpy.dot.html) for more details.
+
+
+```python
+def dot(a, b):
+    """Compute dot product between a and b.
+    Args:
+        a, b: (2,) ndarray as R^2 vectors
+    
+    Returns:
+        a number which is the dot product between a, b
+    """
+    
+    dot_product = a[0]*b[0] + a[1]*b[1]
+    
+    return dot_product
+
+# Test your code 
+a = np.array([1,0])
+b = np.array([0,1])
+print(dot(a,b))  # Should output 0
+```
+    0.0
+
+This makes geometric sense due to the vectors `[1,0]` and `[0,1]` are perpendicular (orthogonal), so their dot product is 0. That is:
+
+- `a = [1, 0]`, `b = [0, 1]`
+- `a[0]` and `a[1]` access the first and second components of vector `a`
+- `b[0]` and `b[1]` access the first and second components of vector `b`
+- `a[0]*b[0] = 1 * 0 = 0`
+- `a[1]*b[1] = 0 * 1 = 0`
+- Sum = 0 + 0 = 0
+
+
+
+Both `np.dot(A, B)` or the `@` operator do the same thing, but the `@` operator is shorter, cleaner, and closer to mathematical notation. So, from now on, we will use only the `@` operator.
 
 
 ```python
