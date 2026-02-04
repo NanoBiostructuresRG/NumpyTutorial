@@ -1262,58 +1262,123 @@ print("\nA @ B (matrix multiplication):\n", A @ B)
      [43 50]]
 
 
-### The Linalg Library of Numpy
+### The `numpy.linalg` Library
+NumPy provides a special module called `numpy.linalg` that contains many useful tools for linear algebra.
 
-The Numpy library ships with [np.linalg](https://numpy.org/doc/stable/reference/routines.linalg.html) package which lets us compute many properties of matrices.
+With `numpy.linalg`, you can easily:
+- Solve systems of linear equations
+- Compute determinants and inverses of matrices
+- Compute eigenvalues and eigenvectors
+- Compute matrix norms
+- And perform many other common linear algebra operations
 
-For example, we can compute the determinant of a square matrix by using [np.linalg.det()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html).
+
+Instead of implementing these operations yourself, you can rely on this library, which is fast, well-tested, and easy to use. Ypu can revise the documentation of [np.linalg](https://numpy.org/doc/stable/reference/routines.linalg.html) for more details. 
+
+
+For example, we can compute the **determinant** of a square matrix by using [np.linalg.det()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html).
 
 
 ```python
-# This computes the determinant
-print(np.linalg.det(A))
+A = np.array([[2, 0, 1],
+              [1, 3, 4],
+              [0, 2, 1]])
+
+detA = np.linalg.det(A)     # This computes the determinant
+print("det(A) =", detA)
 ```
 
-    -7.999999999999998
+    det(A) = 8.0
+
+> **Note:** Remember that small numerical differences (like `8.000000000000002`) can sometimes appear because of floating-point arithmetic
 
 
-We can compute the inverse of a matrix by using [np.linalg.inv()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html).
+We can compute the inverse of a matrix by using [np.linalg.inv()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html). 
+
+The inverse of a matrix `A` is another matrix `A^{-1}` such that `A @ A^{-1} = I`, where `I` is the identity matrix.
+
 
 
 ```python
-# This computes the inverse
-print(np.linalg.inv(A))
+A = np.array([[2, 0, 1],
+              [1, 3, 4],
+              [0, 2, 1]])
 
-I = np.eye(3) # We can use this function to generate the identity matrix
-np.testing.assert_allclose(A @ np.linalg.inv(A), I, atol=1e-10)
+A_inv = np.linalg.inv(A)        # Compute the inverse of A
+
+print("A:\n", A)
+print("\nInverse of A:\n", A_inv)
+
+
+I = np.eye(3)       # Generate the identity matrix
+print("\nIdentity matrix I:\n", I)
+
+# Check that A @ A_inv is (approximately) the identity matrix
+print("\nA @ A_inv:\n", A @ A_inv)
 ```
 
-    [[ 0.625 -0.25   0.375]
-     [ 0.125 -0.25   0.875]
-     [-0.25   0.5   -0.75 ]]
+    A:
+     [[2 0 1]
+     [1 3 4]
+     [0 2 1]]
+
+    Inverse of A:
+     [[-0.625  0.25   0.875]
+     [ 0.125  0.25  -0.375]
+     [ 0.25  -0.5    0.75 ]]
+
+    Identity matrix I:
+     [[1. 0. 0.]
+     [0. 1. 0.]
+     [0. 0. 1.]]
+
+    A @ A_inv:
+     [[1. 0. 0.]
+     [0. 1. 0.]
+     [0. 0. 1.]]
+
+> **Note:** Not every matrix has an inverse (the determinant must be non-zero). Because of floating-point arithmetic, results are usually approximately the identity matrix, not perfectly exact. In this last example, we use `np.eye(3)` to create a `3×3` identity matrix.
 
 
-We can compute the eigenvalues and eigenvectors of a matrix using [np.linalg.eig()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html).
 
+We can compute the eigenvalues and eigenvectors of a matrix using [np.linalg.eig()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html). 
+
+This function returns two objects:
+- An array with the eigenvalues
+- A matrix whose columns are the corresponding eigenvectors
+
+Let’s use a simple symmetric matrix so the result is easy to interpret:
 
 ```python
-# This computes the eigenvalues and eigenvectors
+A = np.array([[2, 1],
+              [1, 2]])
+
+# Compute the eigenvalues and eigenvectors
 eigenvalues, eigenvectors = np.linalg.eig(A)
-print("The eigenvalues are\n", eigenvalues)
-print("The eigenvectors are\n", eigenvectors)
+
+print("A:\n", A)
+print("\nEigenvalues:\n", eigenvalues)
+print("\nEigenvectors (columns):\n", eigenvectors)
 ```
 
-    The eigenvalues are
-     [ 5.10548262  1.77653793 -0.88202054]
-    The eigenvectors are
-     [[-0.13964316  0.9724502  -0.24499029]
-     [-0.8901906  -0.08437307 -0.66441635]
-     [-0.43365942 -0.21730574  0.70606705]]
+    A:
+     [[2 1]
+     [1 2]]
+
+    Eigenvalues:
+     [3. 1.]
+
+    Eigenvectors (columns):
+     [[ 0.70710678 -0.70710678]
+     [ 0.70710678  0.70710678]]
+
+
 
 
 You shall now apply all the concepts that you have learned in the next sections.
 
-### Diagonalizing a Matrix
+
+### Exercise 4: Diagonalizing a Matrix
 
 In this question, you shall be given a square matrix which you need to diagonalize. In particular, you will be given a diagonalizable matrix $A$ and you need to find matrices $S$ and $D$ such that: $$A = SDS^{{-1}}$$
 
