@@ -1388,8 +1388,8 @@ y = np.array([1,1])
 def find_angle(A, x, y):
     """Compute the angle"""
     inner_prod = x.T @ A @ y
-    norm_x = np.sqrt(x.T @ A @ x)       # the expression for norm_x 
-    norm_y = np.sqrt(y.T @ A @ y)       # the expression for norm_y
+    norm_x = np.sqrt(x.T @ A @ x)       # length of x (norm_x) in this inner product
+    norm_y = np.sqrt(y.T @ A @ y)       # length of y (norm_y) in this inner product 
     alpha = inner_prod/(norm_x*norm_y)
     angle = np.arccos(alpha)
     return np.round(angle,2) 
@@ -1430,6 +1430,68 @@ A @ B
     ValueError                                Traceback (most recent call last)    
 
     ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 3 is different from 2)
+
+
+### Exercise (Optional): Computing Angles with a Non-Standard Inner Product
+
+Recall that for an inner product defined by a symmetric positive definite matrix $A$, the angle $\theta$ between two vectors $\mathbf{x}$ and $\mathbf{y}$ is given by:
+
+$$
+\cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} \cdot \sqrt{\langle \mathbf{y}, \mathbf{y} \rangle}}
+$$
+
+where $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T A \mathbf{y}$.
+
+----
+
+In this exercise, compute the angle between
+
+$$
+\mathbf{x} = \begin{bmatrix}1\\1\end{bmatrix}
+$$
+
+and
+
+$$
+\mathbf{y} = \begin{bmatrix}1\\-1\end{bmatrix}
+$$
+
+using the inner product defined by
+
+$$
+\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T 
+\begin{bmatrix}1 & 0\\0 & 5\end{bmatrix} 
+\mathbf{y}
+$$
+
+---
+
+```python
+import numpy as np
+
+# Step 1. Fill in the arrays
+A = np.array( )
+x = np.array( )
+y = np.array( )
+
+# Step 2. Define the function `find_angle`  
+def find_angle(A, x, y):
+    pass
+    return np.round(angle, 4)
+
+print(find_angle(A, x, y))
+```
+
+To verify your answer, use these arrays
+
+```python
+A = np.array([[1, 0], [0, 5]])
+x = np.array([1, 1])
+y = np.array([1, -1])
+
+2.3 rad
+```
+
 
 
 
