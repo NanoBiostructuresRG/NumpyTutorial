@@ -982,23 +982,30 @@ expected = np.array([[-0.35694152, -0.97689929, -0.73023324, -1.28391946],
 
 ## Linear Algebra
 
-In this course, we use Numpy arrays for linear algebra. We shall use one dimensional arrays or two dimensional column vectors (two dimensional arrays of shape $(d, 1)$) to represent vectors and two dimensional arrays to represent matrices.
+Linear algebra is the branch of mathematics that works with **vectors** and **matrices**, and it is a fundamental tool in science, engineering, and machine learning. In Python, the NumPy library provides simple and efficient ways to create, manipulate, and compute with vectors and matrices. Using NumPy, we can perform operations such as matrix addition, multiplication, transposition, and solving systems of equations with just a few lines of code. Because NumPy uses optimized, vectorized implementations, these operations are not only easy to write but also very fast, making it an ideal tool for learning and applying linear algebra in practice.
+
+In this notebook, we will represent vectors using either **one-dimensional NumPy arrays** or **two-dimensional column arrays** with shape $(d, 1)$. We will represent matrices using **two-dimensional Numpy arrays**. 
 
 
 ```python
-a = np.arange(6)
-print('A Vector:\n', a)
+v = np.arange(6)
+print('Vector:\n', v)
+print("Shape of vector:", v.shape)
 
-a = np.array([[1, 2, 3],
-              [4, 5, 6]]) # Can you think of a better way to create this array?
-print('A Matrix:\n', a)
+M = np.array([[1, 2, 3],
+              [4, 5, 6]]) 
+print('\nMatrix:\n', M)
+print("Shape of matrix:", M.shape)
 ```
 
-    A Vector:
+    Vector:
      [0 1 2 3 4 5]
-    A Matrix:
+    Shape of vector: (6,)
+
+    Matrix:
      [[1 2 3]
      [4 5 6]]
+    Shape of matrix: (2, 3)
 
 
 ### Transposing a Matrix
