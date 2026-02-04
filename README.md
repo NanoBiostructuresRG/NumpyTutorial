@@ -3,7 +3,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-[![Version](https://img.shields.io/badge/version-v1.1-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-v1.0-blue.svg)]()
 
 ---
 
