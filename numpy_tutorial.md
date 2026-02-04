@@ -26,6 +26,22 @@ This notebook is organized around a series of **hands-on exercises** designed to
 
 You are expected to **solve these exercises yourself** by writing Python and NumPy code. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
 
+
+### Sources and Learning Materials
+
+This notebook is not meant to be the first or the last resource you will use to learn NumPy and scientific computing in Python. Instead, it is a **curated learning path** built from several tutorials, lecture notes, exercises, and official documentation.
+
+Many of the ideas, examples, and exercises presented here are **inspired by or adapted from** existing educational materials, including the NumPy documentation and common teaching resources used in courses and online tutorials. For this reason, you may notice that some exercises or examples look **similar to ones you have seen elsewhere**. This is intentional: these problems are standard, well-tested ways of learning core concepts.
+
+The goal of this notebook is not to present completely new material, but to **organize and connect** these concepts in a coherent, progressive way, with explanations, practice exercises, testing, and debugging techniques all in one place.
+
+You are encouraged to complement this notebook with other resources, such as:
+- The official [NumPy documentation](https://numpy.org/doc/stable/)
+- Online tutorials and textbooks
+- Course notes and lecture materials
+
+Learning works best when you see the same ideas explained in **multiple ways and from multiple sources**.
+
 ---
 
 
