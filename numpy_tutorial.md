@@ -1461,7 +1461,7 @@ The idea behind diagonalization is to rewrite a matrix in a simpler form (diagon
 
 In this exercise, you need to find matrices $S$ and $D$. Recall that in order to do this, you must first find all the eigenvalues and eigenvectors of $A$. Then, $S$ is the matrix of all the eigenvectors arranged as columns, and $D$ is the matrix of the corresponding eigenvalues arranged along the diagonal.
 
-
+> **Note:** Eigenvectors are not unique. If `v` is an eigenvector, then any non-zero multiple of `v`is also a valid eigenvector. For this reason, there are many possible correct matrices `S`. Different implementations (or NumPy itself) may return eigenvectors that differ by a scaling factor or by a sign. As long as the columns of `S` are valid eigenvectors corresponding to the eigenvalues in `D`, the diagonalization is correct. In this exercise, we will use normalized (unit-length) eigenvectors, as returned by `np.linalg.eig()`. 
 
 Suppose
 
@@ -1473,7 +1473,7 @@ A =
 \end{bmatrix}
 $$
 
-Then, we can compute
+Then, one possible choise is
 
 $$
 S =
@@ -1494,9 +1494,7 @@ D =
 $$
 
 
-
-
-
+Note that this is just one valid diagonalization. NumPy will typically return normalized eigenvectors, so the matrix `S` you obtain in practice may look different, even though it represents the same eigen-directions and still satisfies $A = SDS^{{-1}}$. 
 
 
 ```python
@@ -1572,20 +1570,12 @@ S_inv_exp = np.array([[ 2.00000000e+00, -1.00000000e+01,  4.00000000e+00,  1.400
                       [ 3.74165739e+00, -2.24499443e+01,  1.12249722e+01,  2.99332591e+01],
                       [ 3.31662479e+00, -1.32664992e+01,  6.63324958e+00,  1.65831240e+01],
                       [ 2.74154909e-15, -2.64575131e+00,  2.64575131e+00,  5.29150262e+00]])
-
-
-
-
-
 ```
 
-> **Note:** Eigenvectors are not unique: if v is an eigenvector, then −v is also valid. Therefore, comparing the eigenvector matrix S element-wise against a fixed expected matrix (S_exp) is not mathematically correct...!
 
 
-
+### Polynomial Multiplication
 Lastly, you will implement a function to carry out polynomial multiplication. Implementing this would require the application of multiple concepts that you have learned till now.
-
-### Polynomial Multiplication (Challenge)
 
 You can challenge yourself by trying to implement this function. It is a good opportunity to practice the concepts introduced in this notebook. Feel free to skip to the next section if you want.
 
