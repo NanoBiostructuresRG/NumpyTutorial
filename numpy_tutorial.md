@@ -1941,6 +1941,7 @@ print("Test 2 expected: ", C_exp)
 print("Test 2 correct?  ", np.allclose(C, C_exp))
 ```
 
+---
 
 
 # PART 2. Introduction to Assert Statements and Testing
@@ -2077,6 +2078,9 @@ np.testing.assert_allclose(inverse(A) @ A, np.eye(2), rtol=1e-5, atol=1e-10)
 # Add another test here
 ```
 
+---
+
+
 # PART 3. Debugging Your Code
 
 While you are working through the rest of the labs of this course, you shall come across many situations where your code shall not work correctly. You are not alone if this happens to you. Debugging your code can be a difficult and daunting task, so in this last section, we shall give you some practical guidelines to assist you in debugging your code.
@@ -2144,5 +2148,8 @@ A = np.array([[24, 69, 83],
               [74, 14, 27]])
 np.testing.assert_allclose(sum_of_max(A), 157)
 ```
+
+---
+
 
 Congratulations on making it to the end of this really long notebook. I hope you should feel more comfortable using NumPy and more confident in writing, testing, and debugging your own Python code.
