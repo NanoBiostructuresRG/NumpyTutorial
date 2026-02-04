@@ -1,3 +1,12 @@
+# NumPy Tutorial
+**Version 1.0.0 - February, 2026. Monterrey**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+[![Version](https://img.shields.io/badge/version-v1.1-blue.svg)]()
+
+---
+
 # INTRO
 This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners and for learners with prior experience who want to refresh or strengthen their understanding in how to work with arrays, perform basic linear algebra operations, and write more reliable code.
 
@@ -2297,4 +2306,19 @@ As a next step, you are encouraged to:
 
 Keep experimenting, keep breaking things (on purpose!), and keep learning. That’s how you really become confident with NumPy and Python.
 
+---
 
+## Author
+Developed by **Flavio F. Contreras-Torres** (Tecnológico de Monterrey)      
+Monterrey, Mexico - February 2026
+
+---
+
+## Versions   
+v.1.0.0 - February 2026. Monterrey, Mexico
+
+---
+
+## License
+This project is licensed under the terms of the [MIT License](https://github.com/NanoBiostructuresRG/spaacy-abstract-validator/blob/main/LICENSE).  
+See the LICENSE file for full details.
