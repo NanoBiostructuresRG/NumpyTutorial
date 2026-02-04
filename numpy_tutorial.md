@@ -1009,83 +1009,100 @@ print("Shape of matrix:", M.shape)
 
 
 ### Transposing a Matrix
+Transposing a matrix means **swapping its rows and columns**.
 
-Suppose `A` is a matrix, then you can take the transpose of `A` with `A.T`
+- The first row becomes the first column
+- The second row becomes the second column
+- And so on…
+
+So, if a matrix has shape $(m,n)$, its transpose will have shape $(n,m)$. In NumPy, you can transpose a matrix using the `.T` attribute (or the `np.transpose()` function). For example, if `M` is a matrix, then you can compute its transpose using `M.T`.
 
 
 ```python
-A = np.array([[5, 2, 9],
+M = np.array([[5, 2, 9],
               [6, 1, 0]])
 
-print('A\n', A)
-print('A.T\n', A.T)
+print('M\n', M)
+print('\nTranspose of M (M.T)\n', M.T) 
+
 
 B = np.arange(9).reshape((3, 3))
 
-print('B\n', B)
-print('B.T\n', B.T)
+print('\nB\n', B)
+print('\nB.T', B.T)
 ```
 
-    A
+    M
      [[5 2 9]
      [6 1 0]]
-    A.T
+
+    Transpose of M (M.T)
      [[5 6]
      [2 1]
      [9 0]]
+
     B
      [[0 1 2]
      [3 4 5]
      [6 7 8]]
+
     B.T
      [[0 3 6]
      [1 4 7]
      [2 5 8]]
 
 
-Note that taking the transpose of a 1D array has **NO** effect.
+Note that in NumPy, taking the transpose of a one-dimensional (1D) array has **NO** effect. 
+
+This is because a 1D array does not have rows and columns—it is just a list of numbers with shape `(n,)`. Since there is no distinction between rows and columns, NumPy cannot swap them, so the transpose looks exactly the same.
 
 
 ```python
 a = np.ones(3)
-print('A:\n', a)
-print('Shape of A:\n', a.shape)
-print('A.T:\n', a.T)
-print('Shape of A.T:\n', a.T.shape)
+print('a:', a)
+print('Shape of a:', a.shape)
+print('\na.T:', a.T)
+print('Shape of a.T:', a.T.shape)
 ```
 
-    A:
+    a:
      [1. 1. 1.]
-    Shape of A:
-     (3,)
+    Shape of a: (3,1)
+     
     A.T:
      [1. 1. 1.]
-    Shape of A.T:
-     (3,)
+    Shape of a.T: (3,1)
+     
 
 
-But it does work if you have a 2D array of shape $(d, 1)$
+However, if you use a 2D array with shape $(d, 1)$ (a column vector), then transposing does change its shape and structure.
+
+In this case:
+
+- The original array has shape $(d, 1)$ → a column vector
+- Its transpose will have shape $(1, d)$ → a row vector
 
 
 
 ```python
 a = np.ones((3,1))
-print('A:\n', a)
-print('Shape of A:\n', a.shape)
-print('A.T:\n', a.T)
-print('Shape of A.T:\n', a.T.shape)
+print('a:\n', a)
+print('Shape of a:', a.shape)
+
+print('\na.T:\n', a.T)
+print('Shape of a.T:', a.T.shape)
 ```
 
-    A:
+    a:
      [[1.]
      [1.]
      [1.]]
-    Shape of A:
-     (3, 1)
-    A.T:
+    Shape of a: (3, 1)
+     
+    a.T:
      [[1. 1. 1.]]
-    Shape of A.T:
-     (1, 3)
+    Shape of A.T: (1, 3)
+     
 
 
 ### Dot Product and Matrix Product
