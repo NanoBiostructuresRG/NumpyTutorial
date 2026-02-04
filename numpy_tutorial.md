@@ -1106,27 +1106,37 @@ print('Shape of a.T:', a.T.shape)
 
 
 ### Dot Product and Matrix Product
+In linear algebra, we often need to **combine vectors and matrices using multiplication**. Two of the most common operations are the **dot product** and the **matrix product**.
 
-You can compute the dot product of two vectors or the matrix product between two matrices using [np.dot()](https://numpy.org/doc/stable/reference/generated/numpy.dot.html) or the `@` operator. Going forward, we shall only be using the `@` operator.
+- The dot product takes two vectors and produces a single number (a **scalar**).
+- The matrix product combines matrices (or a matrix and a vector) to produce a **new vector or matrix**.
+
+In NumPy, you can compute these using
+- `np.dot(A, B)`
+- Or the `@` operator
+
+Both do the same thing, but the `@` operator is shorter, cleaner, and closer to mathematical notation. So, from now on, we will use only the `@` operator.
+
+You can revise the documentation of [np.dot()](https://numpy.org/doc/stable/reference/generated/numpy.dot.html) for more details.
 
 
 ```python
 x = np.array([1, 2, 3])
 y = np.array([4, 5, 6])
-print('x:\n', x)
-print('y:\n', y)
-print('np.dot(x, y):\n', np.dot(x, y))
-print('x @ y:\n', x @ y)
+
+print('x:', x)
+print('y:', y)
+
+print('\nnp.dot(x, y):', np.dot(x, y))
+print('x @ y:', x @ y)
 ```
 
-    x:
-     [1 2 3]
-    y:
-     [4 5 6]
-    np.dot(x, y):
-     32
-    x @ y:
-     32
+    x: [1 2 3]
+    y: [4 5 6]
+
+    np.dot(x, y): 32
+    x @ y: 32
+    
 
 
 You can use this operator to compute matrix-matrix and matrix-vector product as well.
