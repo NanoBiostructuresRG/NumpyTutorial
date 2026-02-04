@@ -2320,5 +2320,5 @@ v.1.0.0 - February 2026. Monterrey, Mexico
 ---
 
 ## License
-This project is licensed under the terms of the [MIT License](https://github.com/NanoBiostructuresRG/spaacy-abstract-validator/blob/main/LICENSE).  
+This project is licensed under the terms of the [MIT License](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE).  
 See the LICENSE file for full details.
