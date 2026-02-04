@@ -2117,7 +2117,7 @@ This makes `np.testing.assert_allclose()` especially useful for:
 
 ---
 
-In the next exercise, you are given a function that **attempts** to compute the inverse of a \(2 \times 2\) matrix. However, this function is **incorrect**.
+In the next exercise, you are given a function that **attempts** to compute the inverse of a $\(2 \times 2\)$ matrix. However, this function is **incorrect**.
 
 
 
@@ -2156,7 +2156,7 @@ Try to think of **another test case** where the current implementation should fa
 A = np.array([
 
     # Add your own test matrix here
-    
+
 ])
 ```
 
@@ -2166,11 +2166,18 @@ A = np.array([
 
 # PART 3. Debugging Your Code
 
-While you are working through the rest of the labs of this course, you shall come across many situations where your code shall not work correctly. You are not alone if this happens to you. Debugging your code can be a difficult and daunting task, so in this last section, we shall give you some practical guidelines to assist you in debugging your code.
+As you work through the rest of the sections in this notebook, you will inevitably encounter situations where your code does **not** work as expected. This is completely normal—and it happens to everyone, even experienced programmers.
+
+Debugging can sometimes feel difficult or frustrating, especially when you do not immediately understand what went wrong. In this final part of the notebook, we will introduce some **practical guidelines and strategies** to help you find and fix bugs in your code more effectively.
+
+The goal is not only to solve the current exercises, but also to help you become more **confident and systematic** when debugging your own programs in the future.
+
 
 ## Dimension Errors in Matrix Multiplication
 
-This is one of the most frequent errors that you shall face. Let us first see the error message that Numpy prints if you try to multiply two matrices of incompatible dimensions.
+One of the most common mistakes when working with NumPy and linear algebra is trying to multiply arrays whose **dimensions are not compatible**.
+
+Let’s first look at what happens when we try to multiply two matrices with incompatible shapes:
 
 
 ```python
@@ -2178,7 +2185,6 @@ A = np.zeros((3, 2))
 B = np.zeros((4, 5))
 print(A @ B)
 ```
-
 
     ---------------------------------------------------------------------------
 
@@ -2193,34 +2199,69 @@ print(A @ B)
     ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 4 is different from 2)
 
 
-That was a mouthful! However, in this course, we shall only be performing operations on arrays that have atmost a dimension of 2, which considerably simplifies things.
+That error message looks complicated, but for our purposes we only need to focus on the key part:
 
-The only important line in the error message is: `size 4 is different from 2`. This says that the 0th dimension of $B$ is 4 whereas the 1th dimension of $A$ is 2, and hence they are incompatible for matrix multiplication.
+```python
+size 4 is different from 2
 
-One way to debug this is to print the dimensions of all the matrices before and after each matrix multiplication and track them, because a previous error which unfortunately passed dimension checks might be causing the problems here.
+```
 
-Errors can also take place when you try to multiply two one dimensional arrays together or try to multiply a one dimensional array with a two dimensional array.
+This tells us that:
+- `A` has shape (3, 2) → it has **2 columns**
+- `B` has shape (4, 5) → it has **4 rows**
+
+For matrix multiplication `A @ B` to work, the number of columns of `A` must match the number of rows of `B`.
+
+Here, `2 ≠ 4`, so the multiplication is not defined, and NumPy raises an error.
+
+A simple and effective strategy is to print the shapes of your arrays before and after each matrix multiplication and check that they are compatible:
+
+```python
+print(A.shape)
+print(B.shape)
+
+```
+
+
+### Exercise 8: Practicing Code Debugging
 
 We would advice you to use [np.outer()](https://numpy.org/doc/stable/reference/generated/numpy.outer.html) and [np.inner()](https://numpy.org/doc/stable/reference/generated/numpy.outer.html) when computing the dot product of 1D arrays. If $X$ is a vector (represented as a 1D array in this course), then `np.inner(X, X)` calculates $X^T \cdot X$ (the regular dot product) and `np.outer(X, X)` computes $X \cdot X^T$.
 
 If you are performing matrix multiplication between a 2D array and a 1D array, we would advise you to first reshape the 1D array into a 2D array of shape $(d, 1)$.
 
-### Practicing Code Debugging
+---
 
-In this question, we were trying to find the sum of the maximum element of each row in a 2D array, but we have unfortunately made a bug. Can you fix it so that our tests pass?
+### Exercise 8: Practicing Code Debugging
 
+In this exercise, you will practice **debugging NumPy code** and using **tests** to verify that your implementation is correct. The goal is not only to fix the code, but also to **understand why it was wrong** and how to reason about array shapes and operations.
+
+Before starting, keep in mind the following useful NumPy functions:
+
+- [`np.inner()`](https://numpy.org/doc/stable/reference/generated/numpy.inner.html): computes the dot product of two 1D arrays.  
+  If `X` is a vector (represented as a 1D array in this course), then `np.inner(X, X)` computes \( X^T X \), the usual dot product.
+- [`np.outer()`](https://numpy.org/doc/stable/reference/generated/numpy.outer.html): computes the outer product.  
+  For a vector `X`, `np.outer(X, X)` computes \( X X^T \).
+- When multiplying a **2D array** by a **1D array**, it is often helpful to first reshape the 1D array into a **column vector** with shape `(d, 1)`.
+
+
+
+The function below is intended to compute the **sum of the maximum element of each row** of a 2D NumPy array. However, there is a **bug** in the implementation.
+
+Your task is to **find and fix the bug** so that the function passes the provided tests.
 
 ```python
+import numpy as np
+
 def sum_of_max(A):
     """
-    Computes the sum of the maximum element of each row of A
+    Computes the sum of the maximum element of each row of A.
 
-    A must be a 2D Numpy array
+    A must be a 2D NumPy array.
     """
-
     return np.sum(np.max(A, axis=1))
 ```
 
+The following tests describe the expected behavior of the function. After you fix the implementation, both tests should pass.
 
 ```python
 A = np.array([[1, 2],
@@ -2230,9 +2271,30 @@ np.testing.assert_allclose(sum_of_max(A), 6)
 A = np.array([[24, 69, 83],
               [74, 14, 27]])
 np.testing.assert_allclose(sum_of_max(A), 157)
+
+
 ```
+
+
 
 ---
 
+# Wrap-Up and Next Steps
+Congratulations on making it to the end of this notebook!  
+This was a long and demanding journey, and completing it is a great achievement.
 
-Congratulations on making it to the end of this really long notebook. I hope you should feel more comfortable using NumPy and more confident in writing, testing, and debugging your own Python code.
+By now, you should feel more comfortable working with **NumPy arrays**, performing **basic linear algebra operations**, and writing **cleaner, more reliable code** using **tests and assertions**. You have also practiced **debugging strategies** that will help you identify and fix problems more systematically in your future projects.
+
+Remember that learning programming and numerical computing is a **gradual process**. You do not need to memorize everything—what matters most is that you now know:
+- How to explore and use the documentation  
+- How to test your code  
+- How to debug problems when things go wrong  
+
+As a next step, you are encouraged to:
+- Revisit the exercises and try to solve them again without looking at your previous solutions  
+- Modify the examples and see how the behavior changes  
+- Apply these tools to your own projects or to more advanced topics such as data analysis, machine learning, or scientific computing  
+
+Keep experimenting, keep breaking things (on purpose!), and keep learning. That’s how you really become confident with NumPy and Python.
+
+
