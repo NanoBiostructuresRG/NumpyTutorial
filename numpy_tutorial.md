@@ -1,4 +1,29 @@
-# Introduction to NumPy
+# INTRO
+This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners who want to learn how to work with arrays, perform basic linear algebra operations, and write more reliable code.
+
+The notebook is divided into three main parts:
+- **Part 1**: Introduction to NumPy
+You will learn how to create and manipulate NumPy arrays, and how to use them for tasks such as vector and matrix operations, linear algebra, and polynomial multiplication.
+
+- **Part 2**: Introduction to Assert Statements and Testing
+You will learn how to use assert statements to test your code, check that your functions work as expected, and catch errors early.
+
+- **Part 3**: Debugging Your Code
+You will learn basic strategies for finding and fixing bugs in your programs, and how to use error messages and test cases to improve your code.
+
+### How to use this notebook
+This notebook is designed to be completed in approximately 3 to 5 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
+
+You are encouraged to work through the notebook step by step, in order. Read the explanations, run the code cells, and try to modify the examples to see what happens. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions.
+
+If you get stuck, use the testing and debugging sections to help you understand what went wrong rather than skipping ahead. The goal is not just to finish the notebook, but to build confidence in using NumPy and in writing, testing, and debugging your own Python code.
+
+This notebook is organized around a series of **hands-on exercises** designed to help you learn by doing. Throughout the notebook, you will be asked to implement functions, test your code, and debug errors using the concepts introduced in each section.
+
+You are expected to **solve these exercises yourself** by writing Python and NumPy code. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
+
+
+# PART 1. Introduction to NumPy
 
 NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem.
 
@@ -1839,79 +1864,80 @@ There are multiple ways to implement polynomial multiplication. If your approach
 ```python
 def multiply(A, B):
     """
-    Multiplies two polynomials
+    Multiplies two polynomials represented by their coefficient arrays.
 
-    Arguments:
-    A: Coefficients of the first polynomial
-    B: Coefficients of the second polynomial
+    Parameters
+    ----------
+    A : np.ndarray
+        Coefficients of the first polynomial.
+    B : np.ndarray
+        Coefficients of the second polynomial.
 
-    Returns:
-    C: The coefficients of A*B
+    Returns
+    -------
+    C : np.ndarray
+        Coefficients of the product polynomial A * B.
     """
 
     ### BEGIN SOLUTION
 
-    # Find the coefficients of both the polynomials
-    na = len(A)
-    nb = len(B)
+    # Step 1. Find the number of coefficients of both polynomials
+    na = None
+    nb = None
 
-    # Pad the smaller array with 0s
-    if na < nb:
-        A = np.pad(A, (0, nb - na), 'constant')
-        n = nb
+    # Step 2. Pad the smaller array with zeros so A and B have the same length
+    if False:
+        pass
     else:
-        B = np.pad(B, (0, na - nb), 'constant')
-        n = na
+        pass
 
-    # Initialize the output array with 0s
-    C = np.zeros(2 * n - 1, dtype=A.dtype)
+    # Step 3. Initialize the output array with zeros
+    C = None
 
-    # Perform the multiplication
+    # Step 4. Perform the multiplication
     # You might want to break the loop over i into two separate phases
-    for i in range(2 * n - 1):
-        j_start = max(0, i - n + 1)
-        j_end = min(i, n - 1) + 1
-        
-        j_indices = np.arange(j_start, j_end)
-        k_indices = i - j_indices
-        
-        C[i] = np.dot(A[j_indices], B[k_indices])
+    pass
 
-    # Remove any extra 0s from the back of C
-    nonzero_indices = np.where(C != 0)[0]
-    if len(nonzero_indices) > 0:
-        last_nonzero = nonzero_indices[-1]
-        C = C[:last_nonzero + 1]
-    else:
-        C = np.array([0.0])
+    # Step 5. Remove any extra zeros from the end of C
+    pass
 
     ### END SOLUTION
 
     return C
+
 ```
+
+Verify your solutions `C` for this exercise by computing the expected values for the following arrays.
 
 
 ```python
+# Test case 1
 A = np.array([1, 2])
 B = np.array([3, 4])
 C_exp = np.array([3, 10, 8])
-np.testing.assert_allclose(multiply(A, B), C_exp, rtol=1e-5, atol=1e-10)
 
+C = multiply(A, B)
+print("Test 1 result:   ", C)
+print("Test 1 expected: ", C_exp)
+print("Test 1 correct?  ", np.allclose(C, C_exp))
+
+print()
+
+
+#Test case 2
 A = np.array([5, 6])
 B = np.array([1, 3, 5, 9])
 C_exp = np.array([5, 21, 43, 75, 54])
-np.testing.assert_allclose(multiply(A, B), C_exp, rtol=1e-5, atol=1e-10)
-np.testing.assert_allclose(multiply(B, A), C_exp, rtol=1e-5, atol=1e-10)
 
-print("All tests passed!")
+C = multiply(A, B)
+print("Test 2 result:   ", C)
+print("Test 2 expected: ", C_exp)
+print("Test 2 correct?  ", np.allclose(C, C_exp))
 ```
 
-    All tests passed!
 
 
-If you could successfully implement this function using a single for loop, well done!
-
-# Introduction to Assert Statements and Testing
+# PART 2. Introduction to Assert Statements and Testing
 
 An [assert](w3schools.com/python/ref_keyword_assert.asp) statement lets you check if a condition in your program evaluates to true.
 
@@ -2045,7 +2071,7 @@ np.testing.assert_allclose(inverse(A) @ A, np.eye(2), rtol=1e-5, atol=1e-10)
 # Add another test here
 ```
 
-# Debugging Your Code
+# PART 3. Debugging Your Code
 
 While you are working through the rest of the labs of this course, you shall come across many situations where your code shall not work correctly. You are not alone if this happens to you. Debugging your code can be a difficult and daunting task, so in this last section, we shall give you some practical guidelines to assist you in debugging your code.
 
@@ -2113,4 +2139,4 @@ A = np.array([[24, 69, 83],
 np.testing.assert_allclose(sum_of_max(A), 157)
 ```
 
-Congratulations on making it to the end of this really long notebook! Now you are in a good place to proceed with the remaining labs of this course.
+Congratulations on making it to the end of this really long notebook. I hope you should feel more comfortable using NumPy and more confident in writing, testing, and debugging your own Python code.
