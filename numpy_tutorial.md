@@ -119,6 +119,20 @@ print(b)
 > **Note:** For 2-dimensional Numpy arrays, all rows must have the same number of elements.
 
 
+
+```python
+def length(x):
+  """Compute the length of a vector"""
+  length_x = np.sqrt(np.dot(x, x))  # using the relationship: ||x|| = sqrt(x·x)
+  
+  return length_x
+  
+print(length(np.array([1,0])))
+```
+
+    1.0
+
+
 NumPy arrays can be created from both Python **lists** and **tuples**. A list `[1, 2, 3]` and a tuple `(1, 2, 3)` differ in Python because lists can be modified while tuples cannot. For instance, a **list** can be a shopping list, a to-do list of tasks, the name of students in a class, books you plan to read in this year. On the other hand, examples of **tuples** can be the days of the week, the months of the year, the coordinates of a point (x,y,z), a person's date of birth (day, month, year), the dimension of a rectange (width, height).
 
 
