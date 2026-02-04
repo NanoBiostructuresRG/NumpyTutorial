@@ -2,14 +2,18 @@
 This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners who want to learn how to work with arrays, perform basic linear algebra operations, and write more reliable code.
 
 The notebook is divided into three main parts:
-- **Part 1**: Introduction to NumPy
+- **Part 1**: Introduction to NumPy.
+
 You will learn how to create and manipulate NumPy arrays, and how to use them for tasks such as vector and matrix operations, linear algebra, and polynomial multiplication.
 
-- **Part 2**: Introduction to Assert Statements and Testing
+- **Part 2**: Introduction to Assert Statements and Testing.
+
 You will learn how to use assert statements to test your code, check that your functions work as expected, and catch errors early.
 
-- **Part 3**: Debugging Your Code
+- **Part 3**: Debugging Your Code.
+
 You will learn basic strategies for finding and fixing bugs in your programs, and how to use error messages and test cases to improve your code.
+
 
 ### How to use this notebook
 This notebook is designed to be completed in approximately 3 to 5 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
@@ -21,6 +25,8 @@ If you get stuck, use the testing and debugging sections to help you understand 
 This notebook is organized around a series of **hands-on exercises** designed to help you learn by doing. Throughout the notebook, you will be asked to implement functions, test your code, and debug errors using the concepts introduced in each section.
 
 You are expected to **solve these exercises yourself** by writing Python and NumPy code. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
+
+---
 
 
 # PART 1. Introduction to NumPy
