@@ -1234,21 +1234,20 @@ print("B:\n", B)
 print("\nA * B (element-wise multiplication):\n", A * B)
 print("\nA @ B (matrix multiplication):\n", A @ B)
 ```
+    A:
+     [[1 2]
+     [3 4]]
+    B:
+     [[5 6]
+     [7 8]]
 
-A:
- [[1 2]
-  [3 4]]
-B:
- [[5 6]
-  [7 8]]
+    A * B (element-wise multiplication):
+     [[ 5 12]
+     [21 32]]
 
-A * B (element-wise multiplication):
- [[ 5 12]
-  [21 32]]
-
-A @ B (matrix multiplication):
- [[19 22]
-  [43 50]]
+    A @ B (matrix multiplication):
+     [[19 22]
+     [43 50]]
 
 
 ### The Linalg Library of Numpy
