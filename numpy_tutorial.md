@@ -948,10 +948,10 @@ def normalize(x):
     ### BEGIN SOLUTION
 
     # Step 1.   Calculate the mean of all columns
-    mean = np.mean(x, axis=0, keepdims=True)
+    mean = None     # Replace the None with the required expression for mean
 
     # Setep 2.  Calculate the standard deviation all columns
-    sigma = np.std(x, axis=0, keepdims=True)
+    sigma = None    # Replace the None with the required expression for sigma
 
     # Step 3.   Compute the final answer
     c = (x - mean) / sigma
@@ -961,6 +961,7 @@ def normalize(x):
     return c
 ```
 
+Verify your solutions `c` for this exercise by computing the expected values for the following arrays.
 
 ```python
 x = np.array([[1, 4],
