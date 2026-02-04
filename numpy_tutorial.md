@@ -694,6 +694,34 @@ In this example, `(0, 1)` means:
 This way, `np.pad()` allows us to extend an array with zeros (or other values) to make its size match another array. This is useful in polynomial multiplication when the two coefficient arrays do not have the same length.
 
 
+Additionally, it is useful to **reverse the order** of elements in a NumPy array. For example, you may want to turn:
+
+```python
+[1, 2, 3, 4]
+```
+
+into:
+```python
+[4, 3, 1, 1]
+``` 
+
+NumPy provides the function `np.flip()` to do exactly this. Here is a simple example:
+
+```python
+A = np.array([1, 2, 3, 4])
+
+A_reversed = np.flip(A)
+
+print("Original array:", A)
+print("Reversed array:", A_reversed)
+```
+
+    Original array: [1 2 3 4]
+    Reversed array: [4 3 2 1]
+
+
+So, `np.flip(A)` returns a new array with the same elements as A but in reverse order. This function is useful in polynomial multiplication because reversing one of the coefficient arrays can help align terms correctly when computing the sums of products.
+
 
 ### Broadcasting
 
