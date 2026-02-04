@@ -1138,8 +1138,12 @@ print('x @ y:', x @ y)
     x @ y: 32
     
 
+You can also use the `@` operator to compute the matrix product between two matrices or between a matrix and a vector (written as a column vector).
 
-You can use this operator to compute matrix-matrix and matrix-vector product as well.
+In both cases, the dimensions must be compatible:
+- For `A @ B`, the number of columns of `A` must match the number of rows of `B`.
+- For `A @ v`, the number of columns of `A` must match the size of the vector `v`.
+
 
 
 ```python
@@ -1149,13 +1153,13 @@ A = np.array([[2, 0, 1],
 
 B = np.arange(6).reshape(3, 2)
 
-C = np.array([3, 2, 8]).reshape((-1, 1))
+C = np.array([3, 2, 8]).reshape((-1, 1))   # column vector
 
 print('A:\n', A)
 print('B:\n', B)
 print('A @ B:\n', A @ B)
 
-print('A:\n', A)
+print('\nA:\n', A)
 print('C:\n', C)
 print('A @ C:\n', A @ C)
 ```
@@ -1172,6 +1176,7 @@ print('A @ C:\n', A @ C)
      [[ 4  7]
      [22 30]
      [ 8 11]]
+    
     A:
      [[2 0 1]
      [1 3 4]
@@ -1202,15 +1207,48 @@ print(B @ A)
 
     ---------------------------------------------------------------------------
 
-    ValueError                                Traceback (most recent call last)
-
-    <ipython-input-48-6f43b78721c1> in <module>
-          1 print(B.shape)
-          2 print(A.shape)
-    ----> 3 print(B @ A)
-    
+    ValueError                                Traceback (most recent call last)    
 
     ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 3 is different from 2)
+
+
+
+Lastly, remember that in NumPy, the operators `*` and `@` do not mean the same thing:
+-   `*` performs element-wise multiplication
+    → Each element is multiplied by the element in the same position.
+-   `@` performs matrix multiplication (linear algebra product)
+    → Rows of the first matrix are combined with columns of the second matrix.
+
+This is a very common source of confusion for beginners, so it’s important to keep the difference in mind.
+
+```python
+A = np.array([[1, 2],
+              [3, 4]])
+
+B = np.array([[5, 6],
+              [7, 8]])
+
+print("A:\n", A)
+print("B:\n", B)
+
+print("\nA * B (element-wise multiplication):\n", A * B)
+print("\nA @ B (matrix multiplication):\n", A @ B)
+```
+
+A:
+ [[1 2]
+  [3 4]]
+B:
+ [[5 6]
+  [7 8]]
+
+A * B (element-wise multiplication):
+ [[ 5 12]
+  [21 32]]
+
+A @ B (matrix multiplication):
+ [[19 22]
+  [43 50]]
 
 
 ### The Linalg Library of Numpy
