@@ -90,6 +90,23 @@ print(b)
 
 The outputs are the printed representation of NumPy arrays.
 
+In NumPy, every array has a data type, called `dtype`, which tells NumPy what kind of numbers the array stores.
+
+```python
+a = np.array([1, 2, 3])
+b = np.array([1.0, 2.0, 3.0])
+
+print("Type of array in a:", a.dtype)
+print("Type of array in b:", b.dtype)
+
+```
+    Type of array in a: int64
+
+    Type of array: float64
+
+
+> **Note:** NumPy arrays have a `dtype` attribute that controls the type of numbers they store (int, float, complex, etc.). In more advanced code, you may want to match the data type of different arrays explicitly.
+
 
 ## Shape of Numpy Arrays
 The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use the function [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to obtain the shape of a Numpy array.
