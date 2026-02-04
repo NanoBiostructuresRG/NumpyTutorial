@@ -1447,20 +1447,20 @@ where $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T A \mathbf{y}$.
 In this exercise, compute the angle between
 
 $$
-\mathbf{x} = \begin{bmatrix}1\\1\end{bmatrix}
+\mathbf{x} = \begin{bmatrix}1\\\\1\end{bmatrix}
 $$
 
 and
 
 $$
-\mathbf{y} = \begin{bmatrix}1\\-1\end{bmatrix}
+\mathbf{y} = \begin{bmatrix}1\\\\-1\end{bmatrix}
 $$
 
 using the inner product defined by
 
 $$
 \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T 
-\begin{bmatrix}1 & 0\\0 & 5\end{bmatrix} 
+\begin{bmatrix}1 & 0\\\\0 & 5\end{bmatrix} 
 \mathbf{y}
 $$
 
