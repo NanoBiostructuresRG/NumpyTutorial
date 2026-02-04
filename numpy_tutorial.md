@@ -1373,9 +1373,69 @@ print("\nEigenvectors (columns):\n", eigenvectors)
      [ 0.70710678  0.70710678]]
 
 
+So far, we have seen how to compute eigenvalues and eigenvectors using `np.linalg.eig()`. But what do these results actually mean? 
+
+By definition, if `v` is an eigenvector of a matrix `A` with eigenvalue `λ`, then multiplying the matrix by this vector does not change its direction—it only scales it:
+
+\[
+A @ v = \lambda \, v
+\]
 
 
-You shall now apply all the concepts that you have learned in the next sections.
+In the following example, we will take one of the eigenvalues and eigenvectors returned by NumPy and verify this property step by step using simple matrix and vector operations.
+
+
+```python
+A = np.array([[2, 1],
+              [1, 2]])
+
+# Compute eigenvalues and eigenvectors
+eigenvalues, eigenvectors = np.linalg.eig(A)
+
+print("A:\n", A)
+print("\nEigenvalues:\n", eigenvalues)
+print("\nEigenvectors (columns):\n", eigenvectors)
+
+# Take the first eigenvalue and eigenvector
+lambda_0 = eigenvalues[0]
+v_0 = eigenvectors[:, 0]
+
+print("\nFirst eigenvalue (lambda):", lambda_0)
+print("First eigenvector (v):\n", v_0)
+
+# Compute both sides of A @ v = lambda * v
+left = A @ v_0
+right = lambda_0 * v_0
+
+print("\nA @ v:\n", left)
+print("\nlambda * v:\n", right)
+```
+
+    A:
+     [[2 1]
+     [1 2]]
+
+    Eigenvalues:
+     [3. 1.]
+
+    Eigenvectors (columns):
+     [[ 0.70710678 -0.70710678]
+     [ 0.70710678  0.70710678]]
+
+    First eigenvalue (lambda): 3.0
+     First eigenvector (v):
+     [0.70710678 0.70710678]
+
+    A @ v:
+     [2.12132034 2.12132034]
+
+    lambda * v:
+     [2.12132034 2.12132034]
+
+
+> **Note:** An **eigenvector** keeps its direction when multiplied by the matrix, while the **eigenvalue** tells you how much it is stretched or shrunk
+
+
 
 
 ### Exercise 4: Diagonalizing a Matrix
