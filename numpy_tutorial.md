@@ -1436,6 +1436,97 @@ print("\nlambda * v:\n", right)
 > **Note:** An **eigenvector** keeps its direction when multiplied by the matrix, while the **eigenvalue** tells you how much it is stretched or shrunk
 
 
+## Sorting eigenvalues and reordering eigenvectors
+Suppose that we want the eigenvalues in the diagonal matrix `D` to appear in **non-decreasing order**. However, `np.linalg.eig(A)` does **not** guarantee any particular order for the eigenvalues. Therefore, we need to **sort them manually**.
+
+
+```python
+eig_vals = np.array([6, -1])
+```
+
+The function `np.argsort(eig_vals)` does **not** sort the values directly. Instead, it returns the **indices** that would sort the array.
+
+```python
+eig_vals = np.array([6, -1])
+idx = np.argsort(eig_vals)
+print(idx)
+```
+    [1 0]
+
+
+This means:
+- The smallest value is at index `1` (which is `-1`)
+- The next value is at index `0` (which is `6`)
+
+So `idx` tells us the order of indices that sorts `eig_vals`.
+
+
+NumPy also allows indexing an array using another array of indices. This is often called **fancy indexing**.
+
+```python
+eig_vals = np.array([6, -1])
+idx = np.array([1, 0])
+
+eig_vals_sorted = eig_vals[idx]
+print(eig_vals_sorted)
+```
+
+    [-1  6]
+
+So the line `eig_vals = eig_vals[idx]` means "reorder `eig_vals` using the index order stored in `idx`.
+
+Recall that `S` is a matrix whose **columns are eigenvectors**, and each column corresponds to one eigenvalue in `eig_vals`.
+
+If we reorder the eigenvalues, we must also reorder the columns of `S` in the same way, so that each eigenvector still matches its eigenvalue.
+
+The syntax:
+
+```python
+S[:, idx]
+```
+
+means:
+- : → take all rows
+- idx → take only the columns in the order given by idx
+
+So the line `S = S[:, idx]` means "reorder the columns of `S` using the same index order used to sort the eigenvalues."
+
+We can writte down all the lines together,
+
+```python
+idx = np.argsort(eig_vals)
+eig_vals = eig_vals[idx]
+S = S[:, idx]
+```
+
+that indicates 
+- Compute the index order that sorts the eigenvalues
+- Reorder the eigenvalues using that order
+- Reorder the columns of `S` in the same way, so each eigenvector still corresponds to its eigenvalue
+
+
+> **Note:** Remember that the function `np.linalg.eig()` does not guarantee sorted eigenvalues. 
+
+
+When we say that eigenvalues should be in **non-decreasing order**, we mean they should be ordered from **smallest to largest** (allowing equal values if any). For example, suppose a matrix has the following eigenvalues (as returned by NumPy, in arbitrary order):
+
+```python
+eig_vals = np.array([6, -1, 3, 3])
+print(eig_vals)
+```
+    [ 6 -1  3  3 ]
+
+These eigenvalues are not sorted. To **sort** them in **non-decreasing order**, we can do:
+
+```python
+idx = np.argsort(eig_vals)
+eig_vals_sorted = eig_vals[idx]
+
+print("Sorted eigenvalues:", eig_vals_sorted)
+```
+
+    Sorted eigenvalues: [-1  3  3  6]
+
 
 
 ### Exercise 4: Diagonalizing a Matrix
@@ -1545,31 +1636,37 @@ Verify your solutions `S`, `D`, `S_inv` for this exercise by computing the expec
 A = np.array([[1, 5],
               [2, 4]])
 
-S_exp = np.array([[-0.92847669, -0.70710678],
-                  [ 0.37139068, -0.70710678]])
-D_exp = np.array([[-1, 0],
-                  [0, 6]])
-S_inv_exp = np.array([[-0.76930926,  0.76930926],
-                      [-0.40406102, -1.01015254]])
+S, D, S_inv = diagonalize(A)
 
+print("A:\n", A)
+print("\nS:\n", S)
+print("\nD:\n", D)
+print("\nS_inv:\n", S_inv)
 
-A = np.array([[4, -9, 6, 12],
-              [0, -1, 4, 6],
+print("\nReconstructed A (S @ D @ S_inv):\n", S @ D @ S_inv)
+print("\nAll close?", np.allclose(A, S @ D @ S_inv))
+```
+
+```python
+A = np.array([[4, -9,  6, 12],
+              [0, -1,  4,  6],
               [2, -11, 8, 16],
-              [-1, 3, 0, -1]])
+              [-1, 3,  0, -1]])
 
-S_exp = np.array([[ 5.00000000e-01, -8.01783726e-01,  9.04534034e-01,  3.77964473e-01],
-                  [ 5.00000000e-01, -5.34522484e-01,  3.01511345e-01,  7.55928946e-01],
-                  [-5.00000000e-01,  1.98636631e-14,  3.01511345e-01,  3.77964473e-01],
-                  [ 5.00000000e-01, -2.67261242e-01, -5.03145109e-15,  3.77964473e-01]])
-D_exp = np.array([[1, 0, 0, 0],
-                  [0, 2, 0, 0],
-                  [0, 0, 3, 0],
-                  [0, 0, 0, 4]])
-S_inv_exp = np.array([[ 2.00000000e+00, -1.00000000e+01,  4.00000000e+00,  1.40000000e+01],
-                      [ 3.74165739e+00, -2.24499443e+01,  1.12249722e+01,  2.99332591e+01],
-                      [ 3.31662479e+00, -1.32664992e+01,  6.63324958e+00,  1.65831240e+01],
-                      [ 2.74154909e-15, -2.64575131e+00,  2.64575131e+00,  5.29150262e+00]])
+S, D, S_inv = diagonalize(A)
+
+print("A:\n", A)
+print("\nS:\n", S)
+print("\nD:\n", D)
+print("\nS_inv:\n", S_inv)
+
+# Reconstruct A using the diagonalization
+A_reconstructed = S @ D @ S_inv
+
+print("\nReconstructed A (S @ D @ S_inv):\n", A_reconstructed)
+
+# Check if the reconstruction is correct (up to numerical precision)
+print("\nIs the reconstruction correct? ", np.allclose(A, A_reconstructed))
 ```
 
 
