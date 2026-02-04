@@ -1441,10 +1441,7 @@ print("\nlambda * v:\n", right)
 ### Exercise 4: Diagonalizing a Matrix
 Diagonalization is an important concept in linear algebra that builds directly on **eigenvalues** and **eigenvectors**.
 
-A square matrix `A` is said to be **diagonalizable** if it can be written in the form:
-$$
-A = SDS^{{-1}}
-$$
+A square matrix `A` is said to be **diagonalizable** if it can be written in the form $A = SDS^{{-1}}$,
 
 where:
 - `S` is a matrix whose columns are the eigenvectors of `A`,
@@ -1505,62 +1502,51 @@ $$
 ```python
 def diagonalize(A):
     """
-    Diagonalizes the input matrix A
+    Diagonalizes the input matrix A.
 
-    Arguments:
-    A: A two dimensional Numpy array which is guaranteed to be diagonalizable
+    Parameters:
+    A : np.ndarray
+        A two-dimensional NumPy array which is guaranteed to be diagonalizable.
 
     Returns:
-    S, D, S_inv: As explained above
+    S : np.ndarray
+        Matrix whose columns are the eigenvectors of A.
+    D : np.ndarray
+        Diagonal matrix of eigenvalues.
+    S_inv : np.ndarray
+        Inverse of S.
     """
 
     ### BEGIN SOLUTION
 
-    # Retrieve the number of rows in A
-    n = A.shape[0]
+    # Step 1. Retrieve the number of rows in A
+    n = 0
 
-    # Get the eigenvalues and eigenvectors of A
-    eig_vals, S = np.linalg.eig(A)
-    
-    idx = np.argsort(eig_vals.real)
-    eig_vals = eig_vals[idx]
-    S = S[:, idx]
-    
-    if n == 2:
-        for j in range(n):
-            if S[0, j].real > 0:
-                S[:, j] *= -1
-    
-    else:
-        for j in range(n):
-            lam = eig_vals[j].real
-            if np.isclose(lam, 2.0, atol=1e-8):
-                if S[0, j].real > 0:
-                    S[:, j] *= -1
-            else:
-                if S[0, j].real < 0:
-                    S[:, j] *= -1
-                
-                
-    # Start by initializing D to a matrix of zeros of the appropriate shape
-    D = np.zeros((n, n), dtype=eig_vals.dtype)
-    
-    # Set the diagonal element of D to be the eigenvalues
+    # Step 2. Get the eigenvalues and eigenvectors of A
+    eig_vals, S = None, None
+
+    # Step 3. Start by initializing D to a matrix of zeros of the appropriate shape
+    D = None
+
+    # Step 4. Set the diagonal elements of D to be the eigenvalues
     for i in range(n):
-        D[i, i] = eig_vals[i]
+        pass
 
-    # Compute the inverse of S
-    S_inv = np.linalg.inv(S)
+    # Step 5. Compute the inverse of S
+    S_inv = None
 
     ### END SOLUTION
 
-    return S, D, S_inv
+    return S, D, S_inv                
 ```
+
+Verify your solutions `S`, `D`, `S_inv` for this exercise by computing the expected values for the following `(2x2)` and `(4x4)`arrays.
 
 
 ```python
 A = np.array([[1, 5],
               [2, 4]])
+
 S_exp = np.array([[-0.92847669, -0.70710678],
                   [ 0.37139068, -0.70710678]])
 D_exp = np.array([[-1, 0],
@@ -1569,15 +1555,11 @@ S_inv_exp = np.array([[-0.76930926,  0.76930926],
                       [-0.40406102, -1.01015254]])
 
 
-S, D, S_inv = diagonalize(A)
-np.testing.assert_allclose(S_exp, S, rtol=1e-5, atol=1e-10)
-np.testing.assert_allclose(D_exp, D, rtol=1e-5, atol=1e-10)
-np.testing.assert_allclose(S_inv_exp, S_inv, rtol=1e-5, atol=1e-10)
-
 A = np.array([[4, -9, 6, 12],
               [0, -1, 4, 6],
               [2, -11, 8, 16],
               [-1, 3, 0, -1]])
+
 S_exp = np.array([[ 5.00000000e-01, -8.01783726e-01,  9.04534034e-01,  3.77964473e-01],
                   [ 5.00000000e-01, -5.34522484e-01,  3.01511345e-01,  7.55928946e-01],
                   [-5.00000000e-01,  1.98636631e-14,  3.01511345e-01,  3.77964473e-01],
@@ -1591,22 +1573,14 @@ S_inv_exp = np.array([[ 2.00000000e+00, -1.00000000e+01,  4.00000000e+00,  1.400
                       [ 3.31662479e+00, -1.32664992e+01,  6.63324958e+00,  1.65831240e+01],
                       [ 2.74154909e-15, -2.64575131e+00,  2.64575131e+00,  5.29150262e+00]])
 
-S, D, S_inv = diagonalize(A)
-np.testing.assert_allclose(S_exp, S, rtol=1e-5, atol=1e-10)
-np.testing.assert_allclose(D_exp, D, rtol=1e-5, atol=1e-10)
-np.testing.assert_allclose(S_inv_exp, S_inv, rtol=1e-5, atol=1e-10)
 
 
-"""
-Eigenvectors are not unique: if v is an eigenvector, then −v is also valid. 
-Therefore, comparing the eigenvector matrix S element-wise against a fixed 
-expected matrix (S_exp) is not mathematically correct...!
-"""
 
-print("All tests passed!")
+
 ```
 
-    All tests passed!
+> **Note:** Eigenvectors are not unique: if v is an eigenvector, then −v is also valid. Therefore, comparing the eigenvector matrix S element-wise against a fixed expected matrix (S_exp) is not mathematically correct...!
+
 
 
 Lastly, you will implement a function to carry out polynomial multiplication. Implementing this would require the application of multiple concepts that you have learned till now.
