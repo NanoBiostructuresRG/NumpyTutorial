@@ -1368,6 +1368,37 @@ print('A @ C:\n', A @ C)
      [12]]
 
 
+
+In the next example, we explore how different inner products change the way we measure angles between vectors. The standard Euclidean dot product gives us our usual geometric intuition, but many applications require modified inner products that weigh dimensions differently.
+
+The code below demonstrates this concept by defining an inner product through a symmetric matrix **A**, which acts as a weighting matrix. For vectors **x** and **y** in $\mathbb{R}^2$, the inner product is defined as:
+
+$\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T A \mathbf{y}$
+
+The angle between vectors is then computed using the familiar cosine formula adapted to this new inner product:
+
+$\cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} \cdot \sqrt{\langle \mathbf{y}, \mathbf{y} \rangle}}$
+
+
+```python
+A = np.array([[1, -1/2],[-1/2,5]])      # the matrix A defines the inner product
+x = np.array([0,-1])
+y = np.array([1,1])
+
+def find_angle(A, x, y):
+    """Compute the angle"""
+    inner_prod = x.T @ A @ y
+    norm_x = np.sqrt(x.T @ A @ x)       # the expression for norm_x 
+    norm_y = np.sqrt(y.T @ A @ y)       # the expression for norm_y
+    alpha = inner_prod/(norm_x*norm_y)
+    angle = np.arccos(alpha)
+    return np.round(angle,2) 
+
+print(find_angle(A, x, y))
+```
+    2.69
+
+
 When using the `@` operator for matrix multiplication, the shapes of the matrices must be compatible
 
 Remember the rule:
