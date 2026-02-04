@@ -77,7 +77,7 @@ import numpy as np      # standar NumPy import
 After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. For example, in the next section we will see how to create arrays using the function call `np.array()`. Finally, the resulting array can be stored in a variable by assigning it a name. For example, we can choose `a` to refer to the array in `a = np.array(...)`.
 
 ```python
-import numpy as np      # # Required; omitted in the following exercises 
+import numpy as np      # required; omitted in the following exercises 
 
 x = [1,2,3]             # a Python list with some elements
 a = np.array(x)         # convert the list into a NumPy array and store it as 'a'
