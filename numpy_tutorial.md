@@ -1439,32 +1439,67 @@ print("\nlambda * v:\n", right)
 
 
 ### Exercise 4: Diagonalizing a Matrix
+Diagonalization is an important concept in linear algebra that builds directly on **eigenvalues** and **eigenvectors**.
 
-In this question, you shall be given a square matrix which you need to diagonalize. In particular, you will be given a diagonalizable matrix $A$ and you need to find matrices $S$ and $D$ such that: $$A = SDS^{{-1}}$$
+A square matrix `A` is said to be **diagonalizable** if it can be written in the form:
+$$
+A = SDS^{{-1}}
+$$
 
-Recall that in order to do this, you must first find all the eigenvalues and eigenvectors of $A$. Then, $S$ is the matrix of all the eigenvectors arranged as columns, and $D$ is the matrix of the corresponding eigenvalues arranged along the diagonal.
-
-Suppose $A = 
-\begin{bmatrix}
-1 & 5 \\
-2 & 4 \\
-\end{bmatrix} $
-
-Then, we can calculate $S = 
-\begin{bmatrix}
--2.5 & 1 \\
-1 & 1 \\
-\end{bmatrix} $
-
-And $D = 
-\begin{bmatrix}
--1 & 0 \\
-0 & 6 \\
-\end{bmatrix} $
+where:
+- `S` is a matrix whose columns are the eigenvectors of `A`,
+- `D` is a diagonal matrix containing the corresponding eigenvalues of `A`,
+- `S^{-1}` is the inverse of `S`.
 
 You might find [np.zeros()](https://numpy.org/devdocs/reference/generated/numpy.zeros.html), [np.linalg.eig()](https://numpy.org/devdocs/reference/generated/numpy.linalg.eig.html) and [np.linalg.inv()](https://numpy.org/devdocs/reference/generated/numpy.linalg.inv.html) useful. Note that for this exercise, you may assume that $A$ is always diagonalizable.
 
-For testing purposes, each eigenvector in $S$ must be of unit length. This shall always be the case if you use [np.linalg.eig()](https://numpy.org/devdocs/reference/generated/numpy.linalg.eig.html). However, if you do not use this function, then depending on your implementation, you might have to normalize the eigenvectors. Also, the eigenvalues must appear in non decreasing order.
+For testing purposes:
+- Each eigenvector in $S$ must be of **unit length**. This is automatically satisfied if you use [np.linalg.eig()](https://numpy.org/devdocs/reference/generated/numpy.linalg.eig.html). If you do not, you may need to normalize the eigenvectors yourself. 
+- The eigenvalues in `D` must appear in **non-decreasing order**.
+
+The idea behind diagonalization is to rewrite a matrix in a simpler form (diagonal), which makes many computations easier, such as computing powers of a matrix or understanding how the matrix acts on vectors.
+
+---
+
+
+In this exercise, you need to find matrices $S$ and $D$. Recall that in order to do this, you must first find all the eigenvalues and eigenvectors of $A$. Then, $S$ is the matrix of all the eigenvectors arranged as columns, and $D$ is the matrix of the corresponding eigenvalues arranged along the diagonal.
+
+
+
+Suppose
+
+$$
+A =
+\begin{bmatrix}
+1 & 5 \\
+2 & 4
+\end{bmatrix}
+$$
+
+Then, we can compute
+
+$$
+S =
+\begin{bmatrix}
+-2.5 & 1 \\
+1 & 1
+\end{bmatrix}
+$$
+
+and
+
+$$
+D =
+\begin{bmatrix}
+-1 & 0 \\
+0 & 6
+\end{bmatrix}
+$$
+
+
+
+
+
 
 
 ```python
