@@ -1295,7 +1295,7 @@ print("det(A) =", detA)
 
 We can compute the inverse of a matrix by using [np.linalg.inv()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html). 
 
-The inverse of a matrix `A` is another matrix `A^{-1}` such that `A @ A^{-1} = I`, where `I` is the identity matrix.
+The inverse of a matrix `A` is another matrix $`A^{-1}`$ such that $`A @ A^{-1} = I`$, where `I` is the identity matrix.
 
 
 
@@ -1377,9 +1377,9 @@ So far, we have seen how to compute eigenvalues and eigenvectors using `np.linal
 
 By definition, if `v` is an eigenvector of a matrix `A` with eigenvalue `λ`, then multiplying the matrix by this vector does not change its direction—it only scales it:
 
-\[
-A @ v = \lambda \, v
-\]
+$$
+A @ v = \lambda v
+$$
 
 
 In the following example, we will take one of the eigenvalues and eigenvectors returned by NumPy and verify this property step by step using simple matrix and vector operations.
