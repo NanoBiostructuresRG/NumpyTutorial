@@ -1,5 +1,5 @@
 # INTRO
-This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners who want to learn how to work with arrays, perform basic linear algebra operations, and write more reliable code.
+This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners and for learners with prior experience who want to refresh or strengthen their understanding in how to work with arrays, perform basic linear algebra operations, and write more reliable code.
 
 The notebook is divided into three main parts:
 - **Part 1**: Introduction to NumPy.
@@ -16,16 +16,13 @@ You will learn basic strategies for finding and fixing bugs in your programs, an
 
 
 ### How to use this notebook
-This notebook is designed to be completed in approximately 3 to 5 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
+This notebook is designed to be completed in approximately 5 to 7 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
 
 You are encouraged to work through the notebook step by step, in order. Read the explanations, run the code cells, and try to modify the examples to see what happens. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions.
 
+This notebook is organized around a series of **hands-on exercises** designed to help you learn by doing. You are expected to **solve these exercises yourself** by writing Python and NumPy code. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
+
 If you get stuck, use the testing and debugging sections to help you understand what went wrong rather than skipping ahead. The goal is not just to finish the notebook, but to build confidence in using NumPy and in writing, testing, and debugging your own Python code.
-
-This notebook is organized around a series of **hands-on exercises** designed to help you learn by doing. Throughout the notebook, you will be asked to implement functions, test your code, and debug errors using the concepts introduced in each section.
-
-You are expected to **solve these exercises yourself** by writing Python and NumPy code. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
-
 
 ### Sources and Learning Materials
 
@@ -56,9 +53,7 @@ In linear algebra, **NumPy** offers reliable implementations of matrix operation
 The documentation of **NumPy** is extensively referenced and is available at the official [webpage](https://docs.scipy.org/doc/numpy/index.html).
 
 
-In this notebook, **NumPy** is used as a practical tool to develop and reinforce coding skills related to linear algebra. The material is intended both for beginners, who are learning how to work with arrays and matrices, and for learners with prior experience who want to refresh or strengthen their understanding.
-
-Throughout the notebook, NumPy will be used to practice common linear algebra operations, including matrix manipulation, eigenvalue decomposition, and the numerical verification of algebraic identities.
+In this notebook, **NumPy** is used as a practical tool to develop and reinforce coding skills related to linear algebra. 
 
 
 ## Importing NumPy 
@@ -67,16 +62,16 @@ To work with numerical data in Python, we first import the **NumPy** library. By
 
 
 ```python
-import numpy as np  # standar Numpy import
+import numpy as np      # standar NumPy import
 ```
 
 After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. For example, in the next section we will see how to create arrays using the function call `np.array()`. Finally, the resulting array can be stored in a variable by assigning it a name. For example, we can choose `a` to refer to the array in `a = np.array(...)`.
 
 ```python
-import numpy as np
+import numpy as np      # # Required; omitted in the following exercises 
 
-x = [1,2,3]         # a Python list with some elements
-a = np.array(x)     # convert the list into a NumPy array and store it as 'a'
+x = [1,2,3]             # a Python list with some elements
+a = np.array(x)         # convert the list into a NumPy array and store it as 'a'
 
 ```
 
@@ -90,7 +85,7 @@ New arrays can be created in several ways. One simple method is to start from a 
 
 
 ```python
-a = np.array([1,2,3]) # This is a one dimensional array
+a = np.array([1,2,3])   # This is a one-dimensional array
 print(a)
 ```
 
@@ -101,7 +96,7 @@ print(a)
 
 
 ```python
-b = np.array([[1, 2, 3],  # This is a two dimensional array
+b = np.array([[1, 2, 3],    # This is a two-dimensional array
               [4, 5, 6],
               [7, 8, 9]])
 print(b)
@@ -512,7 +507,7 @@ print(a[:, 3].reshape(-1, 1))
      [15]]
 
 
-A built-in Python function used to generate a sequence of numbers is `range()`. It is most commonly used when we want to repeat an action a certain number of times, especially in loops.
+A built-in Python function used to generate a sequence of numbers is [range()](https://docs.python.org/3/library/stdtypes.html#typesseq-range). It is most commonly used when we want to repeat an action a certain number of times, especially in loops.
 
 The number produced by `range()` start at **0** by default, increase by **1**, and stop **before** the final number. 
 
@@ -879,6 +874,8 @@ In this exercise, you will use NumPy broadcasting to apply the **sigmoid functio
 
 
 ```python
+import numpy as np
+
 def sigmoid(x):
     """
     Computes the sigmoid of x
@@ -1052,6 +1049,8 @@ NumPy functions make use of a technique called vectorization which make them muc
 
 
 ```python
+import numpy as np
+
 def normalize(x):
     """
     Normalize all the columns of x
@@ -1709,6 +1708,8 @@ Note that this is just one valid diagonalization. NumPy will typically return no
 
 
 ```python
+import numpy as np
+
 def diagonalize(A):
     """
     Diagonalizes the input matrix A.
@@ -1884,6 +1885,8 @@ There are multiple ways to implement polynomial multiplication. If your approach
 
 
 ```python
+import numpy as np
+
 def multiply(A, B):
     """
     Multiplies two polynomials represented by their coefficient arrays.
@@ -1962,10 +1965,36 @@ print("Test 2 correct?  ", np.allclose(C, C_exp))
 
 # PART 2. Introduction to Assert Statements and Testing
 
-An [assert](w3schools.com/python/ref_keyword_assert.asp) statement lets you check if a condition in your program evaluates to true.
+When you write code, it is not enough for it to **run without errors**—you also want to be sure that it produces the **correct results**. This is where **testing** becomes important.
 
-If the condition does evaluate to true, then nothing happens and the program execution continues normally. However, if it evaluates to false, then the program execution is immediately terminated, an error is raised and an error message is printed.
+In Python, one simple and very useful way to test your code is by using **assert statements**. An `assert` statement checks whether a condition is `True`. If it is, the program continues normally. If it is not, Python raises an error and tells you that something went wrong.
 
+In other words, `assert` is a way of saying:
+
+> “I expect this to be true. If it is not, stop the program and tell me.”
+
+This is extremely helpful when:
+- You want to **verify** that your functions return the correct results  
+- You want to **catch mistakes early**  
+- You want to **debug** your code more easily  
+
+
+
+```python
+def add(a, b):
+    return a + b
+
+# This should be true, so nothing happens
+assert add(2, 3) == 5
+
+# This is false, so Python will raise an error
+assert add(2, 2) == 5
+```
+
+As showed, the [assert](w3schools.com/python/ref_keyword_assert.asp) statement lets you check if a condition in your program evaluates to true. If the condition does evaluate to true, then nothing happens and the program execution continues normally. However, if it evaluates to false, then the program execution is immediately terminated, an error is raised and an error message is printed.
+
+
+### Exercise 6: Using `assert` for Debugging
 
 ```python
 # An assert statement where condition evaluates to true
@@ -1987,7 +2016,6 @@ assert x == 4
 
     AssertionError                            Traceback (most recent call last)
 
-    <ipython-input-79-a985966787ee> in <module>
           1 # An assert statement where the condition evaluates to false
           2 x = 5
     ----> 3 assert x == 4
@@ -1996,9 +2024,7 @@ assert x == 4
     AssertionError: 
 
 
-This time, since the assert statement evaluates to false, an error is thrown and the line where the assert statement failed is printed to the standard output.
-
-You can also print a message which further explains what error took place.
+This time, since the assert statement evaluates to false, an error is thrown and the line where the assert statement failed is printed to the standard output. You can also print a message which further explains what error took place.
 
 
 ```python
@@ -2012,7 +2038,6 @@ assert x == 4, "x does not store the intended value"
 
     AssertionError                            Traceback (most recent call last)
 
-    <ipython-input-80-ee7bee875a10> in <module>
           1 # An asseert statement with an error message
           2 x = 5
     ----> 3 assert x == 4, "x does not store the intended value"
@@ -2020,13 +2045,19 @@ assert x == 4, "x does not store the intended value"
 
     AssertionError: x does not store the intended value
 
+---
 
-Asserts are a very powerful way to find bugs in your code. Do not hesitate to use these statements in the functions you write to assist you in debugging them. Later, we shall also be using assert statements sometimes to test the functions that you shall write in the later labs.
+In this exercise, you will use **assert statements** inside the functions you write to help you **debug** your code.
 
-Let us see an example where using assert statements helps us spot bugs in our code.
+`assert` statements are a very powerful tool for finding bugs. They allow you to **check that something you expect to be true is actually true**. If it is not, Python stops the program and shows an error, telling you exactly where the problem occurred.
+
+Let’s look at a simple example where an `assert` statement helps us **spot a bug**. Your goal is to **find the bug in the code and fix it**.
+
 
 
 ```python
+import numpy as np
+
 def test_assert():
     """
     This function demonstrates the use of assert statements in debugging
@@ -2035,37 +2066,59 @@ def test_assert():
     A = np.arange(5)
     s = 0
 
-    # We shall first add all elements of A to s
+    # Step 1, add all elements of A to s
     for i in range(A.shape[0]):
         s += A[i]
 
-    # We shall now subtract all the elements of A in the reverse order
-    # Unfortunately, we have a bug
-    for i in range(A.shape[0] - 1, -1, -1):
+    # Step 2, subtract all the elements of A in reverse order
+    for i in range(A.shape[0] - 1, -1, -1):   # Unfortunately, there is a bug in this loop
         s -= A[i]
 
-    # Quite certainly, s must be equal to 0 at this point
-    # Had our implementation been correct, this assert should pass
+    # If everything were correct, s should be 0 at this point
+    # This assert checks that assumption
     assert s == 0
 
 test_assert()
 ```
 
-Can you find the bug in the code and fix it? Have a look at the documentation of [range()](https://docs.python.org/3/library/stdtypes.html#typesseq-range).
+When you run this code, the assert statement will fail and raise an **AssertionError**, telling you that something went wrong. This means there is a **bug in the code** above.
 
-## The Numpy Testing Module
+Your task is to inspect the loops, find the mistake, and fix it so that the assertion passes.
 
-Numpy has a very useful function called [np.testing.assert_allclose()](https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_allclose.html) which allows us to test our functions.
 
-The function accepts two numbers or two Numpy arrays and checks them for equality. Note that you cannot compare floating point numbers using the `==` operator as you have to account for a margin of error which can be caused due to rounding. This function allows you to customize the error margin based on your needs.
+### Exercise 7: The Numpy Testing Module
 
-We highly advice you to read the documentation of this function
+NumPy provides a very useful testing utility called [np.testing.assert_allclose()](https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_allclose.html) which allows us to test our functions. 
 
-The function takes two compulsory arguments, the first is the array which you want to test, and the second is the array which you want to test the array against. You can also configure the tolerance level if you wish.
+We strongly encourage you to read the documentation of this function, as it is widely used in scientific and numerical computing.
 
-You can see examples of how this function is used earlier in the notebook.
 
-In the next code block, we have written a function which tries to compute the inverse of a 2 by 2 matrix. However, the function is incorrect.
+Why not use `==` with floating-point numbers?
+- When working with **floating-point numbers**, you often get **small rounding errors** due to the way numbers are represented in the computer. Because of this, two values that should be equal mathematically may differ by a very small amount.
+- For example, instead of getting exactly `1.0`, you might get something like `0.9999999998` or `1.0000000001`. In such cases, a direct comparison using `==` may incorrectly report that the numbers are different.
+- `np.testing.assert_allclose()` solves this problem by checking whether two values (or arrays) are **close enough**, rather than exactly equal.
+
+
+How does `np.testing.assert_allclose()` work?
+The function takes **two required arguments**:
+- The value (or array) you want to test  
+- The expected value (or array) you want to compare against  
+
+It then checks whether they are **equal within a small tolerance**. If they are, nothing happens. If they are not, Python raises an error and tells you that the test failed.
+
+You can also **customize the tolerance** if needed, depending on how strict you want the comparison to be.
+
+
+This makes `np.testing.assert_allclose()` especially useful for:
+- Testing functions that return **floating-point arrays**
+- Verifying **numerical algorithms**
+- Writing **reliable tests** for scientific code
+
+
+---
+
+In the next exercise, you are given a function that **attempts** to compute the inverse of a \(2 \times 2\) matrix. However, this function is **incorrect**.
+
 
 
 ```python
@@ -2080,7 +2133,14 @@ def inverse(A):
                      [-A[1, 0], A[0, 0]]])
 ```
 
-We have written a test for this function but it unfortunately passes. Can you write a test for this function which fails? Then, can you modify the function so that it is now correct and passes the test that you wrote?
+A test has already been written for this function, but unfortunately, that **test passes even though the function is wrong**. This means the test is not strong enough.
+
+Your tasks are:
+- Write a new test for this function that fails, showing that the current implementation is incorrect.
+- Fix the function so that it becomes correct.
+- Verify that your corrected function now passes the test you wrote.
+
+Here is one test case you can start with:
 
 
 ```python
@@ -2088,11 +2148,18 @@ A = np.array([[3, 5],
               [1, 2]])
 A_exp = np.array([[2, -5],
                   [-1, 3]])
-np.testing.assert_allclose(inverse(A), A_exp, rtol=1e-5)
-np.testing.assert_allclose(inverse(A) @ A, np.eye(2), rtol=1e-5, atol=1e-10)
 
-# Add another test here
 ```
+Try to think of **another test case** where the current implementation should fail, and add it below:
+
+```python
+A = np.array([
+
+    # Add your own test matrix here
+    
+])
+```
+
 
 ---
 
