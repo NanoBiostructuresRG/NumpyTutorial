@@ -1442,7 +1442,7 @@ $$
 
 where $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T A \mathbf{y}$.
 
-----
+---
 
 In this exercise, compute the angle between
 
@@ -1464,7 +1464,6 @@ $$
 \mathbf{y}
 $$
 
----
 
 ```python
 import numpy as np
