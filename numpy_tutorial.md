@@ -43,8 +43,8 @@ The goal of this notebook is not to present completely new material, but to **or
 
 You are encouraged to complement this notebook with other resources, such as:
 - The official [NumPy documentation](https://numpy.org/doc/stable/)
-- Online tutorials and textbooks
-- Course notes and lecture materials
+- Online tutorials, projects and textbooks [3blue1brown](https://www.3blue1brown.com/)
+- Free course notes, books, and lecture materials [Mathematics for Machine Learning](https://mml-book.com) 
 
 Learning works best when you see the same ideas explained in **multiple ways and from multiple sources**.
 
