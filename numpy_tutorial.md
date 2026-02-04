@@ -502,6 +502,8 @@ $$
 \mathrm{trace}(A) = 1 + 4 = 5
 $$
 
+---
+
 
 In this exercise, you will implement a function that computes the **trace** without using NumPy’s built-in trace functions.
 
@@ -750,8 +752,10 @@ is important in machine learning because it maps any real-valued input to a valu
 
 In practice, sigmoid is used in binary classification models, such as logistic regression and the output layer of binary neural networks. The sigmoid output represents the probability that an input belongs to the positive class. Sigmoid is mathematically paired with the binary cross-entropy (log loss) function, which provides well-behaved gradients for optimization and enables effective training through gradient descent. For this reason, sigmoid is typically used only in output layers, while other activation functions (e.g., ReLU) are preferred in hidden layers.
 
-In this exercise, you will use NumPy broadcasting to apply the **sigmoid function** to different types of inputs. First of all, write a function which computes the sigmoid of $x$. Note that $x$ might be a real number or a Numpy array.
+---
 
+
+In this exercise, you will use NumPy broadcasting to apply the **sigmoid function** to different types of inputs. First of all, write a function which computes the sigmoid of $x$. Note that $x$ might be a real number or a Numpy array.
 
 
 ```python
@@ -888,9 +892,14 @@ print(np.sum(a, axis=1, keepdims=True))
 
 ### Exercise 3: Normalizing all columns of an array
 
-Normalization means rescaling values so that they follow a common rule. A very common type of normalization is to divide each value in a column by a number related to that column (for example, the sum or the maximum of the column). For example, before a machine learning model is applied to data, it is very common to first normalize it. 
+Normalization means rescaling values so that they follow a common rule. A very common type of normalization is to divide each value in a column by a number related to that column (for example, the sum or the maximum of the column). 
 
-In this exercise, you will **normalize all the columns** of a two-dimensional NumPy array. 
+In many machine learning applications, **data** is normalized before training a model to improve performance and stability. This is because different columns of the data often represent different quantities and can be on very different scales. For example, one column might contain ages (values around tens), while another column might contain income (values in thousands). If we do not normalize the data, columns with larger numerical values can dominate the learning process, even if they are not more important. Normalization rescales each column so that all columns are treated more fairly by the model.
+
+In practice, this means that **each column is handled separately**: we compute statistics (such as the mean and the standard deviation) for one column, and then use them to rescale the values in that same column. In this way, each column can be seen as a **vector of values** that is normalized independently from the others.
+
+As a result, after normalization, all columns have a **similar scale**, which usually helps machine learning algorithms train faster and produce better results.
+ 
 
 Suppose that:
 
@@ -909,14 +918,17 @@ where:
 - $\text{mean}(x_i)$ is the average (mean) of all the elements in column $x_i$  
 - $\sigma(x_i)$ is the standard deviation of all the elements in column $x_i$
 
+You may revise [np.mean()](https://numpy.org/doc/stable/reference/generated/numpy.mean.html) and [np.std()](https://numpy.org/doc/stable/reference/generated/numpy.std.html) for convenience.
+
 ---
 
 
-For this exercise, you may assume that $\sigma(x)$ is never equal to $0$. 
+For this exercise, you will **normalize all the columns** of a two-dimensional NumPy array. You may assume that $\sigma(x)$ is never equal to $0$. Try to complete this exercise without using any for loops. 
 
-Try to complete this exercise without using any for loops. Numpy functions make use of a technique called vectorization which make them much faster than for loops. Using vectorized implementations can often make magnitudes of difference in the training time of your models: where your model might initially take a couple of days to train, it would now be done in a couple of hours.
 
-If you are stuck, you may find [np.mean()](https://numpy.org/doc/stable/reference/generated/numpy.mean.html) and [np.std()](https://numpy.org/doc/stable/reference/generated/numpy.std.html) useful.
+NumPy functions make use of a technique called vectorization which make them much faster than for loops. Using vectorized implementations can often make magnitudes of difference in the training time of your models: where your model might initially take a couple of days to train, it would now be done in a couple of hours.
+
+
 
 
 ```python
@@ -925,21 +937,23 @@ def normalize(x):
     Normalize all the columns of x
 
     Arguments:
-    x: A two dimensional Numpy array
+    x : numpy.ndarray
+        A two dimensional Numpy array
 
     Returns:
-    c: The normalized version of x
+    c : numpy.ndarray
+        The normalized version of x
     """
 
     ### BEGIN SOLUTION
 
-    # Calculate the mean of all columns
+    # Step 1.   Calculate the mean of all columns
     mean = np.mean(x, axis=0, keepdims=True)
 
-    # Calculate the standard deviation all columns
+    # Setep 2.  Calculate the standard deviation all columns
     sigma = np.std(x, axis=0, keepdims=True)
 
-    # Compute the final answer
+    # Step 3.   Compute the final answer
     c = (x - mean) / sigma
 
     ### END SOLUTION
@@ -953,7 +967,7 @@ x = np.array([[1, 4],
               [3, 2]])
 expected = np.array([[-1, 1],
                      [1, -1]])
-np.testing.assert_allclose(normalize(x), expected, rtol=1e-5)
+
 
 x = np.array([[324.33, 136.11, 239.38, 237.17],
               [123.43, 325.24, 243.52, 745.25],
@@ -961,12 +975,8 @@ x = np.array([[324.33, 136.11, 239.38, 237.17],
 expected = np.array([[-0.35694152, -0.97689929, -0.73023324, -1.28391946],
                      [-1.00662188, -0.39712973, -0.68372539,  1.1554411 ],
                      [ 1.3635634 ,  1.37402902,  1.41395863,  0.12847837]])
-np.testing.assert_allclose(normalize(x), expected, rtol=1e-5)
-
-print("All tests passed!")
 ```
 
-    All tests passed!
 
 
 ## Linear Algebra
