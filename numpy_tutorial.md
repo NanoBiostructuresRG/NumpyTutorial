@@ -1191,18 +1191,30 @@ print('A @ C:\n', A @ C)
      [12]]
 
 
-Note that if you try to multiply two matrices which are not compatible for multiplication, you get an error.
+When using the `@` operator for matrix multiplication, the shapes of the matrices must be compatible
+
+Remember the rule:
+- If `A` has shape `(m, n)`
+- And `B` has shape `(n, p)`
+
+Then `A @ B` is valid and will have shape `(m, p)`.
+
+If the number of columns of `A` does not match the number of rows of `B`, NumPy cannot perform the multiplication and will raise an error.
 
 
 ```python
-print(B.shape)
-print(A.shape)
-print(B @ A)
+A = np.array([[1, 2, 3],
+              [4, 5, 6]])   # Shape: (2, 3)
+
+B = np.array([[1, 2],
+              [3, 4]])      # Shape: (2, 2)
+
+print("A shape:", A.shape)
+print("B shape:", B.shape)
+
+# This will cause an error because the shapes are not compatible
+A @ B
 ```
-
-    (3, 2)
-    (3, 3)
-
 
 
     ---------------------------------------------------------------------------
