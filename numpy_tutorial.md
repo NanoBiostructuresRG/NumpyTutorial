@@ -8,6 +8,10 @@
 ---
 
 # INTRO
+
+![NumPy](figures/Numpy_logoicon.svg)
+
+
 This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners and for learners with prior experience who want to refresh or strengthen their understanding in how to work with arrays, perform basic linear algebra operations, and write more reliable code.
 
 The notebook is divided into three main parts:
@@ -27,9 +31,7 @@ You will learn basic strategies for finding and fixing bugs in your programs, an
 ### How to use this notebook
 This notebook is designed to be completed in approximately 5 to 7 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
 
-You are encouraged to work through the notebook step by step, in order. Read the explanations, run the code cells, and try to modify the examples to see what happens. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions.
-
-This notebook is organized around a series of **hands-on exercises** designed to help you learn by doing. You are expected to **solve these exercises yourself** by writing Python and NumPy code. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
+You are encouraged to work through the notebook step by step, in order. Read the explanations, run the code cells, and try to modify the examples to see what happens. You are expected to **solve these exercises yourself** by writing Python and NumPy code. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
 
 If you get stuck, use the testing and debugging sections to help you understand what went wrong rather than skipping ahead. The goal is not just to finish the notebook, but to build confidence in using NumPy and in writing, testing, and debugging your own Python code.
 
