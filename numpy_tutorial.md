@@ -212,6 +212,28 @@ print(c.shape)
 For this example, the tuple `(3,2)` represents the **shape** of 3 rows and 2 columns. Note that the shape of an array is determined by how values are grouped with brackets, not by line breaks. Line breaks only improve readability and do not affect the array’s structure.
 
 
+As indicated, ehen working with NumPy arrays, `b.shape` returns a tuple describing dimensions:
+
+```python
+b = np.array([1, 2, 3, 4, 5])
+D = b.shape     
+print(D)     
+```
+    (5,)
+
+
+However, to extract just the dimension value from this **1-element tuple**, we use **tuple unpacking** with a comma:
+
+```python
+b = np.array([1, 2, 3, 4, 5])
+D, = b.shape     
+print(D)     
+```
+    5
+
+
+This is a Python idiom that's very common in scientific computing code. It makes the intention clear: "I'm expecting a 1-element tuple and I want that single value", in other words, the comma in `D,` signals for taking the single element from this tuple.
+
 
 If $A$ is a matrix (a two-dimensional NumPy array), the expression
 
