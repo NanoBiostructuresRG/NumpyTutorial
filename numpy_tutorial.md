@@ -43,7 +43,7 @@ The goal of this notebook is not to present completely new material, but to **or
 
 You are encouraged to complement this notebook with other resources, such as:
 - The official [NumPy documentation](https://numpy.org/doc/stable/)
-- Online tutorials, projects and textbooks [3blue1brown](https://www.3blue1brown.com/)
+- Online tutorials [3blue1brown](https://www.3blue1brown.com/)
 - Free course notes, books, and lecture materials [Mathematics for Machine Learning](https://mml-book.com), [Wolfram MathWorld](https://mathworld.wolfram.com/) 
 
 Learning works best when you see the same ideas explained in **multiple ways and from multiple sources**.
@@ -726,6 +726,8 @@ print(a ** b)
      [823543    256      9]]
 
 
+**`np.sqrt()`**, **`np.sqrt()`**, and **`np.sqrt()`**
+
 Some other useful functions is Numpy are [np.sqrt()](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html), [np.exp()](https://numpy.org/doc/stable/reference/generated/numpy.exp.html), [np.log()](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html) which apply the corresponding operation to every element of the inputted Numpy array.
 
 
@@ -755,6 +757,78 @@ print(np.log(a))
      [1.94591015 0.69314718 1.09861229]]
 
 
+**`np.mean()`**
+
+NumPy provides the function [`np.mean()`](https://numpy.org/doc/stable/reference/generated/numpy.mean.html) to compute the arithmetic mean along the specified axis.
+
+
+```python
+numbers = np.array([1, 2, 3, 4, 5])
+average = np.mean(numbers)              # calculate the mean (average)
+
+print(f"Numbers: {numbers}")
+print(f"Mean: {average}")
+```
+
+    Numbers: [1 2 3 4 5]
+    Mean: 3.0
+
+
+In many data analysis techniques, we **center the data** by subtracting the mean of each feature. This shifts the data to have zero mean without changing its shape or relationships.
+
+The data are centered for:
+- Removes Bias: Eliminates systematic offsets so we focus on variation
+- Improves Numerical Stability: Prevents large numbers that can cause computational issues
+- Standard Starting Point: Many algorithms assume centered data
+- Interpretability: Makes patterns easier to see and compare
+
+
+```python
+data = np.array([[10, 5],
+                 [8, 4],
+                 [12, 6],
+                 [9, 5.5],
+                 [11, 5.8]])
+
+print("Original data:")
+print(data)
+print(f"\nMean of x: {np.mean(data[:, 0]):.2f}")
+print(f"Mean of y: {np.mean(data[:, 1]):.2f}")
+
+# CENTERING: Subtract column means
+data_normalized = data - np.mean(data, axis=0)
+
+print("\nCentered data (data - mean):")
+print(data_normalized)
+print(f"\nNew mean of x: {np.mean(data_normalized[:, 0]):.2f}")
+print(f"New mean of y: {np.mean(data_normalized[:, 1]):.2f}")
+```
+
+    Original data:
+    [[10.   5. ]
+     [ 8.   4. ]
+     [12.   6. ]
+     [ 9.   5.5]
+     [11.   5.8]]
+
+    Mean of x: 10.00
+    Mean of y: 5.26
+
+    Centered data (data - mean):
+     [[ 0.     -0.26 ]
+     [-2.     -1.26 ]
+     [ 2.      0.74 ]
+     [-1.      0.24 ]
+     [ 1.      0.54 ]]
+
+    New mean of x: 0.00
+    New mean of y: 0.00
+
+
+In this example, `axis=0` tells the computer: "For each column, look at all the numbers in that column and calculate their average." So, `np.mean(data, axis=0)` is used to obtain one average for each column.
+
+
+**`np.pad()`**
 
 Sometimes, we need two NumPy arrays to have the **same length** before we can combine them in an operation. One simple way to do this is to **pad** (extend) the shorter array with extra values, such as zeros.
 
@@ -782,6 +856,8 @@ In this example, `(0, 1)` means:
 This way, `np.pad()` allows us to extend an array with zeros (or other values) to make its size match another array. This is useful in polynomial multiplication when the two coefficient arrays do not have the same length.
 
 
+**`np.flip()`**
+
 Additionally, it is useful to **reverse the order** of elements in a NumPy array. For example, you may want to turn:
 
 ```python
@@ -793,7 +869,8 @@ into:
 [4, 3, 1, 1]
 ``` 
 
-NumPy provides the function `np.flip()` to do exactly this. Here is a simple example:
+NumPy provides the function [`np.flip()`](https://numpy.org/doc/stable/reference/generated/numpy.flip.html) to do exactly this. Here is a simple example:
+
 
 ```python
 A = np.array([1, 2, 3, 4])
