@@ -95,7 +95,7 @@ a = np.array(x)         # convert the list into a NumPy array and store it as 'a
 
 
 ## Basic Structure of the Code
-In this tutorial, all code examples follow a simple and consistent structure. First, we import the required libraries. Then, we define the input data, usually as NumPy arrays. In many cases, we also define a function using def, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. Finally, we use print to display the result. Sometimes the mathematical expression we need (for example $F =m \dot a$) is already available through existing operations, while in other cases we will write the equation explicitly in code.
+In this tutorial, all code examples follow a simple and consistent structure. First, we import the required libraries. Then, we define the input data, usually as NumPy arrays. In many cases, we also define a function using `def`, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. Finally, we use print to display the result. Sometimes the mathematical expression we need (for example $F =m \cdot a$) is already available through existing operations, while in other cases we will write the equation explicitly in code.
 
 
 In the next example, **addition** is already defined for NumPy arrays, so we just use the operator `+`.
@@ -115,7 +115,7 @@ c = a + b
 print(c)
 ```
 
-Here, the equation $F = m \dot a$ is not a built-in *physics function*, so we write it ourselves using a function.
+The equation $F = m \cdot a$ is not a built-in *physics function*, so we write it ourselves using a function; in this case, we just use the operator `*`.
 
 ```python
 import numpy as np              # required; omitted in the following exercises
@@ -136,7 +136,7 @@ F = compute_force(m, a)
 print(F)
 ```
 
-Here, the same idea, but with matrices (linear algebra style)
+Here, the same idea, but with matrices (linear algebra style). In this case, we use the operator `@`.
 
 ```python
 import numpy as np              # required
