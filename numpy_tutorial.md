@@ -1553,6 +1553,70 @@ print("\nA @ B (matrix multiplication):\n", A @ B)
      [43 50]]
 
 
+The **outer product** of two vectors produces a matrix. The outer product of two vectors can be calculated using the function `np.outer( )`. The function `np.outer()` creates a matrix where each row is a scaled version of `b`.
+
+There is a key difference with **dot product**:
+- **a b^⊤** = Outer product → Creates a **matrix** from two vectors
+- **a^⊤ b** = Dot product → Computes a **scalar** from two vectors
+
+```python
+a = np.array([1, 2, 3])      # length 3
+b = np.array([4, 5])         # length 2
+
+outer = np.outer(a, b)
+print(outer)
+```
+
+    [[ 4  5]
+     [ 8 10]
+     [12 15]]
+
+
+
+```python
+u = np.array([1, 2, 2])
+outer_uu = np.outer(u, u)
+print(outer_uu)
+```
+
+    [[1 2 2]
+     [2 4 4]
+     [2 4 4]]
+
+
+This operation is important in projection matrices, where we need $b b^⊤$ to create $D \times D$ matrix:
+
+```python
+b = np.array([1, 2, 2])
+bbT = np.outer(b, b)    # 3×3 matrix
+bTb = np.dot(b, b)      # scalar 9
+
+P = bbT / bTb           # projection matrix
+
+print("bb^T (outer product):")
+print(bbT)
+print("\nb^Tb (dot product):")
+print(bTb)
+print("\nProjection matrix P = bb^T / b^Tb:")
+print(P)
+```
+
+    bb^T (outer product):
+    [[1 2 2]
+     [2 4 4]
+     [2 4 4]]
+
+    b^Tb (dot product):
+    9
+
+    Projection matrix P = bb^T / b^Tb:
+    [[0.11111111 0.22222222 0.22222222]
+     [0.22222222 0.44444444 0.44444444]
+     [0.22222222 0.44444444 0.44444444]]
+
+
+
+
 ### The `numpy.linalg` Library
 NumPy provides a special module called `numpy.linalg` that contains many useful tools for linear algebra.
 
