@@ -46,8 +46,8 @@ The goal of this notebook is not to present completely new material, but to **or
 
 You are encouraged to complement this notebook with other resources, such as:
 - The official [NumPy documentation](https://numpy.org/doc/stable/)
-- Online tutorials [3blue1brown](https://www.3blue1brown.com/)
 - Free course notes, books, and lecture materials [Mathematics for Machine Learning](https://mml-book.com), [Wolfram MathWorld](https://mathworld.wolfram.com/) 
+- Online tutorials [3blue1brown](https://www.3blue1brown.com/)
 
 Learning works best when you see the same ideas explained in **multiple ways and from multiple sources**.
 
@@ -58,9 +58,14 @@ Learning works best when you see the same ideas explained in **multiple ways and
 
 NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem.
 
-Built for performance, **NumPy** allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, it underpins many higher-level libraries, including pandas, scikit-learn, TensorFlow, and PyTorch, which rely on **NumPy** arrays for their internal computations.
+**NumPy** and **SciPy** are two core libraries for scientific computing in Python, but they serve different roles. NumPy provides the fundamental data structure—the array—and the basic numerical operations needed to work efficiently with numerical data. SciPy is built on top of NumPy and extends it with a large collection of ready-to-use scientific algorithms, including tools for optimization, numerical integration, statistics, signal processing, and linear algebra. Because SciPy operates directly on NumPy arrays, it is essential to understand NumPy first before using SciPy effectively. In addition, NumPy is built for performance: it allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, NumPy also serves as a foundation for many other libraries, such as pandas (data analysis), scikit-learn (machine learning), and frameworks like TensorFlow and PyTorch, which rely on NumPy-style arrays for their internal computations.
 
-In linear algebra, **NumPy** offers reliable implementations of matrix operations, eigenvalue and eigenvector calculations, covariance matrices, and affine transformations. These tools are essential for machine learning, dimensionality reduction, and mathematical modeling. By combining a clear Python interface with optimized low-level execution, **NumPy** effectively balances usability and computational efficiency, making it a fundamental component of modern scientific computing.
+
+In this tutorial, we will focus exclusively on NumPy and use it in the simplest possible way, without relying on higher-level libraries such as pandas, scikit-learn, TensorFlow, or PyTorch. This approach allows us to concentrate on the core concepts—arrays, basic operations, and numerical computing—so you can build a solid foundation before moving on to more advanced tools.
+
+
+In particular, this tutorial will focus on the basic concepts of **linear algebra**, such as vectors, matrices, and the operations between them. In this context, NumPy provides reliable implementations of common matrix operations, as well as routines for eigenvalue and eigenvector calculations, covariance matrices, and affine transformations. These tools are widely used in areas such as machine learning, dimensionality reduction, and mathematical modeling.
+
 
 The documentation of **NumPy** is extensively referenced and is available at the official [webpage](https://docs.scipy.org/doc/numpy/index.html).
 
