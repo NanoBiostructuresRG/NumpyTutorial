@@ -1556,8 +1556,9 @@ print("\nA @ B (matrix multiplication):\n", A @ B)
 The **outer product** of two vectors produces a matrix. The outer product of two vectors can be calculated using the function `np.outer( )`. The function `np.outer()` creates a matrix where each row is a scaled version of `b`.
 
 There is a key difference with **dot product**:
-- **a b^⊤** = Outer product → Creates a **matrix** from two vectors
-- **a^⊤ b** = Dot product → Computes a **scalar** from two vectors
+- $a b^⊤$ = Outer product → Creates a **matrix** from two vectors
+- $a^⊤ b$ = Dot product → Computes a **scalar** from two vectors
+
 
 ```python
 a = np.array([1, 2, 3])      # length 3
