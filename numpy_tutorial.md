@@ -115,13 +115,26 @@ c = a + b
 print(c)
 ```
 
-The equation $F = m \cdot a$ is not a built-in *physics function*, so we write it ourselves using a function; in this case, we just use the operator `*`.
+The equation $F = m \cdot a$ is not a built-in *physics function*, so we write it ourselves using the operator `*`.
 
 ```python
-import numpy as np              # required; omitted in the following exercises
+import numpy as np              # required
 
 # Step 1. Define a function
 def compute_force(mass, acceleration):
+    """
+    Compute the force using Newton's second law: F = m * a.
+
+    Arguments:
+    mass : number or numpy.ndarray
+        The mass of the object(s).
+    acceleration : number or numpy.ndarray
+        The acceleration of the object(s).
+
+    Returns:
+    force : number or numpy.ndarray
+        The computed force.
+    """
     force = mass * acceleration
     return force
 
@@ -136,13 +149,29 @@ F = compute_force(m, a)
 print(F)
 ```
 
-Here, the same idea, but with matrices (linear algebra style). In this case, we use the operator `@`.
+> **Note:** When defining functions, it is important to include short comments or documentation strings (written between triple quotes `""" ... """`) that explain what the function does, what arguments it expects, and what it returns. These docstrings make the code easier to read, understand, and maintain, especially when functions are reused or shared with others.
+
+
+Finally, the same idea, but with matrices (linear algebra style). In this case, we use the operator `@`.
 
 ```python
 import numpy as np              # required
 
 # Step 1. Define a function for matrix-vector multiplication
 def apply_matrix(A, x):
+    """
+    Apply a matrix to a vector using matrix-vector multiplication.
+
+    Arguments:
+    A : numpy.ndarray
+        A two-dimensional matrix.
+    x : numpy.ndarray
+        A one-dimensional vector.
+
+    Returns:
+    y : numpy.ndarray
+        The resulting vector after multiplication.
+    """
     y = A @ x
     return y
 
