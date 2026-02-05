@@ -7,12 +7,13 @@
 
 ---
 
-# INTRO
+
 <p align="center">
 <img src="figures/Numpy_logoicon.svg" alt="NumPy" width="300">
 </p>
 
 
+# INTRO
 This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners and for learners with prior experience who want to refresh or strengthen their understanding in how to work with arrays, perform basic linear algebra operations, and write more reliable code.
 
 The notebook is divided into three main parts:
