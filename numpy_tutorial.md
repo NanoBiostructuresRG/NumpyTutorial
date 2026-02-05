@@ -86,12 +86,80 @@ import numpy as np      # standar NumPy import
 After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. For example, in the next section we will see how to create arrays using the function call `np.array()`. Finally, the resulting array can be stored in a variable by assigning it a name. For example, we can choose `a` to refer to the array in `a = np.array(...)`.
 
 ```python
-import numpy as np      # required; omitted in the following exercises 
+import numpy as np      # required 
 
 x = [1,2,3]             # a Python list with some elements
 a = np.array(x)         # convert the list into a NumPy array and store it as 'a'
 
 ```
+
+
+## Basic Structure of the Code
+In this tutorial, all code examples follow a simple and consistent structure. First, we import the required libraries. Then, we define the input data, usually as NumPy arrays. In many cases, we also define a function using def, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. Finally, we use print to display the result. Sometimes the mathematical expression we need (for example $F =m \dot a$) is already available through existing operations, while in other cases we will write the equation explicitly in code.
+
+
+In the next example, **addition** is already defined for NumPy arrays, so we just use the operator `+`.
+
+
+```python
+import numpy as np      # required 
+
+# Step 1. Define input data
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+# Step 2. Perform an operation (already defined in NumPy)
+c = a + b
+
+# Step 3. Show the result
+print(c)
+```
+
+Here, the equation $F = m \dot a$ is not a built-in *physics function*, so we write it ourselves using a function.
+
+```python
+import numpy as np              # required; omitted in the following exercises
+
+# Step 1. Define a function
+def compute_force(mass, acceleration):
+    force = mass * acceleration
+    return force
+
+# Step 2. Define input data
+m = np.array([1.0, 2.0, 3.0])   # mass
+a = np.array([9.8, 9.8, 9.8])   # acceleration
+
+# Step 3. Call the function
+F = compute_force(m, a)
+
+# Step 4. Show the result
+print(F)
+```
+
+Here, the same idea, but with matrices (linear algebra style)
+
+```python
+import numpy as np              # required
+
+# Step 1. Define a function for matrix-vector multiplication
+def apply_matrix(A, x):
+    y = A @ x
+    return y
+
+# Step 2. Define input data
+A = np.array([[1, 2],
+              [3, 4]])
+x = np.array([1, 1])
+
+# Step 3. Compute result
+y = apply_matrix(A, x)
+
+# Step 4. Show the result
+print(y)
+```
+
+As you can see, **arrays** appear in all the examples, because they are the basic data structure used to represent vectors, matrices, and numerical data in NumPy. For this reason, before moving on to more advanced topics, we need to understand how arrays are created, how they are shaped, and how operations are applied to them.
+
 
 ## NumPy Arrays
 
@@ -103,6 +171,8 @@ New arrays can be created in several ways. One simple method is to start from a 
 
 
 ```python
+import numpy as np      # required; omitted in the following exercises
+
 a = np.array([1,2,3])   # This is a one-dimensional array
 print(a)
 ```
