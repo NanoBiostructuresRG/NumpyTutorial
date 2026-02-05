@@ -726,7 +726,7 @@ print(a ** b)
      [823543    256      9]]
 
 
-**`np.sqrt()`**, **`np.sqrt()`**, and **`np.sqrt()`**
+**`np.sqrt()`**, **`np.exp()`**, and **`np.log()`**
 
 Some other useful functions is Numpy are [np.sqrt()](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html), [np.exp()](https://numpy.org/doc/stable/reference/generated/numpy.exp.html), [np.log()](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html) which apply the corresponding operation to every element of the inputted Numpy array.
 
