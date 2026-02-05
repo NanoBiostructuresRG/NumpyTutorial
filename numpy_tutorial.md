@@ -834,7 +834,7 @@ print(a ** b)
      [823543    256      9]]
 
 
-**`np.sqrt()`**, **`np.exp()`**, and **`np.log()`**
+### **`np.sqrt()`**, **`np.exp()`**, and **`np.log()`**
 
 Some other useful functions is Numpy are [np.sqrt()](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html), [np.exp()](https://numpy.org/doc/stable/reference/generated/numpy.exp.html), [np.log()](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html) which apply the corresponding operation to every element of the inputted Numpy array.
 
@@ -865,7 +865,7 @@ print(np.log(a))
      [1.94591015 0.69314718 1.09861229]]
 
 
-**`np.mean()`**
+### **`np.mean()`**
 
 NumPy provides the function [`np.mean()`](https://numpy.org/doc/stable/reference/generated/numpy.mean.html) to compute the arithmetic mean along the specified axis.
 
@@ -936,7 +936,7 @@ print(f"New mean of y: {np.mean(data_normalized[:, 1]):.2f}")
 In this example, `axis=0` tells the computer: "For each column, look at all the numbers in that column and calculate their average." So, `np.mean(data, axis=0)` is used to obtain one average for each column.
 
 
-**`np.pad()`**
+### **`np.pad()`**
 
 Sometimes, we need two NumPy arrays to have the **same length** before we can combine them in an operation. One simple way to do this is to **pad** (extend) the shorter array with extra values, such as zeros.
 
@@ -964,7 +964,7 @@ In this example, `(0, 1)` means:
 This way, `np.pad()` allows us to extend an array with zeros (or other values) to make its size match another array. This is useful in polynomial multiplication when the two coefficient arrays do not have the same length.
 
 
-**`np.flip()`**
+### **`np.flip()`**
 
 Additionally, it is useful to **reverse the order** of elements in a NumPy array. For example, you may want to turn:
 
