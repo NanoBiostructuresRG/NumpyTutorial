@@ -778,7 +778,7 @@ s = -48
 
 ## Operations on NumPy Arrays
 
-NumPy does not treat arrays as single numbers. Instead, it applies the operation to each element inside the array. This means that NumPy allows you to perform mathematical operations directly on arrays. When you use operators such as '`*`', '`+`', '`-`', '`**`' and '`/`' on NumPy arrays, the operation is applied **element by element**.
+NumPy does not treat arrays as single numbers. Instead, it applies the operation to each element inside the array. This means that NumPy allows you to perform mathematical operations directly on arrays. When you use operators such as '`*`', '`+`', '`-`', '`**`' and '`/`' on NumPy arrays, the operation is applied **element by element**. 
 
 
 ```python
@@ -832,6 +832,43 @@ print(a ** b)
 
     [[    64      1    512]
      [823543    256      9]]
+
+
+
+### Comparison operators
+There also exist other operators such as '`==`' (equal to), '`!=`' (not equal to), '`>`' (greater than), '`<`' (less than), '`>=`' (greater than or equal), '`<=`' (less than or equal), called comparison or relational operators. They returnn `true` or `false` depending on the comparison, for instance, `a != b` returns `True` if `a` and `b` are different, and returns `False` if `a` and `b` are the same.
+
+
+```python
+a = np.array([1, 2, 3, 4])
+b = np.array([1, 0, 3, 5])
+
+print(a == b)  
+print(a != b)  
+print(a > b)   
+print(a <= b)  
+```
+
+    [True, False, True, False]
+    [False, True, False, True]
+    [False, True, False, False]
+    [True, False, True, True]
+
+
+
+
+```python
+alpha = np.array([0.5, 0.0, 0.5, 0.0])
+mask = alpha != 0  # Check each element: is it NOT equal to 0?
+```
+    alpha = [0.5, 0.0, 0.5, 0.0]
+    Check: 0.5 != 0 → True
+       0.0 != 0 → False  
+       0.5 != 0 → True
+       0.0 != 0 → False
+    mask = [True, False, True, False]
+
+
 
 
 ### **`np.sqrt()`**, **`np.exp()`**, and **`np.log()`**
