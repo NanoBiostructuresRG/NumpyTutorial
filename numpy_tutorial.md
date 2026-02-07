@@ -2426,17 +2426,19 @@ In the case of SVM used for classification (i.e. SVC), only support vectors appe
 In this exercise, you will work with the **linear case**. You build a toy SVC decision function and evaluate it on a point. You will use 3D vectors, a linear kernel (i.e. a dot product), and a data set
 
 $$
-\{(x_1, y_1), (x_2, y_2), \dots, (x_N, y_N)\}
+X = {\{(x_1, y_1), (x_2, y_2), \dots, (x_N, y_N)\}}
 $$
 
 where:
-- Each $x_i \in \mathbb{R}^n$ is a vector (one sample)
+- Each $x_i \in \mathbb{R}^n$ is a vector (one sample). Here, $x_1$, $x_2$, ..., $x_N$ are different elements (for the set X) with $n$ number of feautures 
 - Each $y_i \in \{+1, -1\}$ is its label
 
 From these, SVM learns the coefficients $\alpha_i$, selects some of the $x_i$ as support vectors and builds the decision function. 
 
 
 Assume after training, SVC found two support vectors in $\in \mathbb{R}^3 \quad$:
+
+
 $$
 x_1 = (1, 0, 0), \quad y_1 = +1, \quad \alpha_1 = 1
 $$
