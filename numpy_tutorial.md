@@ -2391,13 +2391,13 @@ In machine learning methods, support vector machines (SVM) are algorithms or mod
 After training an SVM, the model predicts using a formula of this form:
 
 $$
-f(x) = \sum_{i \in SV} \alpha_i \, y_i \, K(x_i, x) + b
+f(x) = \sum_{i \in SV} \alpha_i \ y_i \ K(x_i, x) + b
 $$
 
 where:
 - $f(x)$ is a real-valued function: $\mathbb{R}^n \rightarrow \mathbb{R}$. 
-- $x$ = the new point you want to predict
-- $x_i$ = training points
+- $x = the new point (sample) you want to predict
+- $x_i = (x_1, x_2,..., x_n)$ = training points, with $n$ the number of features per $ith$ training sample
 - $y_i$ = their labels for classification (e.g., +1, -1)
 - $K(⋅,⋅)$ = kernel function (or dot product in linear SVM)
 - $\alpha_i$ = learned weights
@@ -2412,21 +2412,42 @@ $$
 \begin{cases}
 f(x) > 0 & \Rightarrow \text{class } +1 \\
 f(x) < 0 & \Rightarrow \text{class } -1 \\
-f(x) = 0 & \Rightarrow \text{on the decision boundary}
+f(x) = 0 & \Rightarrow \text{ on the decision boundary}
 \end{cases}
 $$
 
- 
+The sign of $f(x)$ gives the class, while the magnitude $∣f(x)∣$ relates to how far you are from the boundary (in model space).
 
 
 In the case of SVM used for classification (i.e. SVC), only support vectors appear in such a the prediction formula. Because of how SVM is trained (optimization with constraints), Each training point gets a coefficient $\alpha_i$, then most $\alpha_i = 0$ and those points different to zero are the suport vectors. Mathematically, only support vectors survive in the final formula.
 
+---
+
+In this exercise, you will work with the **linear case**. You build a toy SVC decision function and evaluate it on a point. You will use 3D vectors, a linear kernel (i.e. a dot product), and a data set
+
+$$
+\{(x_1, y_1), (x_2, y_2), \dots, (x_N, y_N)\}
+$$
+
+where:
+- Each $x_i \in \mathbb{R}^n$ is a vector (one sample)
+- Each $y_i \in \{+1, -1\}$ is its label
+
+From these, SVM learns the coefficients $\alpha_i$, selects some of the $x_i$ as support vectors and builds the decision function. 
+
+
+Assume after training, SVC found two support vectors in $\in \mathbb{R}^3 \quad$:
+$$
+x_1 = (1, 0, 0), \quad y_1 = +1, \quad \alpha_1 = 1
+$$
+
+$$
+x_2 = (0, 1, 0), \quad y_2 = -1, \quad \alpha_2 = 1
+$$
 
 
 
-the models usually are divided 
 
-A **support vector** is an expression made of variables and coefficients, such as:
 
 
 
