@@ -1032,6 +1032,66 @@ print("Reversed array:", A_reversed)
 
 So, `np.flip(A)` returns a new array with the same elements as A but in reverse order. This function is useful in polynomial multiplication because reversing one of the coefficient arrays can help align terms correctly when computing the sums of products.
 
+### **`np.where()`**
+It is a selection/conditional function that uses boolean arrays but doesn't create them. This function takes boolean arrays as input and returns indices or selected values as output.
+
+```python
+np.where(condition, x, y)
+```
+
+The syntax returns such elements from `x` where `condition` is `True` and elements from `y` where `condition` is `False`.
+
+```python
+idx = np.where(alpha != 0)[0]
+```
+
+Think of a classroom, then
+
+- `alpha != 0` indicates which students raised their hand? → Boolean mask
+
+- `np.where(alpha != 0)` means what are the seat numbers of students who raised hands? → Indices
+
+- `[0]` is for give me just the list of seat numbers → First element of tuple
+
+Remember that  `np.where()` does not return the mask itself but it returns where the True values are located in the mask
+
+```python
+alpha = np.array([0.5, 0.0, 0.5, 0.0])
+y = np.array([+1, +1, -1, -1])
+
+# Method 1: Get mask, then indices
+mask = alpha != 0                
+print("mask = alpha != 0:")
+print(f"  mask = {mask}")
+
+sv_idx = np.where(mask)[0]       
+print(f"\nsv_idx = np.where(mask)[0]:")
+print(f"  sv_idx = {sv_idx}")
+
+sv_labels = y[sv_idx]   
+print(f"\nsv_labels = y[sv_idx]:")
+print(f"  sv_labels = {sv_labels}")
+
+# Method 2: Direct boolean indexing (no indices needed)
+sv_labels_direct = y[alpha != 0] 
+print(f"\nsv_labels_direct = y[alpha != 0]:")
+print(f"  sv_labels_direct = {sv_labels_direct}")
+
+```
+    mask = alpha != 0:
+        mask = [ True False  True False]
+  
+    sv_idx = np.where(mask)[0]:
+        sv_idx = [0 2]
+  
+    sv_labels = y[sv_idx]:
+        sv_labels = [ 1 -1]
+
+    sv_labels_direct = y[alpha != 0]:
+        sv_labels_direct = [ 1 -1]
+
+
+
 
 ### Broadcasting
 
