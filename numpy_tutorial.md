@@ -2383,6 +2383,25 @@ print("Test 2 expected: ", C_exp)
 print("Test 2 correct?  ", np.allclose(C, C_exp))
 ```
 
+
+
+### Exercise 6: Support Vector Classifier
+In machine learning methods, support vector machines (SVM) are algorithms or models used in applications of regression and classificaction. In this framework, the support vectors are the critical data points that shape the model. They are a **subset of your training rows** that the model actually uses to build the decision boundary. For example, if you draw a line to separate two groups, the points closest to that line are the support vectors. If you move them, the line moves. If you remove other points far away, the line usually stays the same. They are literally data **vectors** (points in feature space) that happen to define the SVM model.
+
+After training an SVM, the model predicts using a formula of this form:
+
+$$
+f(x) = \sum_{i \in SV} \alpha_i \, y_i \, K(x_i, x) + b
+$$
+
+
+
+In the case of SVM used for classification (i.e. SVC), the models usually are divided 
+
+A **support vector** is an expression made of variables and coefficients, such as:
+
+
+
 ---
 
 
