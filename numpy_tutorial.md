@@ -2399,7 +2399,7 @@ where:
 - $x = the new point (sample) you want to predict
 - $x_i = (x_1, x_2,..., x_n)$ = training points, with $n$ the number of features per $ith$ training sample
 - $y_i$ = their labels for classification (e.g., +1, -1)
-- $K(⋅,⋅)$ = kernel function (or dot product in linear SVM)
+- $K(\cdot ,\cdot)$ = kernel function (or dot product in linear SVM)
 - $\alpha_i$ = learned weights
 - $b$ = bias
 - $SV$ = only the support vectors
@@ -2617,7 +2617,7 @@ assert add(2, 2) == 5
 As showed, the [assert](w3schools.com/python/ref_keyword_assert.asp) statement lets you check if a condition in your program evaluates to true. If the condition does evaluate to true, then nothing happens and the program execution continues normally. However, if it evaluates to false, then the program execution is immediately terminated, an error is raised and an error message is printed.
 
 
-### Exercise 6: Using `assert` for Debugging
+### Exercise 7: Using `assert` for Debugging
 
 ```python
 # An assert statement where condition evaluates to true
@@ -2709,7 +2709,7 @@ When you run this code, the assert statement will fail and raise an **AssertionE
 Your task is to inspect the loops, find the mistake, and fix it so that the assertion passes.
 
 
-### Exercise 7: The Numpy Testing Module
+### Exercise 8: The Numpy Testing Module
 
 NumPy provides a very useful testing utility called [np.testing.assert_allclose()](https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_allclose.html) which allows us to test our functions. 
 
@@ -2846,7 +2846,7 @@ print(B.shape)
 ```
 
 
-### Exercise 8: Practicing Code Debugging
+### Exercise 9: Practicing Code Debugging
 
 We would advice you to use [np.outer()](https://numpy.org/doc/stable/reference/generated/numpy.outer.html) and [np.inner()](https://numpy.org/doc/stable/reference/generated/numpy.outer.html) when computing the dot product of 1D arrays. If $X$ is a vector (represented as a 1D array in this course), then `np.inner(X, X)` calculates $X^T \cdot X$ (the regular dot product) and `np.outer(X, X)` computes $X \cdot X^T$.
 
@@ -2854,7 +2854,6 @@ If you are performing matrix multiplication between a 2D array and a 1D array, w
 
 ---
 
-### Exercise 8: Practicing Code Debugging
 
 In this exercise, you will practice **debugging NumPy code** and using **tests** to verify that your implementation is correct. The goal is not only to fix the code, but also to **understand why it was wrong** and how to reason about array shapes and operations.
 
