@@ -2385,8 +2385,8 @@ print("Test 2 correct?  ", np.allclose(C, C_exp))
 
 
 
-### Exercise 6: Support Vector Classifier
-In machine learning methods, support vector machines (SVM) are algorithms or models used in applications of regression and classificaction. In this framework, the support vectors are the critical data points that shape the model. They are a **subset of your training rows** that the model actually uses to build the decision boundary. For example, if you draw a line to separate two groups, the points closest to that line are the support vectors. If you move them, the line moves. If you remove other points far away, the line usually stays the same. They are literally data **vectors** (points in feature space) that happen to define the SVM model.
+### Exercise 6: Support Vector Classifiers
+In machine learning methods, support vector machines (SVM) are algorithms or models used in applications of regression and classificaction. In this framework, the **support vectors** are the critical data points that shape the model. They are literally data **vectors** (points in feature space) that happen to define the SVM model, and constitute a **subset of your training rows** that the model actually uses to build the decision boundary. For example, if you draw a line to separate two groups, the points closest to that line are the support vectors. If you move them, the line moves. If you remove other points far away, the line usually stays the same. 
 
 After training an SVM, the model predicts using a formula of this form:
 
@@ -2394,9 +2394,24 @@ $$
 f(x) = \sum_{i \in SV} \alpha_i \, y_i \, K(x_i, x) + b
 $$
 
+where:
+- $f(x)$ is a real-valued function: $f : \mathbb{R}^n \rightarrow \mathbb{R}$
+- $x$ = the new point you want to predict
+- $x_i$ = training points
+- $y_i$ = their labels for classification (+1, -1)
+- $K(⋅,⋅)$ = kernel function (or dot product in linear SVM)
+- $alpha_i$ = learned weights
+- $b$ = bias
+- $SV$ = only the support vectors
 
 
-In the case of SVM used for classification (i.e. SVC), the models usually are divided 
+
+In the case of SVM used for classification (i.e. SVC), only support vectors appear in such a the prediction formula. Because of how SVM is trained (optimization with constraints), Each training point gets a coefficient $alpha_i$, then most $alpha_i = 0$ and those points different to zero are the suport vectors. Mathematically, only support vectors survive in the final formula.
+
+
+
+
+the models usually are divided 
 
 A **support vector** is an expression made of variables and coefficients, such as:
 
