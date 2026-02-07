@@ -2404,9 +2404,10 @@ where:
 - $b$ = bias
 - $SV$ = only the support vectors
 
-The function $f(x)$ takes an input vector $x \in \mathbb{R}^n \quad and outputs a real number \quad f(x) \in \mathbb{R}$.
+The function $f(x)$ takes an input vector $x \in \mathbb{R}^n \quad$ and outputs a real number $\quad f(x) \in \mathbb{R}$.
 
 In binary classification:
+
 $$
 \begin{cases}
 f(x) > 0 & \Rightarrow \text{class } +1 \\
