@@ -2395,18 +2395,30 @@ f(x) = \sum_{i \in SV} \alpha_i \, y_i \, K(x_i, x) + b
 $$
 
 where:
-- $f(x)$ is a real-valued function: $f : \mathbb{R}^n \rightarrow \mathbb{R}$
+- $f(x)$ is a real-valued function: $\mathbb{R}^n \rightarrow \mathbb{R}$. 
 - $x$ = the new point you want to predict
 - $x_i$ = training points
-- $y_i$ = their labels for classification (+1, -1)
+- $y_i$ = their labels for classification (e.g., +1, -1)
 - $K(⋅,⋅)$ = kernel function (or dot product in linear SVM)
-- $alpha_i$ = learned weights
+- $\alpha_i$ = learned weights
 - $b$ = bias
 - $SV$ = only the support vectors
 
+The function $f(x)$ takes an input vector $x \in \mathbb{R}^n \quad and outputs a real number \quad f(x) \in \mathbb{R}$.
+
+In binary classification:
+$$
+\begin{cases}
+f(x) > 0 & \Rightarrow \text{class } +1 \\
+f(x) < 0 & \Rightarrow \text{class } -1 \\
+f(x) = 0 & \Rightarrow \text{on the decision boundary}
+\end{cases}
+$$
+
+ 
 
 
-In the case of SVM used for classification (i.e. SVC), only support vectors appear in such a the prediction formula. Because of how SVM is trained (optimization with constraints), Each training point gets a coefficient $alpha_i$, then most $alpha_i = 0$ and those points different to zero are the suport vectors. Mathematically, only support vectors survive in the final formula.
+In the case of SVM used for classification (i.e. SVC), only support vectors appear in such a the prediction formula. Because of how SVM is trained (optimization with constraints), Each training point gets a coefficient $\alpha_i$, then most $\alpha_i = 0$ and those points different to zero are the suport vectors. Mathematically, only support vectors survive in the final formula.
 
 
 
