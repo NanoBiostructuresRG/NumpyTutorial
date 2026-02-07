@@ -2436,7 +2436,7 @@ where:
 From these, SVM learns the coefficients $\alpha_i$, selects some of the $x_i$ as support vectors and builds the decision function. 
 
 
-Assume after training, SVC found two support vectors in $\in \mathbb{R}^3 \quad$:
+Assume after training, SVC found three support vectors in $\in \mathbb{R}^3 \quad$:
 
 
 $$
@@ -2447,10 +2447,140 @@ $$
 x_2 = (0, 1, 0), \quad y_2 = -1, \quad \alpha_2 = 1
 $$
 
+$$
+x_3 = (0, 0, 1), \quad y_3 = +1, \quad \alpha_2 = 0.5
+$$
+
+Also, assume $b=0$ and the kernel linear $K(x_i, x) = x_i \cdot x$
+
+The decision formula is:
+
+$$
+f(x) = 1(+1)(x_1 \cdot x) + 1(-1)(x_2 \cdot x) + 0.5(+1)(x_3 \cdot x) 
+$$
+
+Suposse a point for classification to be
+
+$$
+x=(2,1,4)
+$$
+
+So, after the dot produc operations, the decision formula becomes
+
+$$
+f(x) = 2 - 1 + 0.5(4) = 3
+$$
+
+This implies that $f(x)>0$, thus the point is predicted to be classified as class $+1$. In practice, you will have more a set of points (real sample) to be classified.
 
 
+Writte a **NumPy-only** script that reproduces the exact toy example: build the kernel matrix, pick support vectors + alphas + bias (we hard-code them), and compute $f(x)$ and the predicted class.
+
+```python
+import numpy as np
+
+def svm_linear_predict(X, y, alpha, b, x_new):
+    """
+    Predicts the class for a new sample using a linear SVM.
+    
+    Parameters
+    ----------
+    X : np.ndarray, shape (N, D)
+        Training data with N samples and D features.
+    y : np.ndarray, shape (N,)
+        Training labels (+1 or -1 for each sample).
+    alpha : np.ndarray, shape (N,)
+        Learned alpha parameters from SVM training.
+    b : float
+        Learned bias term.
+    x_new : np.ndarray, shape (D,)
+        New sample to classify.
+        
+    Returns
+    -------
+    f : float
+        Decision function value f(x).
+    y_pred : int
+        Predicted class (+1 or -1).
+    """
+    
+    ### BEGIN SOLUTION
+    
+    # Step 1: Find support vectors (indices where alpha != 0)
+    sv_idx = None
+    
+    # Step 2: Compute kernel values between each training sample and x_new
+    # For linear kernel: k_i = X[i] dot x_new
+    k = None
+    
+    # Step 3: Compute decision function f(x)
+    # f(x) = sum_{i in SV} alpha_i * y_i * K(x_i, x) + b
+    f = None
+    
+    # Step 4: Predict class based on sign of f(x)
+    y_pred = None
+    
+    ### END SOLUTION
+    
+    return f, y_pred
 
 
+def svm_linear_kernel_matrix(X):
+    """
+    Computes the linear kernel matrix for training data.
+    
+    Parameters
+    ----------
+    X : np.ndarray, shape (N, D)
+        Training data with N samples and D features.
+        
+    Returns
+    -------
+    K : np.ndarray, shape (N, N)
+        Kernel matrix where K[i, j] = X[i] dot X[j].
+    """
+    
+    ### BEGIN SOLUTION
+    
+    # Compute the kernel matrix using linear kernel (dot product)
+    # Hint: Use matrix multiplication
+    K = None
+    
+    ### END SOLUTION
+    
+    return K
+
+```
+
+Verify your solutions for this exercise by computing the expected values for the following arrays.
+
+
+```python
+# Test case 1
+X = np.array([
+    [1, 0, 2],  
+    [0, 1, 1],  
+    [2, 1, 0],  
+    [1, 2, 1],  
+], dtype=float)
+
+y = np.array([+1, +1, -1, -1], dtype=float)
+alpha = np.array([0.5, 0.0, 0.5, 0.0], dtype=float)
+b = -0.2
+x_new = np.array([1, 1, 1], dtype=float)
+
+
+# Compute kernel matrix
+K = svm_linear_kernel_matrix(X)
+print("Kernel matrix K (linear):")
+print(K)
+
+# Make prediction
+f, y_pred = svm_linear_predict(X, y, alpha, b, x_new)
+print(f"\nDecision value f(x): {f}")
+print(f"Predicted class: {y_pred}")
+
+```
 
 
 ---
