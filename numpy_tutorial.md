@@ -2474,14 +2474,14 @@ $$
 This implies that $f(x)>0$, thus the point is predicted to be classified as class $+1$. In practice, you will have more a set of points (real sample) to be classified.
 
 
-Writte a **NumPy-only** script that reproduces the exact toy example: build the kernel matrix, pick support vectors + alphas + bias (we hard-code them), and compute $f(x)$ and the predicted class.
+Writte a **NumPy-only** script that reproduces the toy example: build the linear kernel matrix, identify support vectors from alpham, compute the decision formula $f(x)$, and the predicted class from the sign of $f(x)$.
 
 ```python
 import numpy as np
 
 def svm_linear_predict(X, y, alpha, b, x_new):
     """
-    Predicts the class for a new sample using a linear SVM.
+    Predicts the class for a new sample using a linear kernel.
     
     Parameters
     ----------
