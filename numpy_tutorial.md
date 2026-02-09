@@ -2715,16 +2715,6 @@ print(f"\nShape: {loaded_array.shape}")
 
 
 
-While `.npy` files are used to store a single NumPy array, the **`.npz`** format is used to store **multiple arrays in one file**.
-
-You can think of an `.npz` file as a container that holds several `.npy` arrays together. Each array is stored with a name, so you can load them later and access each one separately. This is useful when you want to save related data together, such as:
-- input data and labels
-- multiple intermediate results
-- or several arrays that belong to the same experiment
-
-To save multiple arrays, you use `np.savez()`. To load them, you use `np.load()`, which returns an object that works like a dictionary, where each array can be accessed by its name.
-
-
 Let's consider a simple example. Suppose you have a raw **CSV** file `raw_grades.csv` that contains student grades, but with some inconsistencies:
 
 ```python
@@ -2797,6 +2787,15 @@ print(clean_data)
      [105.   88.   91.5  84. ]]
 
 > **Note:** It is a widely used convention and best practice in data analysis and machine learning that **rows** represent individual samples or subjects (e.g., students), while **columns** represent features or properties (e.g., math, physics, chemistry). This layout is used by NumPy, pandas, scikit-learn, and most ML libraries because it makes operations like statistics, filtering, and modeling consistent and convenient.
+
+While `.npy` files are used to store a single NumPy array, the **`.npz`** format is used to store **multiple arrays in one file**.
+
+You can think of an `.npz` file as a container that holds several `.npy` arrays together. Each array is stored with a name, so you can load them later and access each one separately. This is useful when you want to save related data together, such as:
+- input data and labels
+- multiple intermediate results
+- or several arrays that belong to the same experiment
+
+To save multiple arrays, you use `np.savez()`. To load them, you use `np.load()`, which returns an object that works like a dictionary, where each array can be accessed by its name.
 
 
 ---
