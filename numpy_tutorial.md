@@ -71,7 +71,6 @@ In particular, this tutorial will focus on the basic concepts of **linear algebr
 The documentation of **NumPy** is extensively referenced and is available at the official [webpage](https://docs.scipy.org/doc/numpy/index.html).
 
 
-In this notebook, **NumPy** is used as a practical tool to develop and reinforce coding skills related to linear algebra. 
 
 
 ## Importing NumPy 
@@ -2676,8 +2675,47 @@ print(f"Predicted class: {y_pred}")
 
 ```
 
+## Saving and Loading Data with **`.npy`** Files
 
+
+Numpy files `.npy` are the native binary format specifically designed for storing single NumPy arrays. 
+
+Think of them as **photocopies** of your arrays that preserve everything, that is, the data itself, the shape, the data type (dtype), and even the byte order. When you save an array to an `.npy` file, you create a perfect, compressed snapshot of it on your hard drive. This is incredibly useful when you've performed complex calculations or loaded a large dataset and don't want to repeat the process every time you run your code.
+
+You might be wondering why not just use a simple `.txt` or `.csv` file. The `.npy` format offers three major advantages:
+
+- Speed. Loading and saving is much faster because the data is stored in a binary format that your computer can read directly, without parsing text.
+
+- Size. The files are generally smaller due to efficient binary storage.
+
+- Fidelity. It preserves all NumPy-specific information (like `dtype='complex128'` or `dtype='<U10'` for strings) flawlessly. Saving a complex array to a text file and reloading it correctly is much harder.
+
+Using this format is straightforward with two key functions, `np.save()` and `np.load()`.
+
+To **save** an array, you have to provide a filename and NumPy will automatically add the `.npy` extension to the array you want to save.
+
+To **load** the array back into your program, NumPY reads the file and returns the array exactly as it was saved, ready for use.
+
+
+```python
+data_array = np.array([[1, 2, 3], [4, 5, 6]], dtype=np.float64)
+
+np.save('my_data.npy', data_array) # This creates a numpy file
+
+loaded_array = np.load('my_data.npy') # This load the array from disk
+
+print(loaded_array)
+print(f"\nType: {loaded_array.dtype}")
+print(f"\nShape: {loaded_array.shape}") 
+```
+    [[1. 2. 3.]
+     [4. 5. 6.]]
+
+    Type: float64
+
+    Shape: (2, 3)
 ---
+
 
 
 # PART 2. Introduction to Assert Statements and Testing
