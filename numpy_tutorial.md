@@ -2675,34 +2675,34 @@ print(f"Predicted class: {y_pred}")
 
 ```
 
-## Saving and Loading Data with **`.npy`** Files
+## Saving and Loading Data with **`.npy`** and **`.npz`** Files
 
 
-Numpy files `.npy` are the native binary format specifically designed for storing single NumPy arrays. 
+NumPy’s `.npy` files are the **native binary format** for storing a single NumPy arrays. They are designed to save and load arrays efficiently and without losing any information.
 
-Think of them as **photocopies** of your arrays that preserve everything, that is, the data itself, the shape, the data type (dtype), and even the byte order. When you save an array to an `.npy` file, you create a perfect, compressed snapshot of it on your hard drive. This is incredibly useful when you've performed complex calculations or loaded a large dataset and don't want to repeat the process every time you run your code.
+You can think of an `.npy` file as an exact snapshot of an array. It stores not only the data, but also the shape, the data type (`dtype`), and the memory layout. This is especially useful when working with large datasets or expensive computations that you do not want to repeat every time you run your program.
 
-You might be wondering why not just use a simple `.txt` or `.csv` file. The `.npy` format offers three major advantages:
+However, you still might wonder why not use text formats like `.txt` or `.csv`. The .npy format has three important advantages:
 
-- Speed. Loading and saving is much faster because the data is stored in a binary format that your computer can read directly, without parsing text.
+- Speed: Saving and loading are much faster because the data is stored in binary form, without needing to parse text.
 
-- Size. The files are generally smaller due to efficient binary storage.
+- Size. Files are usually smaller thanks to efficient binary storage.
 
-- Fidelity. It preserves all NumPy-specific information (like `dtype='complex128'` or `dtype='<U10'` for strings) flawlessly. Saving a complex array to a text file and reloading it correctly is much harder.
+- Fidelity. All NumPy-specific information (such as `dtype='complex128'` or `dtype='<U10'` for strings) is preserved exactly. 
 
-Using this format is straightforward with two key functions, `np.save()` and `np.load()`.
+NumPy provides two main functions for working with this format: `np.save()` and `np.load()`.
 
-To **save** an array, you have to provide a filename and NumPy will automatically add the `.npy` extension to the array you want to save.
+To **save** an array, you provide a filename and the array. NumPy automatically adds the `.npy` extension. 
 
-To **load** the array back into your program, NumPY reads the file and returns the array exactly as it was saved, ready for use.
+To **load** the array, NumPY reads the file and returns the array exactly as it was saved, ready to use.
 
 
 ```python
 data_array = np.array([[1, 2, 3], [4, 5, 6]], dtype=np.float64)
 
-np.save('my_data.npy', data_array) # This creates a numpy file
+np.save('my_data.npy', data_array)      # save the array to disk
 
-loaded_array = np.load('my_data.npy') # This load the array from disk
+loaded_array = np.load('my_data.npy')   # load the array back
 
 print(loaded_array)
 print(f"\nType: {loaded_array.dtype}")
@@ -2715,6 +2715,19 @@ print(f"\nShape: {loaded_array.shape}")
 
     Shape: (2, 3)
 ---
+
+
+While `.npy` files are used to store a single NumPy array, the **`.npz`** format is used to store **multiple arrays in one file**.
+
+You can think of an `.npz` file as a container that holds several `.npy` arrays together. Each array is stored with a name, so you can load them later and access each one separately.
+
+This is useful when you want to save related data together, such as:
+- input data and labels
+- multiple intermediate results
+- or several arrays that belong to the same experiment
+
+To save multiple arrays, you use `np.savez()`. To load them, you use `np.load()`, which returns an object that works like a dictionary, where each array can be accessed by its name.
+
 
 
 
