@@ -1675,13 +1675,8 @@ print('A @ C:\n', A @ C)
 
 In the next example, we explore how different inner products change the way we measure angles between vectors. The standard Euclidean dot product gives us our usual geometric intuition, but many applications require modified inner products that weigh dimensions differently.
 
-The code below demonstrates this concept by defining an inner product through a symmetric matrix **A**, which acts as a weighting matrix. For vectors **x** and **y** in $\mathbb{R}^2$, the inner product is defined as:
+The code below demonstrates this concept by defining an inner product through a symmetric matrix **A**, which acts as a weighting matrix. 
 
-$\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T A \mathbf{y}$
-
-The angle between vectors is then computed using the familiar cosine formula adapted to this new inner product:
-
-$\cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} \cdot \sqrt{\langle \mathbf{y}, \mathbf{y} \rangle}}$
 
 
 ```python
@@ -1738,13 +1733,15 @@ A @ B
 
 ### Exercise (Optional): Computing Angles with a Non-Standard Inner Product
 
-Recall that for an inner product defined by a symmetric positive definite matrix $A$, the angle $\theta$ between two vectors $\mathbf{x}$ and $\mathbf{y}$ is given by:
+For vectors $\mathbf{x}$ and $\mathbf{y}$ in $\mathbb{R}^2$, the inner product is defined by a symmetric positive definite matrix $A$ is:
 
-$$
-\cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} \cdot \sqrt{\langle \mathbf{y}, \mathbf{y} \rangle}}
-$$
+$$\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T A \mathbf{y}$$
 
-where $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T A \mathbf{y}$.
+The angle $\theta$ between vectors is then computed using the familiar cosine formula adapted to this new inner product:
+
+
+$$\cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} \cdot \sqrt{\langle \mathbf{y}, \mathbf{y} \rangle}}$$
+
 
 ---
 
