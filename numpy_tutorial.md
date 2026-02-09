@@ -2682,7 +2682,7 @@ NumPy’s `.npy` files are the **native binary format** for storing a single Num
 
 You can think of an `.npy` file as an exact snapshot of an array. It stores not only the data, but also the shape, the data type (`dtype`), and the memory layout. This is especially useful when working with large datasets or expensive computations that you do not want to repeat every time you run your program.
 
-However, you still might wonder why not use text formats like `.txt` or `.csv`. The .npy format has three important advantages:
+However, you still might wonder why not use text formats like `.txt` or `.csv`. This is because the `.npy` format has three important advantages:
 
 - Speed: Saving and loading are much faster because the data is stored in binary form, without needing to parse text.
 
@@ -2690,11 +2690,9 @@ However, you still might wonder why not use text formats like `.txt` or `.csv`. 
 
 - Fidelity. All NumPy-specific information (such as `dtype='complex128'` or `dtype='<U10'` for strings) is preserved exactly. 
 
-NumPy provides two main functions for working with this format: `np.save()` and `np.load()`.
 
-To **save** an array, you provide a filename and the array. NumPy automatically adds the `.npy` extension. 
+NumPy provides two main functions for working with this format: `np.save()` and `np.load()`. To **save** an array, you provide a filename and the array. NumPy automatically adds the `.npy` extension. To **load** the array, NumPY reads the file and returns the array exactly as it was saved, ready to use.
 
-To **load** the array, NumPY reads the file and returns the array exactly as it was saved, ready to use.
 
 
 ```python
@@ -2714,14 +2712,12 @@ print(f"\nShape: {loaded_array.shape}")
     Type: float64
 
     Shape: (2, 3)
----
+
 
 
 While `.npy` files are used to store a single NumPy array, the **`.npz`** format is used to store **multiple arrays in one file**.
 
-You can think of an `.npz` file as a container that holds several `.npy` arrays together. Each array is stored with a name, so you can load them later and access each one separately.
-
-This is useful when you want to save related data together, such as:
+You can think of an `.npz` file as a container that holds several `.npy` arrays together. Each array is stored with a name, so you can load them later and access each one separately. This is useful when you want to save related data together, such as:
 - input data and labels
 - multiple intermediate results
 - or several arrays that belong to the same experiment
@@ -2729,8 +2725,81 @@ This is useful when you want to save related data together, such as:
 To save multiple arrays, you use `np.savez()`. To load them, you use `np.load()`, which returns an object that works like a dictionary, where each array can be accessed by its name.
 
 
+Let's consider a simple example. Suppose you have a raw **CSV** file `raw_grades.csv` that contains student grades, but with some inconsistencies:
+
+```python
+student_id,math,physics,chemistry
+101,85.5,92.0,78.5
+102,90.0,88.5,NA
+103,76.0,82.5,91.0
+104,NA,95.0,87.5 
+105,88.0,91.5,84.0
+```
+
+Notice that some values are missing and are represented by the string `"NA"`. Before using this data for analysis (or machine learning), these values must be **cleaned and handled properly**.
+
+A typical workflow is:
+1. Load the raw data from the CSV file
+2. Convert the data to a NumPy array, treating `"NA"` as missing values.
+3. Clean or replace the missing values (for example, with `np.nan` or with column averages).
+4. Save the cleaned array to a binary NumPy file (`.npy`) so it can be quickly reloaded later without repeating the cleaning step.
+
+For example, you can load the CSV and handle missing values like this:
+
+```python
+# Load the data, telling NumPy that "NA" represents missing values
+raw_data = np.genfromtxt(
+    "raw_grades.csv",
+    delimiter=",",
+    skip_header=1,
+    dtype=float,
+    missing_values="NA",
+    filling_values=np.nan
+)
+
+print("Raw data loaded into NumPy:")
+print(raw_data)
+print(f"\nShape: {raw_data.shape}")
+print(f"\nHas NaN values: {np.any(np.isnan(raw_data))}")
+```
+    Raw data loaded into NumPy:
+    [[101.  85.5 92.  78.5]
+     [102.  90.  88.5  nan]
+     [103.  76.  82.5 91. ]
+     [104.  nan 95.  87.5]
+     [105.  88.  91.5 84. ]]
+    
+    Shape: (5, 4)
+    
+    Has NaN values: True
 
 
+At this point, the missing values are represented as `np.nan`, which NumPy understands and can handle in computations.
+
+After cleaning or processing the data (for example, replacing `np.nan` with column means), you can save the result:
+
+```python
+np.save("clean_grades.npy", raw_data)
+```
+
+Later, you can load the cleaned data instantly:
+
+```python
+clean_data = np.load("clean_grades.npy")
+print("Clean data loaded from .npy file:")
+print(clean_data)
+```
+    Clean data loaded from .npy file:
+    [[101.   85.5  92.   78.5]
+     [102.   90.   88.5   nan]
+     [103.   76.   82.5  91. ]
+     [104.    nan  95.   87.5]
+     [105.   88.   91.5  84. ]]
+
+> **Note:** It is a widely used convention and best practice in data analysis and machine learning that **rows** represent individual samples or subjects (e.g., students), while **columns** represent features or properties (e.g., math, physics, chemistry). This layout is used by NumPy, pandas, scikit-learn, and most ML libraries because it makes operations like statistics, filtering, and modeling consistent and convenient.
+
+
+---
 # PART 2. Introduction to Assert Statements and Testing
 
 When you write code, it is not enough for it to **run without errors**—you also want to be sure that it produces the **correct results**. This is where **testing** becomes important.
