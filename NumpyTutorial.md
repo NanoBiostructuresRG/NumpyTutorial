@@ -538,7 +538,7 @@ print("\n", a.shape)
 > **Note:** Observe that the newline character `\n` (for instance, `print("\nA: Reshaped\n")`) is used to insert **line breaks** in printed output. It allows you to add blank lines to separate sections and improve readability without changing the content of the data being printed.
 
 
-## 1.5 Accessing NumPy arrays
+## 1.5 Accessing NumPy Arrays
 
 Once we have a NumPy array, we often want to look at or use **individual values** inside it. This is called accessing an array. We already known that Numpy arrays are 0 indexed and each value in a NumPy array has a position, called an **index**. In Python, counting starts at zero, so the first value is at position 0, the second at position 1, and so on.
 

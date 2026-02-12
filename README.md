@@ -12,7 +12,17 @@
 It combines explanations, examples, and exercises to help you learn how to work with NumPy arrays, perform basic linear algebra operations, and write more reliable code through testing and debugging.
 
 The tutorial is organized into three main parts:
-- **Part 1:** Introduction to NumPy (arrays, vector and matrix operations, linear algebra, polynomial multiplication, etc.)
+1. **Part 1:** Introduction to NumPy (arrays, vector and matrix operations, linear algebra, polynomial multiplication, etc.)
+    1. Importing NumPy
+    2. Basic Structure of the Code
+    3. NumPy Arrays
+    4. Shape of Numpy Arrays
+    5. Accessing NumPy Arrays
+    6. Operations on NumPy Arrays
+    7. Linear Algebra
+    8. Saving and Loading Data with .npy and .npz Files
+    
+
 - **Part 2:** Introduction to Assert Statements and Testing (how to test your code and check numerical results safely)
 - **Part 3:** Debugging Your Code (common errors, reading error messages, and practical debugging strategies)
 
