@@ -73,7 +73,7 @@ The documentation of **NumPy** is extensively referenced and is available at the
 
 
 
-## Importing NumPy 
+## 1.1 Importing NumPy 
 
 To work with numerical data in Python, we first import the **NumPy** library. By convention, NumPy is imported using the abbreviation `np`, which makes the code shorter and easier to read.
 
@@ -93,7 +93,7 @@ a = np.array(x)         # convert the list into a NumPy array and store it as 'a
 ```
 
 
-## Basic Structure of the Code
+## 1.2 Basic Structure of the Code
 In this tutorial, all code examples follow a simple and consistent structure. First, we import the required libraries. Then, we define the input data, usually as NumPy arrays. In many cases, we also define a function using `def`, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. Finally, we use print to display the result. Sometimes the mathematical expression we need (for example $F =m \cdot a$) is already available through existing operations, while in other cases we will write the equation explicitly in code.
 
 
@@ -189,7 +189,7 @@ print(y)
 As you can see, **arrays** appear in all the examples, because they are the basic data structure used to represent vectors, matrices, and numerical data in NumPy. For this reason, before moving on to more advanced topics, we need to understand how arrays are created, how they are shaped, and how operations are applied to them.
 
 
-## NumPy Arrays
+## 1.3 NumPy Arrays
 
 A NumPy **array** is a data structure used to store numbers in an organized, grid-like form (such as a list, table, or matrix) so they can be processed efficiently.
 
@@ -281,7 +281,7 @@ print(length(np.array([1,0])))
     1.0
 
 
-## Shape of Numpy Arrays
+## 1.4 Shape of Numpy Arrays
 The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use the function [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to obtain the shape of a Numpy array.
 
 The shape of NumPy arrays is printed as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of `(3,)` means the array has 3 elements in one dimension. The comma is important because it tells Python that this is a tuple, not just a number. 
@@ -538,7 +538,7 @@ print("\n", a.shape)
 > **Note:** Observe that the newline character `\n` (for instance, `print("\nA: Reshaped\n")`) is used to insert **line breaks** in printed output. It allows you to add blank lines to separate sections and improve readability without changing the content of the data being printed.
 
 
-## Accessing NumPy arrays
+## 1.5 Accessing NumPy arrays
 
 Once we have a NumPy array, we often want to look at or use **individual values** inside it. This is called accessing an array. We already known that Numpy arrays are 0 indexed and each value in a NumPy array has a position, called an **index**. In Python, counting starts at zero, so the first value is at position 0, the second at position 1, and so on.
 
@@ -775,7 +775,7 @@ s = -48
 
 
 
-## Operations on NumPy Arrays
+## 1.6 Operations on NumPy Arrays
 
 NumPy does not treat arrays as single numbers. Instead, it applies the operation to each element inside the array. This means that NumPy allows you to perform mathematical operations directly on arrays. When you use operators such as '`*`', '`+`', '`-`', '`**`' and '`/`' on NumPy arrays, the operation is applied **element by element**. 
 
@@ -1426,7 +1426,7 @@ expected = np.array([[-0.35694152, -0.97689929, -0.73023324, -1.28391946],
 
 
 
-## Linear Algebra
+## 1.7 Linear Algebra
 
 Linear algebra is the branch of mathematics that works with **vectors** and **matrices**, and it is a fundamental tool in science, engineering, and machine learning. In Python, the NumPy library provides simple and efficient ways to create, manipulate, and compute with vectors and matrices. Using NumPy, we can perform operations such as matrix addition, multiplication, transposition, and solving systems of equations with just a few lines of code. Because NumPy uses optimized, vectorized implementations, these operations are not only easy to write but also very fast, making it an ideal tool for learning and applying linear algebra in practice.
 
@@ -2071,7 +2071,7 @@ print("\nlambda * v:\n", right)
 > **Note:** An **eigenvector** keeps its direction when multiplied by the matrix, while the **eigenvalue** tells you how much it is stretched or shrunk
 
 
-## Sorting eigenvalues and reordering eigenvectors
+### Sorting eigenvalues and reordering eigenvectors
 Suppose that we want the eigenvalues in the diagonal matrix `D` to appear in **non-decreasing order**. However, `np.linalg.eig(A)` does **not** guarantee any particular order for the eigenvalues. Therefore, we need to **sort them manually**.
 
 
@@ -2675,7 +2675,7 @@ print(f"Predicted class: {y_pred}")
 
 ```
 
-## Saving and Loading Data with **`.npy`** and **`.npz`** Files
+## 1.8 Saving and Loading Data with **`.npy`** and **`.npz`** Files
 
 
 NumPy’s `.npy` files are the **native binary format** for storing a single NumPy arrays. They are designed to save and load arrays efficiently and without losing any information.
@@ -3009,7 +3009,7 @@ Debugging can sometimes feel difficult or frustrating, especially when you do no
 The goal is not only to solve the current exercises, but also to help you become more **confident and systematic** when debugging your own programs in the future.
 
 
-## Dimension Errors in Matrix Multiplication
+## 3.1  Errors in Matrix Multiplication
 
 One of the most common mistakes when working with NumPy and linear algebra is trying to multiply arrays whose **dimensions are not compatible**.
 
