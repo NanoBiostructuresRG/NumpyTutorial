@@ -8,11 +8,11 @@
 ---
 
 ## Description
-**NumPy Tutorial** is a hands-on tutorial designed to introduce you to **NumPy** and to good programming practices in Python. 
-It combines explanations, examples, and exercises to help you learn how to work with NumPy arrays, perform basic linear algebra operations, and write more reliable code through testing and debugging.
+This **NumpyTutorial** is a hands-on guide designed to introduce you to **NumPy** and to good programming practices in Python. Throughout the material, you will find guided examples and a series of exercises and test cases that encourage you to actively practice what you learn, while you perform basic linear algebra operations and write more reliable code through testing and debugging.
+
 
 The tutorial is organized into three main parts:
-1. **Part 1:** Introduction to NumPy (arrays, vector and matrix operations, linear algebra, polynomial multiplication, etc.)
+1. **Part 1:** Introduction to NumPy
     1. Importing NumPy
     2. Basic Structure of the Code
     3. NumPy Arrays
@@ -21,12 +21,12 @@ The tutorial is organized into three main parts:
     6. Operations on NumPy Arrays
     7. Linear Algebra
     8. Saving and Loading Data with .npy and .npz Files
-    
 
-- **Part 2:** Introduction to Assert Statements and Testing (how to test your code and check numerical results safely)
-- **Part 3:** Debugging Your Code (common errors, reading error messages, and practical debugging strategies)
 
-Throughout the notebook, you will find guided exercises and test cases that encourage you to actively practice what you learn.
+2. **Part 2:** Introduction to Assert Statements and Testing 
+
+3. **Part 3:** Debugging Your Code 
+
 
 ---
 
