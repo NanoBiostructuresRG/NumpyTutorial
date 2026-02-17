@@ -82,7 +82,7 @@ To work with numerical data in Python, we first import the **NumPy** library. By
 import numpy as np      # standar NumPy import
 ```
 
-After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. For example, in the next section we will see how to create arrays using the function call `np.array()`. The resulting **array** can be stored in a variable by assigning it a name, for instance, we can choose the letter `a` to refer to the array in `a = np.array(...)`.
+After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. For example, in the next section we will see how to create arrays using the function call `np.array()`. Thus, the resulting **array** can be stored in a variable by assigning it a name, for instance, we can choose the letter `a` to refer to the array in `a = np.array(...)`.
 
 ```python
 import numpy as np      # required 
@@ -92,9 +92,84 @@ a = np.array(x)         # convert the list into a NumPy array and store it as 'a
 
 ```
 
+The Python interpreter can compute new values with function calls. There you might define a function `f` by specifying how it transforms an input into an output, `f(x) = 3x + 2`. Functions are like factories that take in some material, do some operation, and then send out the resulting object. We use the function `print` to display the result.
+
+
+```python
+print(square(3))
+print(sub(6, 4))
+print(sub(5, 9))
+print(square(3) + 2)
+print(sub(square(3), square(1+1)))
+```
+    9
+    2
+    -4
+    11
+    5
+
+Notice that when a function takes more than one input parameter, the inputs are separated by a comma. However, when you type a large integer, you might be tempted to use commas between groups of three digits, as in `42,000`. This is **not a legal** integer in Python, but it does mean something else, which is legal:
+
+```python
+print(42500)
+print(42,500)
+
+```
+    42500
+    42 500
+    
+
+Remember not to put commas or spaces in your integers, no matter how big they are. Additionally, if you are not sure what class (data type) a value falls into, Python has a function called type which can tell you.
+
+
+```python
+print(type("Hello, World!"))
+print("Hello, World")
+print(type(17))
+print(type(3.2))
+print(type("17"))
+print(type("3.2"))
+```
+    <class 'str'>
+    Hello, World
+    <class 'int'>
+    <class 'float'>
+    <class 'str'>
+    <class 'str'>
+
+
+Notice that strings in Python can be enclosed in either single quotes (`'`) or double quotes (`"`), or three of each (`'''` or `"""`)
+
+```python
+print(type('This is a string.'))
+print(type("And so is this."))
+print(type("""and this."""))
+print(type('''and even this...'''))
+```
+    <class 'str'>
+    <class 'str'>
+    <class 'str'>
+    <class 'str'>
+
+
+Triple quoted strings can even span multiple lines, such as:
+
+```python
+print("""This message will span
+several lines
+of the text.""")
+
+```
+    This message will span
+    several lines
+    of the text.
+
+
+
 
 ## 1.2 Basic Structure of the Code
-In this tutorial, all code examples follow a simple and consistent structure. First, we import the required **libraries**. Then, we define the input data, usually as NumPy arrays. In many cases, we also define a function using `def`, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. Finally, we use the function `print` to display the result. Sometimes the mathematical expression we need (for example $F =m \cdot a$) is already available through existing operations, while in other cases we will write the equation explicitly in code.
+In this tutorial, all code examples follow a simple and consistent structure. First, we import the required **libraries**. Then, we define the input data, usually as NumPy arrays. In many cases, we also define a function using `def`, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. 
+
 
 ```python
 import numpy as np      # required 
@@ -104,7 +179,7 @@ a = 20 + 30
 b = 5 ** 2
 c = (5 + 9) * (15 - 7)
 
-# Step 2. Show the result
+# Step 2. Show the results
 print(a)
 print(a+b)
 print(a-b+c)
@@ -115,6 +190,49 @@ print(a-b+c)
 
 
 The tokens `+`, `-`, and `*`, and the use of parentheses for grouping, mean in Python what they mean in mathematics. The asterisk (`*`) is the token for multiplication, and `**` is the token for exponentiation. Addition, subtraction, multiplication, and exponentiation all do what you expect.
+
+Remember that if we want to see the results of the computation, the program needs to specify that with the function `print()`.
+
+In Python 3, the division operator `/` produces a floating point result (*even if the result is an integer*; `4/2` is `2.0`). If you want truncated division, which ignores the remainder, you can use the `//` operator (for example, `5//2` is `2`).
+
+
+```python
+import numpy as np      # required 
+
+# Step 1. Define input data
+a = 9 / 5
+b = 5 / 9
+c = 9 // 5
+d = 18.0 // 4
+
+# Step 2. Show the results
+print(a)
+print(b)
+print(c)
+```
+    1.8
+    0.5555555555555556
+    1
+    4.0
+
+
+The modulus operator, sometimes also called the remainder operator or integer remainder operator works on integers (and integer expressions) and yields the remainder when the first operand is divided by the second. In Python, the modulus operator is a percent sign (`%`). The syntax is the same as for other operators.
+
+```python
+import numpy as np      # required 
+
+# Step 1. Define input data
+a = 7 // 3
+b = 7 % 3
+
+# Step 2. Show the results
+print(a)
+print(b)
+```
+    2
+    1
+    
+
 
 In the next example, **addition** is already defined for NumPy arrays, so we just use the operator `+`.
 
@@ -133,7 +251,8 @@ c = a + b
 print(c)
 ```
 
-The equation $F = m \cdot a$ is not a built-in *physics function*, so we write it ourselves using the operator `*`.
+Sometimes the mathematical expression we need is already available through existing operations, while in other cases we will write the equation explicitly in code. For instance, the equation $F = m \cdot a$ is not a built-in *physics function*, so we write it ourselves using the operator `*`.
+
 
 ```python
 import numpy as np              # required
@@ -204,8 +323,6 @@ y = apply_matrix(A, x)
 # Step 4. Show the result
 print(y)
 ```
-
-Remember that if we want to see the results of the computation, the program needs to specify that with the function `print()`.
 
 As you can see, **arrays** appear in all the examples, because they are the basic data structure used to represent vectors, matrices, and numerical data in NumPy. For this reason, before moving on to more advanced topics, we need to understand how arrays are created, how they are shaped, and how operations are applied to them.
 
