@@ -73,26 +73,76 @@ The documentation of **NumPy** is extensively referenced and is available at the
 
 
 
-## 1.1 Importing NumPy 
+## 1.1 Python   
 
-To work with numerical data in Python, we first import the **NumPy** library. By convention, NumPy is imported using the abbreviation `np`, which makes the code shorter and easier to read.
+The tokens `+`, `-`, and `*`, and the use of parentheses for grouping, mean in Python what they mean in mathematics. The asterisk (`*`) is the token for multiplication, and `**` is the token for exponentiation. Addition, subtraction, multiplication, and exponentiation all do what you expect.
+
+The Python interpreter can compute new values with function calls. There you might define a function `a` or `f` by specifying how it transforms an input into an output, for instance, `f(x) = 3x + 2`. Functions are like factories that take in some material, do some operation, and then send out the resulting object. Additionally, if we want to see the results of the computation, the program needs to specify that with the function `print()`.
+
+
+```python
+# Step 1. Define input data
+a = 20 + 30
+b = 5 ** 2
+c = (5 + 9) * (15 - 7)
+d = 16 - 2 * 5 // 3 + 1
+
+# Step 2. Show the results
+print(a)
+print(a+b)
+print(a-b+c)
+print(d)
+```
+    52
+    77
+    139
+    14
+
+
+Remember that when more than one operator appears in an expression, the order of evaluation depends on the rules of precedence. Python follows the same precedence rules for its mathematical operators that mathematics does. For the last example, there is: 
+
+```python
+print((16 - ((2 * 5) // 3)) + 1)
+
+```
+    14
+    
+
+
+In Python 3, the division operator `/` produces a floating point result (*even if the result is an integer*; `4/2` is `2.0`). If you want truncated division, which ignores the remainder, you can use the `//` operator (for example, `5//2` is `2`).
 
 
 ```python
-import numpy as np      # standar NumPy import
-```
+# Step 1. Define input data
+a = 9 / 5
+b = 5 / 9
+c = 9 // 5
+d = 18.0 // 4
 
-After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. For example, in the next section we will see how to create arrays using the function call `np.array()`. Thus, the resulting **array** can be stored in a variable by assigning it a name, for instance, we can choose the letter `a` to refer to the array in `a = np.array(...)`.
+# Step 2. Show the results
+print(a)
+print(b)
+print(c)
+```
+    1.8
+    0.5555555555555556
+    1
+    4.0
+
+
+The modulus operator, sometimes also called the remainder operator or integer remainder operator works on integers (and integer expressions) and yields the remainder when the first operand is divided by the second. In Python, the modulus operator is a percent sign (`%`). The syntax is the same as for other operators.
 
 ```python
-import numpy as np      # required 
+# Step 1. Define input data
+a = 7 // 3
+b = 7 % 3
 
-x = [1,2,3]             # a Python list with some elements
-a = np.array(x)         # convert the list into a NumPy array and store it as 'a'
-
+# Step 2. Show the results
+print(a)
+print(b)
 ```
-
-The Python interpreter can compute new values with function calls. There you might define a function `f` by specifying how it transforms an input into an output, `f(x) = 3x + 2`. Functions are like factories that take in some material, do some operation, and then send out the resulting object. We use the function `print` to display the result.
+    2
+    1
 
 
 ```python
@@ -165,73 +215,67 @@ of the text.""")
     of the text.
 
 
+Sometimes it is necessary to convert values from one type to another. Python provides a few simple functions that will allow us to do that. The functions `int`, `float` and `str` will convert their arguments into types `int`, `float` and `str` respectively. 
+
+The `int` function can take a floating point number or a string, and turn it into an `int`. For example:
+
+```python
+print(3.14, int(3.14))
+print(3.0, int(3.0))
+print("2345", int("2345"))
+
+```
+    3.14 3
+    3.0 3
+    2345 2345
+
+
+The type converter `float` can turn an integer, a float, or a syntactically legal string into a float:
+
+```python
+print(float("123.45"))
+print(type(float("123.45")))
+
+```
+    123.45
+    <class 'float'>
+
+
+The type converter `str` turns its argument into a string. Remember that when we print a string, the quotes are removed in the output window. However, if we print the type, we can see that it is definitely `str`.
+
+```python
+print(str(17))
+print(str(123.45))
+print(type(str(123.45)))
+
+```
+    17
+    123.45
+    <class 'str'>
+
+
 
 
 ## 1.2 Basic Structure of the Code
-In this tutorial, all code examples follow a simple and consistent structure. First, we import the required **libraries**. Then, we define the input data, usually as NumPy arrays. In many cases, we also define a function using `def`, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. 
+
+In this tutorial, all code examples follow a simple and consistent structure. First, we import the required **libraries**. To work with numerical data in Python, we first import the **NumPy** library. By convention, NumPy is imported using the abbreviation `np`, which makes the code shorter and easier to read.
+
+
+```python
+import numpy as np      # standar NumPy import
+```
+
+
+After importing NumPy as `np`, we access its tools by writing `np.` followed by the name of a function or object. Then, we define the input data, usually as NumPy arrays. For example, in the next section we will see how to create arrays using the function call `np.array()`. Thus, the resulting **array** can be stored in a variable by assigning it a name, for instance, we can choose the letter `a` to refer to the array in `a = np.array(...)`.
 
 
 ```python
 import numpy as np      # required 
 
-# Step 1. Define input data
-a = 20 + 30
-b = 5 ** 2
-c = (5 + 9) * (15 - 7)
+x = [1,2,3]             # a Python list with some elements
+a = np.array(x)         # convert the list into a NumPy array and store it as 'a'
 
-# Step 2. Show the results
-print(a)
-print(a+b)
-print(a-b+c)
 ```
-    52
-    77
-    139
-
-
-The tokens `+`, `-`, and `*`, and the use of parentheses for grouping, mean in Python what they mean in mathematics. The asterisk (`*`) is the token for multiplication, and `**` is the token for exponentiation. Addition, subtraction, multiplication, and exponentiation all do what you expect.
-
-Remember that if we want to see the results of the computation, the program needs to specify that with the function `print()`.
-
-In Python 3, the division operator `/` produces a floating point result (*even if the result is an integer*; `4/2` is `2.0`). If you want truncated division, which ignores the remainder, you can use the `//` operator (for example, `5//2` is `2`).
-
-
-```python
-import numpy as np      # required 
-
-# Step 1. Define input data
-a = 9 / 5
-b = 5 / 9
-c = 9 // 5
-d = 18.0 // 4
-
-# Step 2. Show the results
-print(a)
-print(b)
-print(c)
-```
-    1.8
-    0.5555555555555556
-    1
-    4.0
-
-
-The modulus operator, sometimes also called the remainder operator or integer remainder operator works on integers (and integer expressions) and yields the remainder when the first operand is divided by the second. In Python, the modulus operator is a percent sign (`%`). The syntax is the same as for other operators.
-
-```python
-import numpy as np      # required 
-
-# Step 1. Define input data
-a = 7 // 3
-b = 7 % 3
-
-# Step 2. Show the results
-print(a)
-print(b)
-```
-    2
-    1
-    
 
 
 In the next example, **addition** is already defined for NumPy arrays, so we just use the operator `+`.
@@ -252,6 +296,8 @@ print(c)
 ```
 
 Sometimes the mathematical expression we need is already available through existing operations, while in other cases we will write the equation explicitly in code. For instance, the equation $F = m \cdot a$ is not a built-in *physics function*, so we write it ourselves using the operator `*`.
+
+Additionally, in many cases, we also define a function using `def`, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. 
 
 
 ```python
