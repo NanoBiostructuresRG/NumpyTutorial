@@ -31,9 +31,17 @@ You will learn basic strategies for finding and fixing bugs in your programs, an
 
 
 ### How to use this tutorial
-This tutorial is designed to be completed in approximately 6 to 7 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
+This tutorial is designed to be completed in approximately **6 to 7 hours**, depending on your background and how much time you spend experimenting with the code and solving the exercises.
 
-You are encouraged to work through the tutorial step by step, in order. Read the explanations, run the code cells, and try to modify the examples to see what happens. You are expected to **solve these exercises yourself** by writing Python and NumPy code. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
+To reach the full training goal, you are encouraged to work through the material step-by-step. The practical core of this tutorial is **composed of two essential workbooks**:
+
+1. `numpy_python_basics.ipynb`: A foundational review to ensure your Python skills are ready for data science.
+2. `numpy_tutorial_exercises.ipynb`: A deep dive into specialized NumPy operations and array logic.
+
+
+Read the explanations, run the code cells, and try to modify the examples to see what happens. You are expected to **solve these exercises yourself** by writing Python and NumPy code. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions. 
+
+The explanations provided earlier will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
 
 If you get stuck, use the testing and debugging sections to help you understand what went wrong rather than skipping ahead. The goal is not just to finish the notebook, but to build confidence in using NumPy and in writing, testing, and debugging your own Python code.
 
@@ -59,7 +67,7 @@ Learning works best when you see the same ideas explained in **multiple ways and
 
 **NumPy** and **SciPy** are two core libraries for scientific computing in Python, but they serve different roles. In particular, NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides the fundamental data structure *the array* and the basic numerical operations needed to work efficiently with numerical data. This way, Numpy provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem. In addition, NumPy is built for performance: it allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, NumPy also serves as a foundation for many other libraries, such as pandas (data analysis), scikit-learn (machine learning), and frameworks like TensorFlow and PyTorch, which rely on NumPy-style arrays for their internal computations.
 
-On the other hand, SciPy is built on top of NumPy and extends it with a large collection of ready-to-use scientific algorithms, including tools for optimization, numerical integration, statistics, signal processing, and linear algebra. Because SciPy operates directly on NumPy arrays, it is essential to understand NumPy first before using SciPy effectively.
+On the other hand, SciPy (**Scientific Python**) is built on top of NumPy and extends it with a large collection of ready-to-use scientific algorithms, including tools for optimization, numerical integration, statistics, signal processing, and linear algebra. Because SciPy operates directly on NumPy arrays, it is essential to understand NumPy first before using SciPy effectively.
 
 In this tutorial, we will focus exclusively on **NumPy** and use it in the simplest possible way, without relying on higher-level libraries such as pandas, scikit-learn, TensorFlow, or PyTorch. This approach allows us to concentrate on the core concepts—arrays, basic operations, and numerical computing—so you can build a solid foundation before moving on to more advanced tools.
 
