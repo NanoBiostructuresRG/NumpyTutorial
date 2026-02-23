@@ -254,39 +254,40 @@ print(type(str(123.45)))
 
 ## 1.2 Using Google Colab for This Tutorial   
 
-If you’ve ever wanted to write and run code without the headache of installing software, **Google Colab** (short for *Colaboratory*) is the perfect place to start.
+If you’ve ever wanted to write code without the headache of software installation, **Google Colab** is the perfect place to start. It’s a cloud-based platform that lets you execute Python directly in your browser. We’ll use it throughout this tutorial so you can focus entirely on mastering NumPy instead of troubleshooting your computer setup. Think of it as **Google Docs, but for programmers**.
 
-To make things as smooth as possible, we’re going to use Google Colab for this tutorial. It’s a cloud-based platform that lets you write and execute Python code directly in your web browser, so you can focus on **learning NumPy** instead of worrying about setting up your computer.
-
-Think of it as **Google Docs**, but for programmers.
 
 ### What is Google Colab?
 
-Google Colab is a cloud-based platform that allows you to work with interactive notebooks that combine:
-- Executable Python code
-- Rich text (like explanations and notes)
-- Images, HTML, and LaTeX
+Beyond just avoiding installation, Google Colab provides an interactive environment called a **Notebook**. These notebooks are powerful because they allow you to combine:
 
-Your notebooks are saved automatically to **Google Drive**, and you can easily share them with others so they can view, comment on, or edit your work.
+- Executable Code: Write and run Python instantly.
+- Rich Documentation: Add explanations, notes, and instructions using Markdown.
+- Visuals: Embed images, HTML, and even complex mathematical formulas using LaTeX.
 
-All you need is a web browser and an internet connection.
+
+Because it’s integrated with the Google ecosystem, your progress saves automatically to **Google Drive**. You can share your work as easily as a link, allowing others to view, comment, or collaborate in real-time. All you need is a browser and an internet connection to get started.
+
 
 
 ### Why Use Colab?
 
-Colab is especially convenient for beginners because:
-- No setup required: You don’t need to install Python or any libraries.
-- Runs in the cloud: Your code executes on Google’s servers, not on your computer.
-- Free access to powerful hardware: You can use GPUs when needed.
-- Interactive format: Notebooks use cells for code and text, which is ideal for learning and tutorials.
-- Easy sharing: You can collaborate just like in Google Docs.
+Since we’ve already seen that Colab is cloud-based and requires zero setup, here are the specific reasons it’s the best choice for learning **NumPy**:
+
+- **Pre-installed Libraries**: You don’t need to worry about pip install. Essential libraries like NumPy, Pandas, and Matplotlib are already configured and ready to use.
+- **Google’s Computing Power**: Your code runs on Google’s high-performance servers. This means your computer’s battery and RAM stay fresh while the cloud handles the heavy lifting.
+- **Hardware Acceleration**: If our data tasks get complex, you can toggle on a GPU for free to speed up calculations—something that usually requires expensive hardware.
+- **Cell-Based Learning**: Unlike a traditional script, the Interactive Format allows you to run code in small "cells." You can test one line of NumPy at a time, see the result immediately, and move on.
+- **Seamless Collaboration**: Just like any other Google Workspace tool, you can share your notebooks with a link to get help or show off your progress.
 
 
 ### Colab and Jupyter Notebooks
 
-Google Colab is built on **Jupyter Notebook** technology. In practice, Colab notebooks are simply Jupyter notebooks hosted in the cloud.
+If you’ve heard of **Jupyter Notebooks**, you’re already one step ahead. Google Colab is essentially a cloud-hosted version of the Jupyter technology.
 
-If you already know Jupyter, Colab will feel familiar. The main difference is that Jupyter usually requires local installation and setup, while Colab is ready to use immediately and runs on Google’s infrastructure.
+- **Same DNA**: Colab uses the standard .ipynb file format. This means any notebook you create here can be downloaded and opened in a local Jupyter environment later.
+- **The Main Difference**: While traditional Jupyter requires you to manage your own Python "environments" and local installations, Colab provides a pre-configured workspace on Google’s infrastructure.
+- **Why start here?** We are using Colab today to remove technical barriers, allowing you to focus entirely on NumPy logic.
 
 
 | Feature | Google Colab | Jupyter Notebook |
@@ -298,10 +299,11 @@ If you already know Jupyter, Colab will feel familiar. The main difference is th
 | **Collaboration** | Live Sharing (Like Google Docs) | Shared via Files (.ipynb) |
 
 
+**Looking Ahead**: In future tutorials, we will explore how to run Jupyter locally on your own machine. This will give you more control over offline access and custom configurations as your projects become more advanced. For now, Colab is the fastest way to get your hands on the code.
 
-We use Colab here to remove technical barriers and keep the focus on learning. In future tutorials, we will also explore running Jupyter Notebooks locally, which will give you more control, offline access, and custom environments as your skills grow.
+In this first practical session, we will be using the notebook `numpy_prep_basics.ipynb`.
 
-For now, Colab is the fastest way to get started.
+Our goal is to review the core concepts from **Subsection 1.1: Python Basics**. While you may have seen these concepts before, running them inside Google Colab will help you get comfortable with the interactive "cell" environment before we dive deep into NumPy.
 
 
 ## 1.3 Basic Structure of Codes Used in This Tutorial
