@@ -10,24 +10,33 @@
 ## Description
 This **NumpyTutorial** is a hands-on guide designed to introduce you to **NumPy** and to good programming practices in Python. Throughout the material, you will find guided examples and a series of exercises and test cases that encourage you to actively practice what you learn, while you perform basic linear algebra operations and write more reliable code through testing and debugging. It is best used by working through the sections in order, running the examples, and solving the exercises yourself.
 
-The tutorial is organized into three main parts:
-1. **Part 1:** Introduction to NumPy
-    1. Importing NumPy
-    2. Basic Structure of the Code
-    3. NumPy Arrays
-    4. Shape of Numpy Arrays
-    5. Accessing NumPy Arrays
-    6. Operations on NumPy Arrays
-    7. Linear Algebra
-    8. Saving and Loading Data with `.npy` and `.npz` Files
+This tutorial is organized into three main parts:
+
+- **Part 1:** Introduction to NumPy
+    1. Python Basics
+    2. Using Google Colab for This Tutorial
+    3. Basic Structure of Codes Used in This Tutorial
+    4. NumPy Arrays
+    5. Shape of Numpy Arrays
+    6. Accessing NumPy Arrays
+    7. Operations on NumPy Arrays
+    8. Linear Algebra
+    9. Saving and Loading Data with `.npy` and `.npz` Files
+
+- **Part 2:** Introduction to Assert Statements and Testing 
+- **Part 3:** Debugging Your Code 
+- **Wrap-Up and Next Steps**
+
+To complete your training and receive credit, you must work through these sections and complete the **two mandatory assessment notebooks**:
+
+- `numpy_python_basics.ipynb` (Python basics)
+- `numpy_tutorial_exercises.ipynb` (Numpy exercises)
 
 
-2. **Part 2:** Introduction to Assert Statements and Testing 
-
-3. **Part 3:** Debugging Your Code 
-
+To avoid local installations and focus exclusively on coding, these notebooks are designed to be performed in **Google Colab**.
 
 ---
+
 
 ## Purpose
 The purpose of this notebook is to help you:
