@@ -30,22 +30,22 @@ You will learn how to use assert statements to test your code, check that your f
 You will learn basic strategies for finding and fixing bugs in your programs, and how to use error messages and test cases to improve your code.
 
 
-### How to use this notebook
-This notebook is designed to be completed in approximately 5 to 7 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
+### How to use this tutorial
+This tutorial is designed to be completed in approximately 6 to 7 hours, depending on your background and how much time you spend experimenting with the code and solving the exercises.
 
-You are encouraged to work through the notebook step by step, in order. Read the explanations, run the code cells, and try to modify the examples to see what happens. You are expected to **solve these exercises yourself** by writing Python and NumPy code. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
+You are encouraged to work through the tutorial step by step, in order. Read the explanations, run the code cells, and try to modify the examples to see what happens. You are expected to **solve these exercises yourself** by writing Python and NumPy code. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions. The explanations and examples provided earlier in the notebook will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
 
 If you get stuck, use the testing and debugging sections to help you understand what went wrong rather than skipping ahead. The goal is not just to finish the notebook, but to build confidence in using NumPy and in writing, testing, and debugging your own Python code.
 
 ### Sources and Learning Materials
 
-This notebook is not meant to be the first or the last resource you will use to learn NumPy and scientific computing in Python. Instead, it is a **curated learning path** built from several tutorials, lecture notes, exercises, and official documentation.
+This tutorial is not meant to be the first or the last resource you will use to learn NumPy and scientific computing in Python. Instead, it is a **curated learning path** built from several tutorials, lecture notes, exercises, and official documentation.
 
 Many of the ideas, examples, and exercises presented here are **inspired by or adapted from** existing educational materials, including the NumPy documentation and common teaching resources used in courses and online tutorials. For this reason, you may notice that some exercises or examples look **similar to ones you have seen elsewhere**. This is intentional: these problems are standard, well-tested ways of learning core concepts.
 
-The goal of this notebook is not to present completely new material, but to **organize and connect** these concepts in a coherent, progressive way, with explanations, practice exercises, testing, and debugging techniques all in one place.
+The goal of this tutorial is not to present completely new material, but to **organize and connect** these concepts in a coherent, progressive way, with explanations, practice exercises, testing, and debugging techniques all in one place.
 
-You are encouraged to complement this notebook with other resources, such as:
+You are encouraged to complement this tutorial with other resources, such as:
 - The official [NumPy documentation](https://numpy.org/doc/stable/)
 - Free course notes, books, and lecture materials [Mathematics for Machine Learning](https://mml-book.com), [Wolfram MathWorld](https://mathworld.wolfram.com/) 
 - Online tutorials [3blue1brown](https://www.3blue1brown.com/)
@@ -57,13 +57,11 @@ Learning works best when you see the same ideas explained in **multiple ways and
 
 # PART 1. Introduction to NumPy
 
-NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem.
+**NumPy** and **SciPy** are two core libraries for scientific computing in Python, but they serve different roles. In particular, NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides the fundamental data structure *the array* and the basic numerical operations needed to work efficiently with numerical data. This way, Numpy provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem. In addition, NumPy is built for performance: it allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, NumPy also serves as a foundation for many other libraries, such as pandas (data analysis), scikit-learn (machine learning), and frameworks like TensorFlow and PyTorch, which rely on NumPy-style arrays for their internal computations.
 
-**NumPy** and **SciPy** are two core libraries for scientific computing in Python, but they serve different roles. NumPy provides the fundamental data structure—the array—and the basic numerical operations needed to work efficiently with numerical data. SciPy is built on top of NumPy and extends it with a large collection of ready-to-use scientific algorithms, including tools for optimization, numerical integration, statistics, signal processing, and linear algebra. Because SciPy operates directly on NumPy arrays, it is essential to understand NumPy first before using SciPy effectively. In addition, NumPy is built for performance: it allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, NumPy also serves as a foundation for many other libraries, such as pandas (data analysis), scikit-learn (machine learning), and frameworks like TensorFlow and PyTorch, which rely on NumPy-style arrays for their internal computations.
+On the other hand, SciPy is built on top of NumPy and extends it with a large collection of ready-to-use scientific algorithms, including tools for optimization, numerical integration, statistics, signal processing, and linear algebra. Because SciPy operates directly on NumPy arrays, it is essential to understand NumPy first before using SciPy effectively.
 
-
-In this tutorial, we will focus exclusively on NumPy and use it in the simplest possible way, without relying on higher-level libraries such as pandas, scikit-learn, TensorFlow, or PyTorch. This approach allows us to concentrate on the core concepts—arrays, basic operations, and numerical computing—so you can build a solid foundation before moving on to more advanced tools.
-
+In this tutorial, we will focus exclusively on **NumPy** and use it in the simplest possible way, without relying on higher-level libraries such as pandas, scikit-learn, TensorFlow, or PyTorch. This approach allows us to concentrate on the core concepts—arrays, basic operations, and numerical computing—so you can build a solid foundation before moving on to more advanced tools.
 
 In particular, this tutorial will focus on the basic concepts of **linear algebra**, such as vectors, matrices, and the operations between them. In this context, NumPy provides reliable implementations of common matrix operations, as well as routines for eigenvalue and eigenvector calculations, covariance matrices, and affine transformations. These tools are widely used in areas such as machine learning, dimensionality reduction, and mathematical modeling.
 
@@ -72,8 +70,7 @@ The documentation of **NumPy** is extensively referenced and is available at the
 
 
 
-
-## 1.1 Python   
+## 1.1 Python Basics   
 
 The tokens `+`, `-`, and `*`, and the use of parentheses for grouping, mean in Python what they mean in mathematics. The asterisk (`*`) is the token for multiplication, and `**` is the token for exponentiation. Addition, subtraction, multiplication, and exponentiation all do what you expect.
 
@@ -255,8 +252,59 @@ print(type(str(123.45)))
 
 
 
+## 1.2 Using Google Colab for This Tutorial   
 
-## 1.2 Basic Structure of the Code
+If you’ve ever wanted to write and run code without the headache of installing software, **Google Colab** (short for *Colaboratory*) is the perfect place to start.
+
+To make things as smooth as possible, we’re going to use Google Colab for this tutorial. It’s a cloud-based platform that lets you write and execute Python code directly in your web browser, so you can focus on **learning NumPy** instead of worrying about setting up your computer.
+
+Think of it as **Google Docs**, but for programmers.
+
+### What is Google Colab?
+
+Google Colab is a cloud-based platform that allows you to work with interactive notebooks that combine:
+- Executable Python code
+- Rich text (like explanations and notes)
+- Images, HTML, and LaTeX
+
+Your notebooks are saved automatically to **Google Drive**, and you can easily share them with others so they can view, comment on, or edit your work.
+
+All you need is a web browser and an internet connection.
+
+
+### Why Use Colab?
+
+Colab is especially convenient for beginners because:
+- No setup required: You don’t need to install Python or any libraries.
+- Runs in the cloud: Your code executes on Google’s servers, not on your computer.
+- Free access to powerful hardware: You can use GPUs when needed.
+- Interactive format: Notebooks use cells for code and text, which is ideal for learning and tutorials.
+- Easy sharing: You can collaborate just like in Google Docs.
+
+
+### Colab and Jupyter Notebooks
+
+Google Colab is built on **Jupyter Notebook** technology. In practice, Colab notebooks are simply Jupyter notebooks hosted in the cloud.
+
+If you already know Jupyter, Colab will feel familiar. The main difference is that Jupyter usually requires local installation and setup, while Colab is ready to use immediately and runs on Google’s infrastructure.
+
+
+| Feature | Google Colab | Jupyter Notebook |
+| :--- | :--- | :--- |
+| **Setup** | Instant (Cloud-based) | Manual Installation (Local) |
+| **Internet** | Required | Works Offline |
+| **Hardware** | Uses Google's Servers | Uses Your Own Computer |
+| **Environment** | Pre-installed Libraries | Customizable Environments |
+| **Collaboration** | Live Sharing (Like Google Docs) | Shared via Files (.ipynb) |
+
+
+
+We use Colab here to remove technical barriers and keep the focus on learning. In future tutorials, we will also explore running Jupyter Notebooks locally, which will give you more control, offline access, and custom environments as your skills grow.
+
+For now, Colab is the fastest way to get started.
+
+
+## 1.3 Basic Structure of Codes Used in This Tutorial
 
 In this tutorial, all code examples follow a simple and consistent structure. First, we import the required **libraries**. To work with numerical data in Python, we first import the **NumPy** library. By convention, NumPy is imported using the abbreviation `np`, which makes the code shorter and easier to read.
 
@@ -373,7 +421,7 @@ print(y)
 As you can see, **arrays** appear in all the examples, because they are the basic data structure used to represent vectors, matrices, and numerical data in NumPy. For this reason, before moving on to more advanced topics, we need to understand how arrays are created, how they are shaped, and how operations are applied to them.
 
 
-## 1.3 NumPy Arrays
+## 1.4 NumPy Arrays
 
 A NumPy **array** is a data structure used to store numbers in an organized, grid-like form (such as a list, table, or matrix) so they can be processed efficiently.
 
@@ -465,7 +513,7 @@ print(length(np.array([1,0])))
     1.0
 
 
-## 1.4 Shape of Numpy Arrays
+## 1.5 Shape of Numpy Arrays
 The **shape** of a NumPy array describes how many elements it has and how they are arranged. You can use the function [np.shape](https://numpy.org/doc/stable/reference/generated/numpy.shape.html) to obtain the shape of a Numpy array.
 
 The shape of NumPy arrays is printed as a tuple of numbers, where each number represents the size of one dimension. For example, a shape of `(3,)` means the array has 3 elements in one dimension. The comma is important because it tells Python that this is a tuple, not just a number. 
@@ -722,7 +770,7 @@ print("\n", a.shape)
 > **Note:** Observe that the newline character `\n` (for instance, `print("\nA: Reshaped\n")`) is used to insert **line breaks** in printed output. It allows you to add blank lines to separate sections and improve readability without changing the content of the data being printed.
 
 
-## 1.5 Accessing NumPy Arrays
+## 1.6 Accessing NumPy Arrays
 
 Once we have a NumPy array, we often want to look at or use **individual values** inside it. This is called accessing an array. We already known that Numpy arrays are 0 indexed and each value in a NumPy array has a position, called an **index**. In Python, counting starts at zero, so the first value is at position 0, the second at position 1, and so on.
 
@@ -959,7 +1007,7 @@ s = -48
 
 
 
-## 1.6 Operations on NumPy Arrays
+## 1.7 Operations on NumPy Arrays
 
 NumPy does not treat arrays as single numbers. Instead, it applies the operation to each element inside the array. This means that NumPy allows you to perform mathematical operations directly on arrays. When you use operators such as '`*`', '`+`', '`-`', '`**`' and '`/`' on NumPy arrays, the operation is applied **element by element**. 
 
@@ -1610,7 +1658,7 @@ expected = np.array([[-0.35694152, -0.97689929, -0.73023324, -1.28391946],
 
 
 
-## 1.7 Linear Algebra
+## 1.8 Linear Algebra
 
 Linear algebra is the branch of mathematics that works with **vectors** and **matrices**, and it is a fundamental tool in science, engineering, and machine learning. In Python, the NumPy library provides simple and efficient ways to create, manipulate, and compute with vectors and matrices. Using NumPy, we can perform operations such as matrix addition, multiplication, transposition, and solving systems of equations with just a few lines of code. Because NumPy uses optimized, vectorized implementations, these operations are not only easy to write but also very fast, making it an ideal tool for learning and applying linear algebra in practice.
 
@@ -2859,7 +2907,7 @@ print(f"Predicted class: {y_pred}")
 
 ```
 
-## 1.8 Saving and Loading Data with **`.npy`** and **`.npz`** Files
+## 1.9 Saving and Loading Data with **`.npy`** and **`.npz`** Files
 
 
 NumPy’s `.npy` files are the **native binary format** for storing a single NumPy arrays. They are designed to save and load arrays efficiently and without losing any information.
@@ -3299,8 +3347,7 @@ np.testing.assert_allclose(sum_of_max(A), 157)
 ---
 
 # Wrap-Up and Next Steps
-Congratulations on making it to the end of this notebook!  
-This was a long and demanding journey, and completing it is a great achievement.
+Congratulations on making it to the end of this notebook! This was a long and demanding journey, and completing it is a great achievement.
 
 By now, you should feel more comfortable working with **NumPy arrays**, performing **basic linear algebra operations**, and writing **cleaner, more reliable code** using **tests and assertions**. You have also practiced **debugging strategies** that will help you identify and fix problems more systematically in your future projects.
 
