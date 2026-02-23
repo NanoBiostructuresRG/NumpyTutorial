@@ -289,14 +289,16 @@ If you’ve heard of **Jupyter Notebooks**, you’re already one step ahead. Goo
 - **The Main Difference**: While traditional Jupyter requires you to manage your own Python "environments" and local installations, Colab provides a pre-configured workspace on Google’s infrastructure.
 - **Why start here?** We are using Colab today to remove technical barriers, allowing you to focus entirely on NumPy logic.
 
+In **Table 1**, a comparison is shown between these two environments to help you decide which setup best suits your future projects.
 
+#### Table 1: Key Differences Between Google Colab and Local Jupyter Notebooks
 | Feature | Google Colab | Jupyter Notebook |
 | :--- | :--- | :--- |
-| **Setup** | Instant (Cloud-based) | Manual Installation (Local) |
-| **Internet** | Required | Works Offline |
-| **Hardware** | Uses Google's Servers | Uses Your Own Computer |
-| **Environment** | Pre-installed Libraries | Customizable Environments |
-| **Collaboration** | Live Sharing (Like Google Docs) | Shared via Files (.ipynb) |
+| **Setup** | No installation requiered (Cloud-based) | Manual Python and Jupyter installation (Local) |
+| **Internet** | Required connection| Works offline |
+| **Hardware** | Uses Google's servers | Uses your own computer |
+| **Environment** | Pre-installed popular libraries | Customizable environments |
+| **Collaboration** | Live sharing and commenting (Like Google Docs) | Shared via files (.ipynb) |
 
 
 **Looking Ahead**: In future tutorials, we will explore how to run Jupyter locally on your own machine. This will give you more control over offline access and custom configurations as your projects become more advanced. For now, Colab is the fastest way to get your hands on the code.
