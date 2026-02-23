@@ -33,15 +33,17 @@ You will learn basic strategies for finding and fixing bugs in your programs, an
 ### How to use this tutorial
 This tutorial is designed to be completed in approximately **6 to 7 hours**, depending on your background and how much time you spend experimenting with the code and solving the exercises.
 
-To reach the full training goal, you are encouraged to work through the material step-by-step. The practical core of this tutorial is **composed of two essential workbooks**:
+To reach the full training goal, you are encouraged to work through the material step-by-step. The practical core of this tutorial is **composed of two essential workbooks** that you will run directly in **Google Colab**:
 
 1. `numpy_python_basics.ipynb`: A foundational review to ensure your Python skills are ready for data science.
 2. `numpy_tutorial_exercises.ipynb`: A deep dive into specialized NumPy operations and array logic.
 
+> **Submission and Grading:** Please note that these two notebooks will be evaluated as **official assignments**. Once you have completed all the exercises, you must submit your final versions through the **Canvas** platform for grading.
 
-Read the explanations, run the code cells, and try to modify the examples to see what happens. You are expected to **solve these exercises yourself** by writing Python and NumPy code. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions. 
 
-The explanations provided earlier will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
+By using Google Colab, you can run these files in your browser **without any local setup**. Read the explanations, run the code cells, and try to modify the examples to see what happens. When you reach an exercise, take your time to think about the problem and attempt a solution before looking at any hints or solutions. 
+
+You are expected to **solve these exercises yourself** by writing Python and NumPy code. The explanations provided earlier will give you the tools you need, but the real learning happens when you **try**, **test**, **make mistakes**, and **fix them**.
 
 If you get stuck, use the testing and debugging sections to help you understand what went wrong rather than skipping ahead. The goal is not just to finish the notebook, but to build confidence in using NumPy and in writing, testing, and debugging your own Python code.
 
