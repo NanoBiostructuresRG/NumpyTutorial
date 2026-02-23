@@ -294,16 +294,16 @@ In **Table 1**, a comparison is shown between these two environments to help you
 #### Table 1: Key Differences Between Google Colab and Local Jupyter Notebooks
 | Feature | Google Colab | Jupyter Notebook |
 | :--- | :--- | :--- |
-| **Setup** | No installation requiered (Cloud-based) | Manual Python and Jupyter installation (Local) |
+| **Setup** | No installation requiered (cloud-based) | Manual Python and Jupyter installation (local) |
 | **Internet** | Required connection| Works offline |
 | **Hardware** | Uses Google's servers | Uses your own computer |
 | **Environment** | Pre-installed popular libraries | Customizable environments |
-| **Collaboration** | Live sharing and commenting (Like Google Docs) | Shared via files (.ipynb) |
+| **Collaboration** | Live sharing and commenting (like Google Docs) | Shared via files (*.ipynb) |
 
 
 **Looking Ahead**: In future tutorials, we will explore how to run Jupyter locally on your own machine. This will give you more control over offline access and custom configurations as your projects become more advanced. For now, Colab is the fastest way to get your hands on the code.
 
-In this first practical session, we will be using the notebook `numpy_prep_basics.ipynb`.
+In this first practical session, we will be using the notebook `numpy_python_basics.ipynb`.
 
 Our goal is to review the core concepts from **Subsection 1.1: Python Basics**. While you may have seen these concepts before, running them inside Google Colab will help you get comfortable with the interactive "cell" environment before we dive deep into NumPy.
 
