@@ -2,6 +2,7 @@
 **Version 1.0.0 - February, 2026. Monterrey**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 [![Version](https://img.shields.io/badge/version-v1.0-blue.svg)]()
 
@@ -3379,17 +3380,7 @@ Keep experimenting, keep breaking things (on purpose!), and keep learning. That‚
 
 ---
 
-## Author
-Developed by **Flavio F. Contreras-Torres** (Tecnol√≥gico de Monterrey)      
-Monterrey, Mexico - February 2026
-
----
-
-## Versions   
-v.1.0.0 - February 2026. Monterrey, Mexico
-
----
 
 ## License
-This project is licensed under the terms of the [MIT License](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE).  
-See the LICENSE file for full details.
+The content of this document itself is licensed under the terms and conditions of the [Creative Commons Attribution (CC BY-NC-ND 4.0) license](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
+
