@@ -65,4 +65,4 @@ v.1.0.0 - February 2026. Monterrey, Mexico
 ---
 
 ## License
-The content of this project itself is licensed under the [Creative Commons Attribution (CC BY-NC-ND 4.0) license](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
+The content of this project itself is licensed under the terms and conditions of the [Creative Commons Attribution (CC BY-NC-ND 4.0) license](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
