@@ -2,6 +2,7 @@
 **Version 1.0.0 - February, 2026. Monterrey**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 [![Version](https://img.shields.io/badge/version-v1.0-blue.svg)]()
 
@@ -64,4 +65,4 @@ v.1.0.0 - February 2026. Monterrey, Mexico
 ---
 
 ## License
-The content of this project itself is licensed under the [Creative Commons Attribution (CC BY-NC-ND) license](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT License](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
+The content of this project itself is licensed under the [Creative Commons Attribution (CC BY-NC-ND 4.0) license](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
