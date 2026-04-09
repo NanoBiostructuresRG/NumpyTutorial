@@ -6,6 +6,7 @@
 
 [![Version](https://img.shields.io/badge/version-v1.0-blue.svg)]()
 
+
 ---
 
 ## Description
@@ -53,14 +54,15 @@ This tutorial is meant to be a **learning resource**, not a final reference.
 
 ---
 
-## Author
-Developed by **Flavio F. Contreras-Torres** (Tecnológico de Monterrey)      
-Monterrey, Mexico - February 2026
+## Authors
+**Flavio F. Contreras-Torres**      
+Tecnológico de Monterrey      
+Monterrey, Mexico
 
 ---
 
 ## Versions     
-v.1.0.0 - February 2026. Monterrey, Mexico
+v.1.0.0 - February 2026
 
 ---
 
