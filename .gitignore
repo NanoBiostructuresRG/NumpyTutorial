@@ -21,7 +21,7 @@ data/
 *.aux
 *.log
 *.out
-*.pdf
+#*.pdf
 *.synctex.gz
 
 # Figuras

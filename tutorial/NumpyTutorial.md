@@ -1,10 +1,14 @@
 # NumPy Tutorial
 **Version 1.0.0 - February, 2026. Monterrey**
 
+**Author:** [Flavio F. Contreras-Torres](https://orcid.org/0000-0003-2375-131X). Tecnológico de Monterrey.
+
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 [![Version](https://img.shields.io/badge/version-v1.0-blue.svg)]()
+
 
 ---
 
@@ -18,17 +22,13 @@
 This notebook is a **hands-on introduction** to numerical computing with NumPy and to some essential programming practices in Python. It is designed for beginners and for learners with prior experience who want to refresh or strengthen their understanding in how to work with arrays, perform basic linear algebra operations, and write more reliable code.
 
 The notebook is divided into three main parts:
-- **Part 1**: Introduction to NumPy.
 
-You will learn how to create and manipulate NumPy arrays, and how to use them for tasks such as vector and matrix operations, linear algebra, and polynomial multiplication.
+- **Part 1: Introduction to NumPy.** You will learn how to create and manipulate NumPy arrays, and how to use them for tasks such as vector and matrix operations, linear algebra, and polynomial multiplication.
 
-- **Part 2**: Introduction to Assert Statements and Testing.
+- **Part 2: Introduction to Assert Statements and Testing.** You will learn how to use assert statements to test your code, check that your functions work as expected, and catch errors early.
 
-You will learn how to use assert statements to test your code, check that your functions work as expected, and catch errors early.
+- **Part 3: Debugging Your Code.** You will learn basic strategies for finding and fixing bugs in your programs, and how to use error messages and test cases to improve your code.
 
-- **Part 3**: Debugging Your Code.
-
-You will learn basic strategies for finding and fixing bugs in your programs, and how to use error messages and test cases to improve your code.
 
 
 ### How to use this tutorial
@@ -38,6 +38,7 @@ To reach the full training goal, you are encouraged to work through the material
 
 1. `numpy_python_basics.ipynb`: A foundational review to ensure your Python skills are ready for data science.
 2. `numpy_tutorial_exercises.ipynb`: A deep dive into specialized NumPy operations and array logic.
+
 
 > **Submission and Grading:** Please note that these two notebooks will be evaluated as **official assignments**. Once you have completed all the exercises, you must submit your final versions through the **Canvas** platform for grading.
 
@@ -57,6 +58,7 @@ Many of the ideas, examples, and exercises presented here are **inspired by or a
 The goal of this tutorial is not to present completely new material, but to **organize and connect** these concepts in a coherent, progressive way, with explanations, practice exercises, testing, and debugging techniques all in one place.
 
 You are encouraged to complement this tutorial with other resources, such as:
+
 - The official [NumPy documentation](https://numpy.org/doc/stable/)
 - Free course notes, books, and lecture materials [Mathematics for Machine Learning](https://mml-book.com), [Wolfram MathWorld](https://mathworld.wolfram.com/) 
 - Online tutorials [3blue1brown](https://www.3blue1brown.com/)
@@ -68,7 +70,7 @@ Learning works best when you see the same ideas explained in **multiple ways and
 
 # PART 1. Introduction to NumPy
 
-**NumPy** and **SciPy** are two core libraries for scientific computing in Python, but they serve different roles. In particular, NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides the fundamental data structure *the array* and the basic numerical operations needed to work efficiently with numerical data. This way, Numpy provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem. In addition, NumPy is built for performance: it allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, NumPy also serves as a foundation for many other libraries, such as pandas (data analysis), scikit-learn (machine learning), and frameworks like TensorFlow and PyTorch, which rely on NumPy-style arrays for their internal computations.
+[NumPy](https://numpy.org/) and [SciPy](https://scipy.org/) are two core libraries for scientific computing in Python, but they serve different roles. In particular, NumPy (**Numerical Python**) is the core library for numerical and scientific computing in Python. It provides the fundamental data structure *the array* and the basic numerical operations needed to work efficiently with numerical data. This way, Numpy provides an efficient multidimensional array structure that enables fast, vectorized numerical operations, forming the foundation of most scientific and data-driven workflows in the Python ecosystem. In addition, NumPy is built for performance: it allows large datasets to be processed without explicit Python loops, achieving speeds comparable to compiled languages such as C and Fortran. For this reason, NumPy also serves as a foundation for many other libraries, such as pandas (data analysis), scikit-learn (machine learning), and frameworks like TensorFlow and PyTorch, which rely on NumPy-style arrays for their internal computations.
 
 On the other hand, SciPy (**Scientific Python**) is built on top of NumPy and extends it with a large collection of ready-to-use scientific algorithms, including tools for optimization, numerical integration, statistics, signal processing, and linear algebra. Because SciPy operates directly on NumPy arrays, it is essential to understand NumPy first before using SciPy effectively.
 
@@ -77,7 +79,7 @@ In this tutorial, we will focus exclusively on **NumPy** and use it in the simpl
 In particular, this tutorial will focus on the basic concepts of **linear algebra**, such as vectors, matrices, and the operations between them. In this context, NumPy provides reliable implementations of common matrix operations, as well as routines for eigenvalue and eigenvector calculations, covariance matrices, and affine transformations. These tools are widely used in areas such as machine learning, dimensionality reduction, and mathematical modeling.
 
 
-The documentation of **NumPy** is extensively referenced and is available at the official [webpage](https://docs.scipy.org/doc/numpy/index.html).
+The documentation of **NumPy** is extensively referenced and is available at the official [webpage](https://numpy.org/doc/stable/index.html).
 
 
 
@@ -358,7 +360,7 @@ c = a + b
 print(c)
 ```
 
-Sometimes the mathematical expression we need is already available through existing operations, while in other cases we will write the equation explicitly in code. For instance, the equation $F = m \cdot a$ is not a built-in *physics function*, so we write it ourselves using the operator `*`.
+Sometimes the mathematical expression we need is already available through existing operations, while in other cases we will write the equation explicitly in code. For instance, the equation $F = m \cdot a$ is not a built-in physics function, so we write it ourselves using the operator `*`.
 
 Additionally, in many cases, we also define a function using `def`, which groups a set of operations under a name so it can be reused. Inside the function, we perform the necessary computations and use return to send back the result. 
 
@@ -596,7 +598,7 @@ n = A.shape[0]
 
 ```
 
-means that we store the numbers of rows of $A$ in a variable called `n`. Here, `A.shape` returns the size of the matrix as a pair:
+means that we store the numbers of rows of $A$ in a variable called $n$. Here, `A.shape` returns the size of the matrix as a pair:
 
 ```python
 (number of rows, number of columns)
@@ -916,9 +918,9 @@ range(stop)
 
 ```
 
-This generates numbers starting from `0` up to, but not including, `stop`. For example, `range(5)` represents the list of numbers **0, 1, 2, 3, 4**.
+This generates numbers starting from $0$ up to, but not including, `stop`. For example, `range(5)` represents the list of numbers **0, 1, 2, 3, 4**.
 
-The function `range()` can be used with arrays. If an array has length `n`, `range(n)` produces exactly the indices needed to access all its elements, that is, the first index `0` up to the last index `n - 1`. 
+The function `range()` can be used with arrays. If an array has length $n$, `range(n)` produces exactly the indices needed to access all its elements, that is, the first index $0$ up to the last index $n - 1$. 
 
 
 ```python
@@ -937,7 +939,7 @@ print(range(n))
     range(0, 4)
 
 
-> **Note:** Even though it looks like a tuple, `range(0, 4)` is **NOT** a tuple. It is an object that represents a **sequence of numbers**, namely, start at 0, stop before 4.
+> **Note:** Even though it looks like a tuple, `range(0, 4)` is **NOT** a tuple. It is an object that represents a **sequence of numbers**, namely, start at $0$, stop before $4$.
 
 
 
@@ -1168,6 +1170,7 @@ print(f"Mean: {average}")
 In many data analysis techniques, we **center the data** by subtracting the mean of each feature. This shifts the data to have zero mean without changing its shape or relationships.
 
 The data are centered for:
+
 - Removes Bias: Eliminates systematic offsets so we focus on variation
 - Improves Numerical Stability: Prevents large numbers that can cause computational issues
 - Standard Starting Point: Many algorithms assume centered data
@@ -1293,11 +1296,11 @@ idx = np.where(alpha != 0)[0]
 
 Think of a classroom, then
 
-- `alpha != 0` indicates which students raised their hand? → Boolean mask
+- `alpha != 0` indicates which students raised their hand? -> Boolean mask
 
-- `np.where(alpha != 0)` means what are the seat numbers of students who raised hands? → Indices
+- `np.where(alpha != 0)` means what are the seat numbers of students who raised hands? -> Indices
 
-- `[0]` is for give me just the list of seat numbers → First element of tuple
+- `[0]` is for give me just the list of seat numbers -> First element of tuple
 
 Remember that  `np.where()` does not return the mask itself but it returns where the True values are located in the mask
 
@@ -1772,8 +1775,8 @@ However, if you use a 2D array with shape $(d, 1)$ (a column vector), then trans
 
 In this case:
 
-- The original array has shape $(d, 1)$ → a column vector
-- Its transpose will have shape $(1, d)$ → a row vector
+- The original array has shape $(d, 1)$ -> a column vector
+- Its transpose will have shape $(1, d)$ -> a row vector
 
 
 
@@ -2042,10 +2045,11 @@ y = np.array([1, -1])
 
 
 Lastly, remember that in NumPy, the operators `*` and `@` do not mean the same thing:
+
 -   `*` performs element-wise multiplication
-    → Each element is multiplied by the element in the same position.
+     Each element is multiplied by the element in the same position.
 -   `@` performs matrix multiplication (linear algebra product)
-    → Rows of the first matrix are combined with columns of the second matrix.
+     Rows of the first matrix are combined with columns of the second matrix.
 
 This is a very common source of confusion for beginners, so it’s important to keep the difference in mind.
 
@@ -2079,9 +2083,10 @@ print("\nA @ B (matrix multiplication):\n", A @ B)
 
 
 ### Outer product
-The **outer product** of two vectors produces a matrix. The outer product of two vectors can be calculated using the function `np.outer( )`. The function `np.outer()` creates a matrix where each row is a scaled version of `b`.
+The **outer product** of two vectors produces a matrix. The outer product of two vectors can be calculated using the function `np.outer()`. The function `np.outer()` creates a matrix where each row is a scaled version of `b`.
 
 There is a key difference with **dot product**:
+
 - $a b^⊤$ = Outer product → Creates a **matrix** from two vectors
 - $a^⊤ b$ = Dot product → Computes a **scalar** from two vectors
 
@@ -2148,6 +2153,7 @@ print(P)
 NumPy provides a special module called `numpy.linalg` that contains many useful tools for linear algebra.
 
 With `numpy.linalg`, you can easily:
+
 - Solve systems of linear equations
 - Compute determinants and inverses of matrices
 - Compute eigenvalues and eigenvectors
@@ -2155,7 +2161,7 @@ With `numpy.linalg`, you can easily:
 - And perform many other common linear algebra operations
 
 
-Instead of implementing these operations yourself, you can rely on this library, which is fast, well-tested, and easy to use. Ypu can revise the documentation of [np.linalg](https://numpy.org/doc/stable/reference/routines.linalg.html) for more details. 
+Instead of implementing these operations yourself, you can rely on this library, which is fast, well-tested, and easy to use. You can revise the documentation of [np.linalg](https://numpy.org/doc/stable/reference/routines.linalg.html) for more details. 
 
 
 For example, we can compute the **determinant** of a square matrix by using [np.linalg.det()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html).
@@ -2177,7 +2183,7 @@ print("det(A) =", detA)
 
 We can compute the inverse of a matrix by using [np.linalg.inv()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html). 
 
-The inverse of a matrix `A` is another matrix $`A^{-1}`$ such that $`A @ A^{-1} = I`$, where `I` is the identity matrix.
+The inverse of a matrix `A` is another matrix $A^{-1}$ such that $A @ A^{-1} = I$, where `I` is the identity matrix.
 
 
 
@@ -2226,6 +2232,7 @@ print("\nA @ A_inv:\n", A @ A_inv)
 We can compute the eigenvalues and eigenvectors of a matrix using [np.linalg.eig()](https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html). 
 
 This function returns two objects:
+
 - An array with the eigenvalues
 - A matrix whose columns are the corresponding eigenvectors
 
@@ -2257,7 +2264,7 @@ print("\nEigenvectors (columns):\n", eigenvectors)
 
 So far, we have seen how to compute eigenvalues and eigenvectors using `np.linalg.eig()`. But what do these results actually mean? 
 
-By definition, if `v` is an eigenvector of a matrix `A` with eigenvalue `λ`, then multiplying the matrix by this vector does not change its direction—it only scales it:
+By definition, if $v$ is an eigenvector of a matrix $A$ with eigenvalue $\lambda$, then multiplying the matrix by this vector does not change its direction—it only scales it:
 
 $$
 A @ v = \lambda v
@@ -2337,6 +2344,7 @@ print(idx)
 
 
 This means:
+
 - The smallest value is at index `1` (which is `-1`)
 - The next value is at index `0` (which is `6`)
 
@@ -2368,6 +2376,7 @@ S[:, idx]
 ```
 
 means:
+
 - : → take all rows
 - idx → take only the columns in the order given by idx
 
@@ -2381,7 +2390,8 @@ eig_vals = eig_vals[idx]
 S = S[:, idx]
 ```
 
-that indicates 
+that indicates:
+
 - Compute the index order that sorts the eigenvalues
 - Reorder the eigenvalues using that order
 - Reorder the columns of `S` in the same way, so each eigenvector still corresponds to its eigenvalue
@@ -2417,6 +2427,7 @@ Diagonalization is an important concept in linear algebra that builds directly o
 A square matrix `A` is said to be **diagonalizable** if it can be written in the form $A = SDS^{{-1}}$,
 
 where:
+
 - `S` is a matrix whose columns are the eigenvectors of `A`,
 - `D` is a diagonal matrix containing the corresponding eigenvalues of `A`,
 - `S^{-1}` is the inverse of `S`.
@@ -2424,6 +2435,7 @@ where:
 You might find [np.zeros()](https://numpy.org/devdocs/reference/generated/numpy.zeros.html), [np.linalg.eig()](https://numpy.org/devdocs/reference/generated/numpy.linalg.eig.html) and [np.linalg.inv()](https://numpy.org/devdocs/reference/generated/numpy.linalg.inv.html) useful. Note that for this exercise, you may assume that $A$ is always diagonalizable.
 
 For testing purposes:
+
 - Each eigenvector in $S$ must be of **unit length**. This is automatically satisfied if you use [np.linalg.eig()](https://numpy.org/devdocs/reference/generated/numpy.linalg.eig.html). If you do not, you may need to normalize the eigenvectors yourself. 
 - The eigenvalues in `D` must appear in **non-decreasing order**.
 
@@ -2513,7 +2525,7 @@ def diagonalize(A):
     return S, D, S_inv                
 ```
 
-Verify your solutions `S`, `D`, `S_inv` for this exercise by computing the expected values for the following `(2x2)` and `(4x4)`arrays.
+Verify your solutions $S$, $D$, $S_inv$ for this exercise by computing the expected values for the following `(2x2)` and `(4x4)`arrays.
 
 
 ```python
@@ -2589,9 +2601,10 @@ So the product is another polynomial whose degree is the **sum of the degrees** 
 
 But, why is this related to arrays and linear algebra? If we store the coefficients of a polynomial in an array, polynomial multiplication becomes a **systematic combination of coefficients**, very similar to:
 
-- Convolutions  
-- Dot products  
-- Matrix-vector products  
+- Convolutions
+- Dot products 
+- Matrix-vector products
+
 
 For example, the polynomial:
 
@@ -2625,10 +2638,10 @@ In this exercise, you will implement a function to multiply two polynomials usin
 
 You are given two **one-dimensional NumPy arrays** `A` and `B` containing the coefficients of two polynomials. We will use the convention that:
 
-- `A[i] = a_i` is the coefficient of \(x^i\) in the first polynomial  
+- `A[i] = a_i` is the coefficient of \(x^i\) in the first polynomial
 - `B[i] = b_i` is the coefficient of \(x^i\) in the second polynomial  
 
-Your goal is to compute the coefficients of the product polynomial $\(C = A \cdot B\)$.
+Your goal is to compute the coefficients of the product polynomial $C = A \cdot B$.
 
 More formally, if `C` is the resulting one-dimensional array and `C[i] = c_i`, then:
 
@@ -2735,7 +2748,8 @@ f(x) = \sum_{i \in SV} \alpha_i \ y_i \ K(x_i, x) + b
 $$
 
 where:
-- $f(x)$ is a real-valued function: $\mathbb{R}^n \rightarrow \mathbb{R}$. 
+
+- $f(x)$ is a real-valued function: $\mathbb{R}^n \rightarrow \mathbb{R}$.
 - $x = the new point (sample) you want to predict
 - $x_i = (x_1, x_2,..., x_n)$ = training points, with $n$ the number of features per $ith$ training sample
 - $y_i$ = their labels for classification (e.g., +1, -1)
@@ -2743,6 +2757,7 @@ where:
 - $\alpha_i$ = learned weights
 - $b$ = bias
 - $SV$ = only the support vectors
+
 
 The function $f(x)$ takes an input vector $x \in \mathbb{R}^n \quad$ and outputs a real number $\quad f(x) \in \mathbb{R}$.
 
@@ -2770,7 +2785,8 @@ X = \{(x_1, y_1), (x_2, y_2), \dots, (x_N, y_N)\}
 $$
 
 where:
-- Each $x_i \in \mathbb{R}^n$ is a vector (one sample). Here, $x_1$, $x_2$, ..., $x_N$ are different elements (for the set X) with $n$ number of features 
+
+- Each $x_i \in \mathbb{R}^n$ is a vector (one sample). Here, $x_1$, $x_2$, ..., $x_N$ are different elements (for the set X) with $n$ number of features
 - Each $y_i \in \{+1, -1\}$ is its label
 
 From these, SVM learns the coefficients $\alpha_i$, selects some of the $x_i$ as support vectors and builds the decision function. 
@@ -2932,9 +2948,7 @@ You can think of an `.npy` file as an exact snapshot of an array. It stores not 
 However, you still might wonder why not use text formats like `.txt` or `.csv`. This is because the `.npy` format has three important advantages:
 
 - Speed: Saving and loading are much faster because the data is stored in binary form, without needing to parse text.
-
 - Size. Files are usually smaller thanks to efficient binary storage.
-
 - Fidelity. All NumPy-specific information (such as `dtype='complex128'` or `dtype='<U10'` for strings) is preserved exactly. 
 
 
@@ -2976,10 +2990,11 @@ student_id,math,physics,chemistry
 Notice that some values are missing and are represented by the string `"NA"`. Before using this data for analysis (or machine learning), these values must be **cleaned and handled properly**.
 
 A typical workflow is:
-1. Load the raw data from the CSV file
-2. Convert the data to a NumPy array, treating `"NA"` as missing values.
-3. Clean or replace the missing values (for example, with `np.nan` or with column averages).
-4. Save the cleaned array to a binary NumPy file (`.npy`) so it can be quickly reloaded later without repeating the cleaning step.
+
+- Load the raw data from the CSV file
+- Convert the data to a NumPy array, treating `"NA"` as missing values
+- Clean or replace the missing values (for example, with `np.nan` or with column averages)
+- Save the cleaned array to a binary NumPy file (`.npy`) so it can be quickly reloaded later without repeating the cleaning step
 
 For example, you can load the CSV and handle missing values like this:
 
@@ -3038,6 +3053,7 @@ print(clean_data)
 While `.npy` files are used to store a single NumPy array, the **`.npz`** format is used to store **multiple arrays in one file**.
 
 You can think of an `.npz` file as a container that holds several `.npy` arrays together. Each array is stored with a name, so you can load them later and access each one separately. This is useful when you want to save related data together, such as:
+
 - input data and labels
 - multiple intermediate results
 - or several arrays that belong to the same experiment
@@ -3045,7 +3061,7 @@ You can think of an `.npz` file as a container that holds several `.npy` arrays 
 To save multiple arrays, you use `np.savez()`. To load them, you use `np.load()`, which returns an object that works like a dictionary, where each array can be accessed by its name.
 
 
----
+
 # PART 2. Introduction to Assert Statements and Testing
 
 When you write code, it is not enough for it to **run without errors**—you also want to be sure that it produces the **correct results**. This is where **testing** becomes important.
@@ -3057,6 +3073,7 @@ In other words, `assert` is a way of saying:
 > “I expect this to be true. If it is not, stop the program and tell me.”
 
 This is extremely helpful when:
+
 - You want to **verify** that your functions return the correct results  
 - You want to **catch mistakes early**  
 - You want to **debug** your code more easily  
@@ -3086,6 +3103,7 @@ assert x == 5
 ```
 
 Since the condition evaluates to true, nothing happens.
+
 
 
 ```python
@@ -3132,7 +3150,7 @@ assert x == 4, "x does not store the intended value"
 
 In this exercise, you will use **assert statements** inside the functions you write to help you **debug** your code.
 
-`assert` statements are a very powerful tool for finding bugs. They allow you to **check that something you expect to be true is actually true**. If it is not, Python stops the program and shows an error, telling you exactly where the problem occurred.
+The `assert` statements are a very powerful tool for finding bugs. They allow you to **check that something you expect to be true is actually true**. If it is not, Python stops the program and shows an error, telling you exactly where the problem occurred.
 
 Let’s look at a simple example where an `assert` statement helps us **spot a bug**. Your goal is to **find the bug in the code and fix it**.
 
@@ -3177,13 +3195,14 @@ We strongly encourage you to read the documentation of this function, as it is w
 
 
 Why not use `==` with floating-point numbers?
-- When working with **floating-point numbers**, you often get **small rounding errors** due to the way numbers are represented in the computer. Because of this, two values that should be equal mathematically may differ by a very small amount.
-- For example, instead of getting exactly `1.0`, you might get something like `0.9999999998` or `1.0000000001`. In such cases, a direct comparison using `==` may incorrectly report that the numbers are different.
-- `np.testing.assert_allclose()` solves this problem by checking whether two values (or arrays) are **close enough**, rather than exactly equal.
+
+- When working with **floating-point numbers**, you often get **small rounding errors** due to the way numbers are represented in the computer. Because of this, two values that should be equal mathematically may differ by a very small amount
+- For example, instead of getting exactly `1.0`, you might get something like `0.9999999998` or `1.0000000001`. In such cases, a direct comparison using `==` may incorrectly report that the numbers are different
+- `np.testing.assert_allclose()` solves this problem by checking whether two values (or arrays) are **close enough**, rather than exactly equal
 
 
-How does `np.testing.assert_allclose()` work?
-The function takes **two required arguments**:
+How does `np.testing.assert_allclose()` work? The function takes **two required arguments**:
+
 - The value (or array) you want to test  
 - The expected value (or array) you want to compare against  
 
@@ -3193,6 +3212,7 @@ You can also **customize the tolerance** if needed, depending on how strict you 
 
 
 This makes `np.testing.assert_allclose()` especially useful for:
+
 - Testing functions that return **floating-point arrays**
 - Verifying **numerical algorithms**
 - Writing **reliable tests** for scientific code
@@ -3200,7 +3220,7 @@ This makes `np.testing.assert_allclose()` especially useful for:
 
 ---
 
-In the next exercise, you are given a function that **attempts** to compute the inverse of a $\(2 \times 2\)$ matrix. However, this function is **incorrect**.
+In the next exercise, you are given a function that **attempts** to compute the inverse of a $2 \times 2$ matrix. However, this function is **incorrect**.
 
 
 
@@ -3219,9 +3239,10 @@ def inverse(A):
 A test has already been written for this function, but unfortunately, that **test passes even though the function is wrong**. This means the test is not strong enough.
 
 Your tasks are:
-- Write a new test for this function that fails, showing that the current implementation is incorrect.
-- Fix the function so that it becomes correct.
-- Verify that your corrected function now passes the test you wrote.
+
+- Write a new test for this function that fails, showing that the current implementation is incorrect
+- Fix the function so that it becomes correct
+- Verify that your corrected function now passes the test you wrote
 
 Here is one test case you can start with:
 
@@ -3242,9 +3263,6 @@ A = np.array([
 
 ])
 ```
-
-
----
 
 
 # PART 3. Debugging Your Code
@@ -3290,12 +3308,13 @@ size 4 is different from 2
 ```
 
 This tells us that:
-- `A` has shape (3, 2) → it has **2 columns**
-- `B` has shape (4, 5) → it has **4 rows**
+
+- `A` has shape (3, 2) -> it has **2 columns**
+- `B` has shape (4, 5) -> it has **4 rows**
 
 For matrix multiplication `A @ B` to work, the number of columns of `A` must match the number of rows of `B`.
 
-Here, `2 ≠ 4`, so the multiplication is not defined, and NumPy raises an error.
+Here, $2 \neq 4$, so the multiplication is not defined, and NumPy raises an error.
 
 A simple and effective strategy is to print the shapes of your arrays before and after each matrix multiplication and check that they are compatible:
 
@@ -3353,8 +3372,6 @@ np.testing.assert_allclose(sum_of_max(A), 6)
 A = np.array([[24, 69, 83],
               [74, 14, 27]])
 np.testing.assert_allclose(sum_of_max(A), 157)
-
-
 ```
 
 
@@ -3367,20 +3384,28 @@ Congratulations on making it to the end of this notebook! This was a long and de
 By now, you should feel more comfortable working with **NumPy arrays**, performing **basic linear algebra operations**, and writing **cleaner, more reliable code** using **tests and assertions**. You have also practiced **debugging strategies** that will help you identify and fix problems more systematically in your future projects.
 
 Remember that learning programming and numerical computing is a **gradual process**. You do not need to memorize everything—what matters most is that you now know:
-- How to explore and use the documentation  
-- How to test your code  
-- How to debug problems when things go wrong  
+
+- How to explore and use the documentation 
+- How to test your code
+- How to debug problems when things go wrong 
 
 As a next step, you are encouraged to:
-- Revisit the exercises and try to solve them again without looking at your previous solutions  
-- Modify the examples and see how the behavior changes  
-- Apply these tools to your own projects or to more advanced topics such as data analysis, machine learning, or scientific computing  
+
+- Revisit the exercises and try to solve them again without looking at your previous solutions 
+- Modify the examples and see how the behavior changes
+- Apply these tools to your own projects or to more advanced topics such as data analysis, machine learning, or scientific computing
+
 
 Keep experimenting, keep breaking things (on purpose!), and keep learning. That’s how you really become confident with NumPy and Python.
 
 ---
 
 
-## License
-The content of this document itself is licensed under the terms and conditions of the [Creative Commons Attribution (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
+### License  
+The content of this tutorial itself is licensed under the terms and conditions of the [Creative Commons Attribution (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
+
+### Attribution
+If you use or adapt this material, please provide appropriate credit to the original [authors](https://orcid.org/0000-0003-2375-131X) and repository:
+[https://github.com/NanoBiostructuresRG](https://github.com/NanoBiostructuresRG)
+
 
