@@ -5,7 +5,8 @@ layout: default
 
 # NumPy Tutorial
 
-This tutorial is a hands-on guide designed to introduce you to **NumPy** and to good programming practices in Python. Throughout the material, you will find guided examples and a series of exercises and test cases that encourage active practice while performing basic linear algebra operations and writing more reliable code through testing and debugging.
+This tutorial provides a hands-on introduction to **NumPy** and to essential programming practices in Python, with the aim of developing confidence in numerical computing through a structured sequence of conceptual explanations, worked examples, and practical exercises. Throughout the material, learners will gain familiarity with NumPy arrays, fundamental linear algebra operations, code validation using `assert` statements and NumPy testing tools, and debugging strategies for the identification and correction of common programming errors. The tutorial is designed to be completed in **Google Colab**, thereby enabling users to focus exclusively on coding and problem solving without the need for local installation. It should be regarded as a pedagogical resource for progressive skill development rather than as an exhaustive reference text.
+
 
 ---
 
@@ -34,31 +35,6 @@ To complete your training and receive credit, you must work through these sectio
 - `numpy_python_basics.ipynb`
 - `numpy_tutorial_exercises.ipynb`
 
-To avoid local installations and focus exclusively on coding, these notebooks are designed to be performed in **Google Colab**.
-
----
-
-## Purpose
-
-This tutorial is intended to help you:
-
-- Become comfortable using NumPy for numerical computing  
-- Understand and apply basic linear algebra operations in Python  
-- Learn how to test your code using `assert` statements and NumPy testing tools  
-- Develop debugging skills to find and fix errors more effectively  
-- Build confidence in writing correct, readable, and maintainable scientific Python code  
-
-This tutorial is meant to be a learning resource, not a final reference.
-
----
-
-## Repository Files
-
-Main files included in this tutorial:
-
-- `numpy_python_basics.ipynb`
-- `numpy_tutorial_exercises.ipynb`
-- `README.md`
 
 ---
 
