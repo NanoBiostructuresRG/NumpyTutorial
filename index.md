@@ -34,7 +34,7 @@ This tutorial provides a hands-on introduction to **NumPy** and to essential pro
 
 ### Assessment Notebooks
 
-To complete your training and receive credit, you must work through these sections and complete the two mandatory assessment notebooks:
+To complete the training and obtain credit, participants are required to engage with the tutorial materials in the prescribed sequence and to complete the two mandatory assessment notebooks:
 
 - [Python Basics with Google Colab](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/numpy_python_basics.ipynb)
 - [Numpy Tutorial Exercises](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/numpy_tutorial_exercises.ipynb)
