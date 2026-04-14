@@ -27,7 +27,6 @@ github_username:  nanobiostructuresrg
 
 
 # Build settings
-show_downloads: true
 markdown: kramdown
 theme: jekyll-theme-modernist
 plugins:
