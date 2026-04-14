@@ -55,8 +55,6 @@ If you use or adapt this material, please provide appropriate credit to the orig
 <table width="100%">
   <tr>
     <td align="left">Version 1.0 — February 2026</td>
-    <td align="right"><a href="https://nanobiostructuresrg.github.io/">BACK</a></td>
+    <td align="right"><a href="https://nanobiostructuresrg.github.io/">Back to Main Site</a></td>
   </tr>
 </table>
-
---- IGNORE ---
