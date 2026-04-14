@@ -24,6 +24,9 @@ data/
 *.pdf
 *.synctex.gz
 
+# Figuras
+*.png
+
 # Resultados y artifacts
 artifacts/
 results/
