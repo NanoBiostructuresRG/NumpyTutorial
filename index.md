@@ -48,4 +48,4 @@ If you use or adapt this material, please provide appropriate credit to the orig
 
 ---
 
-Version 1.0 — February 2026, Monterrey
+Version 1.0 — February 2026
