@@ -5,24 +5,11 @@ layout: default
 
 # NumPy Tutorial
 
-**Version 1.0.0 — February 2026, Monterrey**
-
-A beginner-friendly NumPy tutorial with exercises on linear algebra, testing, and debugging in Python.
-
----
-
-## Description
-
 This tutorial is a hands-on guide designed to introduce you to **NumPy** and to good programming practices in Python. Throughout the material, you will find guided examples and a series of exercises and test cases that encourage active practice while performing basic linear algebra operations and writing more reliable code through testing and debugging.
 
-It is best used by working through the sections in order, running the examples, and solving the exercises yourself.
-
 ---
 
-## Contents
-
-This tutorial is organized into three main parts:
-
+## Contents:
 ### Part 1. Introduction to NumPy
 1. Python Basics  
 2. Using Google Colab for This Tutorial  
@@ -35,14 +22,12 @@ This tutorial is organized into three main parts:
 9. Saving and Loading Data with `.npy` and `.npz` Files  
 
 ### Part 2. Introduction to Assert Statements and Testing
-
 ### Part 3. Debugging Your Code
-
 ### Wrap-Up and Next Steps
 
 ---
 
-## Mandatory Assessment Notebooks
+## Assessment Notebooks
 
 To complete your training and receive credit, you must work through these sections and complete the two mandatory assessment notebooks:
 
@@ -94,7 +79,6 @@ The content of this tutorial is shared under **CC BY 4.0**, and the source code 
 ## Citation and Attribution
 
 If you use or adapt this material, please provide appropriate credit to:
-
 **NanoBiostructures Research Group**  
 GitHub: [https://github.com/NanoBiostructuresRG](https://github.com/NanoBiostructuresRG)
 
@@ -103,3 +87,9 @@ GitHub: [https://github.com/NanoBiostructuresRG](https://github.com/NanoBiostruc
 ## Access the Repository
 
 [View Repository on GitHub](https://github.com/NanoBiostructuresRG/NumpyTutorial)
+
+---
+
+### Version
+
+Version 1.0.0 — February 2026, Monterrey
