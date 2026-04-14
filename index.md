@@ -39,8 +39,8 @@ This tutorial provides a hands-on introduction to **NumPy** and to essential pro
 
 To complete the training and obtain credit, participants are required to engage with the tutorial materials in the prescribed sequence and to complete the two mandatory assessment notebooks:
 
-- [Python Basics with Google Colab](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/numpy_python_basics.ipynb)
-- [Numpy Tutorial Exercises](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/numpy_tutorial_exercises.ipynb)
+- [Python Basics with Google Colab](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/notebooks/numpy_python_basics.ipynb)
+- [Numpy Tutorial Exercises](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/notebooks/numpy_tutorial_exercises.ipynb)
 
 
 ---
