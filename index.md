@@ -52,9 +52,7 @@ If you use or adapt this material, please provide appropriate credit to the orig
 
 ---
 
-<table width="100%">
-  <tr>
-    <td align="left">Version 1.0 — February 2026</td>
-    <td align="right"><a href="https://nanobiostructuresrg.github.io/">Back to Main Site</a></td>
-  </tr>
-</table>
+<div style="display:flex; justify-content:space-between; align-items:center;">
+  <span>Version 1.0 — February 2026</span>
+  <a href="https://nanobiostructuresrg.github.io/">Back to Main Site</a>
+</div>
