@@ -5,7 +5,7 @@ layout: default
 
 # NumPy Tutorial
 
-This tutorial provides a hands-on introduction to **NumPy** and to essential programming practices in Python, with the aim of developing confidence in numerical computing through a structured sequence of conceptual explanations, worked examples, and practical exercises. Throughout the material, learners will gain familiarity with NumPy arrays, fundamental linear algebra operations, code validation using `assert` statements and NumPy testing tools, and debugging strategies for the identification and correction of common programming errors. The tutorial is designed to be completed in **Google Colab**, thereby enabling users to focus exclusively on coding and problem solving without the need for local installation. It should be regarded as a pedagogical resource for progressive skill development rather than as an exhaustive reference text.
+This tutorial provides a hands-on introduction to **NumPy** and to essential programming practices in Python. It is structured around conceptual explanations, worked examples, and practical exercises designed to strengthen confidence in numerical computing. Throughout the material, learners will develop familiarity with NumPy arrays, fundamental linear algebra operations, code validation using assert statements and NumPy testing tools, and debugging strategies for identifying and correcting common programming errors. The tutorial is intended to be completed in **Google Colab**, thereby allowing users to focus exclusively on coding and problem solving without the need for local installation. It should therefore be understood as a structured pedagogical resource for progressive skill development rather than as an exhaustive reference text.
 
 
 ---
