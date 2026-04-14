@@ -62,16 +62,12 @@ Main files included in this tutorial:
 
 ---
 
-### License  
+### License & Attribution  
 The content of this tutorial itself is licensed under the terms and conditions of the [Creative Commons Attribution (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/legalcode.en), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/LICENSE). See the LICENSE files for full details.
 
-### Attribution
 If you use or adapt this material, please provide appropriate credit to the original [authors](https://orcid.org/my-orcid?orcid=0000-0003-2375-131X) and repository:
 [https://github.com/NanoBiostructuresRG](https://github.com/NanoBiostructuresRG)
 
 ---
-
-[View Repository on GitHub](https://github.com/NanoBiostructuresRG/NumpyTutorial)
-
 
 Version 1.0 — February 2026, Monterrey
