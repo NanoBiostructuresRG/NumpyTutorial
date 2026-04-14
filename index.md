@@ -32,7 +32,7 @@ This tutorial provides a hands-on introduction to **NumPy** and to essential pro
 ---
 
 ### Downloads
-- [Tutorial PDF](https://github.com/NanoBiostructuresRG/NumpyTutorial/blob/main/tutorial/NumpyTutorial.pdf). This is the most up-to-date version of the tutorial and may continue to receive minor revisions, including the correction of typographical errors and other small improvements.
+- [Tutorial PDF](https://nanobiostructuresrg.github.io/NumpyTutorial/tutorial/NumpyTutorial.pdf). This is the most up-to-date version of the tutorial and may continue to receive minor revisions, including the correction of typographical errors and other small improvements.
 
 
 ### Assessment Notebooks
