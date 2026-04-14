@@ -3,15 +3,15 @@ title: NumPy Tutorial
 layout: default
 ---
 
-# NumPy Tutorial
+## NumPy Tutorial
 
 This tutorial provides a hands-on introduction to **NumPy** and to essential programming practices in Python. It is structured around conceptual explanations, worked examples, and practical exercises designed to strengthen confidence in numerical computing. Throughout the material, learners will develop familiarity with NumPy arrays, fundamental linear algebra operations, code validation using assert statements and NumPy testing tools, and debugging strategies for identifying and correcting common programming errors. The tutorial is intended to be completed in **Google Colab**, thereby allowing users to focus exclusively on coding and problem solving without the need for local installation. It should therefore be understood as a structured pedagogical resource for progressive skill development rather than as an exhaustive reference text.
 
 
 ---
 
-## Contents:
-### Part 1. Introduction to NumPy
+### Contents:
+#### Part 1. Introduction to NumPy
 1. Python Basics  
 2. Using Google Colab for This Tutorial  
 3. Basic Structure of Codes Used in This Tutorial  
@@ -22,13 +22,13 @@ This tutorial provides a hands-on introduction to **NumPy** and to essential pro
 8. Linear Algebra  
 9. Saving and Loading Data with `.npy` and `.npz` Files  
 
-### Part 2. Introduction to Assert Statements and Testing
-### Part 3. Debugging Your Code
-### Wrap-Up and Next Steps
+#### Part 2. Introduction to Assert Statements and Testing
+#### Part 3. Debugging Your Code
+#### Wrap-Up and Next Steps
 
 ---
 
-## Assessment Notebooks
+### Assessment Notebooks
 
 To complete your training and receive credit, you must work through these sections and complete the two mandatory assessment notebooks:
 
