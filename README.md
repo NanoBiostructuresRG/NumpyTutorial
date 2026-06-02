@@ -1,5 +1,5 @@
 # NumPy Tutorial
-**Version 1.0.0 - February, 2026. Monterrey**
+**Version 1.0 - February, 2026. Monterrey**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
@@ -62,7 +62,7 @@ Monterrey, Mexico
 ---
 
 ## Versions     
-v.1.0.0 - February 2026
+v.1.0 - February 2026
 
 ---
 

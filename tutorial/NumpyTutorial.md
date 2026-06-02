@@ -1,5 +1,5 @@
 # NumPy Tutorial
-**Version 1.0.0 - February, 2026. Monterrey**
+**Version 1.0 - February, 2026. Monterrey**
 
 **Author:** [Flavio F. Contreras-Torres](https://orcid.org/0000-0003-2375-131X). Tecnológico de Monterrey.
 
