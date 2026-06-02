@@ -14,7 +14,7 @@
 
 
 <p align="center">
-<img src="figures/Numpy_logoicon.svg" alt="NumPy" width="300">
+<img src="../assets/Numpy_logoicon.svg" alt="NumPy" width="300">
 </p>
 
 
