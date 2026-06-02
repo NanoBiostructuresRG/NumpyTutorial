@@ -32,15 +32,15 @@ This tutorial provides a hands-on introduction to **NumPy** and to essential pro
 ---
 
 ### Downloads
-- [Tutorial PDF](https://nanobiostructuresrg.github.io/NumpyTutorial/tutorial/NumpyTutorial.pdf). This is the most up-to-date version of the tutorial and may continue to receive minor revisions, including the correction of typographical errors and other small improvements.
+- **[Tutorial PDF](https://nanobiostructuresrg.github.io/NumpyTutorial/tutorial/NumpyTutorial.pdf)**. This is the most up-to-date version of the tutorial and may continue to receive minor revisions, including the correction of typographical errors and other small improvements.
 
 
 ### Assessment Notebooks
 
 To complete the training and obtain credit, participants are required to engage with the tutorial materials in the prescribed sequence and to complete the two mandatory assessment notebooks:
 
-- [Python Basics with Google Colab](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/notebooks/numpy_python_basics.ipynb)
-- [Numpy Tutorial Exercises](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/notebooks/numpy_tutorial_exercises.ipynb)
+- **[Python Basics with Google Colab](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/notebooks/numpy_python_basics.ipynb)**
+- **[Numpy Tutorial Exercises](https://nbviewer.org/github/NanoBiostructuresRG/NumpyTutorial/blob/main/notebooks/numpy_tutorial_exercises.ipynb)**
 
 
 ---
